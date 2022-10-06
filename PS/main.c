@@ -23,7 +23,7 @@ int main()
 		{
 		case 1:
 			smaple = GetProcessesInfo();
-			ListOfSnapShots(smaple);
+			tailSnapShot = ListOfSnapShots(smaple);
 			break;
 		case 2:
 			smaple = GetProcessesInfo();

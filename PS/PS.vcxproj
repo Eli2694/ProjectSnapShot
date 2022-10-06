@@ -127,17 +127,21 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="AggregationOfData.c" />
     <ClCompile Include="GetProcessInfo.c" />
     <ClCompile Include="LoadFromFile.c" />
     <ClCompile Include="Log.c" />
     <ClCompile Include="main.c" />
+    <ClCompile Include="resetCollection.c" />
     <ClCompile Include="SnapShot.c" />
     <ClCompile Include="SaveToFILE.c" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="AggregationOfData.h" />
     <ClInclude Include="GetProcessInfo.h" />
     <ClInclude Include="LoadFromFile.h" />
     <ClInclude Include="Log.h" />
+    <ClInclude Include="resetCollection.h" />
     <ClInclude Include="SnapShot.h" />
     <ClInclude Include="SaveToFILE.h" />
     <ClInclude Include="Struct.h" />

@@ -33,6 +33,12 @@
     <ClCompile Include="LoadFromFile.c">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="resetCollection.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="AggregationOfData.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Log.h">
@@ -51,6 +57,12 @@
       <Filter>Source Files</Filter>
     </ClInclude>
     <ClInclude Include="LoadFromFile.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="resetCollection.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="AggregationOfData.h">
       <Filter>Source Files</Filter>
     </ClInclude>
   </ItemGroup>
