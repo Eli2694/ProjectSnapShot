@@ -7,6 +7,7 @@
 #include "SnapShot.h"
 #include "SaveToFILE.h"
 #include "AggregationOfData.h"
+#include "resetCollection.h"
 #pragma warning(disable:4996)
 
 t_SnapShot* smaple;
@@ -29,7 +30,7 @@ int main()
 		case 2:
 			smaple = GetProcessesInfo();
 			tailSnapShot = ListOfSnapShots(smaple);
-			for (int i = 0; i < 20; i++)
+			for (int i = 0; i < 19; i++)
 			{
 				smaple = GetProcessesInfo();
 				tailSnapShot = AggregationOfData(tailSnapShot, smaple);
@@ -42,9 +43,11 @@ int main()
 		case 4:
 			break;
 		case 5:
+			FreeMemoryAllocation(tailSnapShot);
 			break;
 		case 6:
 			WriteToBinaryFile(tailSnapShot);
+			FreeMemoryAllocation(tailSnapShot);
 			break;
 		case 7:
 			break;

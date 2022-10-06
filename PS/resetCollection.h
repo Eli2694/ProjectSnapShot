@@ -1,0 +1,1 @@
+void FreeMemoryAllocation(t_SnapShot* EndOfSnapShots);

@@ -8,13 +8,21 @@
 
 //function - specification
 t_SnapShot* runToHeadOfSanpShot(t_SnapShot* Tail);
+t_Process* runToHeadOfProcess(t_Process* Process);
+t_DLL* runToHeadOfDLL(t_DLL* DLL);
+
 //Variable Declaration
 t_HeaderFile HeaderFile;
 
 void WriteToBinaryFile(t_SnapShot* Tail)
 {
-	int checkWriteToFile;
+	if (Tail == NULL)
+	{
+		LogError("Parameter is empty");
+		return;
+	}
 
+	int checkWriteToFile;
 	FILE* out = fopen("SnapShot.bin", "wb");
 	if (!out)
 	{
@@ -38,45 +46,57 @@ void WriteToBinaryFile(t_SnapShot* Tail)
 		fclose(out);
 	}
 	FILE* out2 = fopen("SnapShot.bin", "ab");
-	t_SnapShot* headOfList = runToHeadOfSanpShot(Tail);
+	t_SnapShot* SnapShotHead = runToHeadOfSanpShot(Tail);
 	t_SnapShot* beginningOf;
-	while (headOfList)
+	while (SnapShotHead)
 	{
-		beginningOf = headOfList;
-		checkWriteToFile = fwrite(&headOfList, sizeof(t_SnapShot), 1, out2);
+		beginningOf = SnapShotHead;
+		checkWriteToFile = fwrite(&SnapShotHead, sizeof(t_SnapShot), 1, out2);
 		if (!checkWriteToFile)
 		{
 			LogError("Problem writing to a binary file");
 		}
-		while (headOfList->ListOfProcesses)
+		while (SnapShotHead->ListOfProcesses)
 		{
-			checkWriteToFile = fwrite(&headOfList->ListOfProcesses, sizeof(t_Process), 1, out2);
+			checkWriteToFile = fwrite(&SnapShotHead->ListOfProcesses, sizeof(t_Process), 1, out2);
 			if (!checkWriteToFile)
 			{
 				LogError("Problem writing to a binary file");
 			}
-			while (headOfList->ListOfProcesses->ListOfDlls)
+			while (SnapShotHead->ListOfProcesses->ListOfDlls)
 			{
-				checkWriteToFile = fwrite(&headOfList->ListOfProcesses->ListOfDlls, sizeof(t_DLL), 1, out2);
+				checkWriteToFile = fwrite(&SnapShotHead->ListOfProcesses->ListOfDlls, sizeof(t_DLL), 1, out2);
 				if (!checkWriteToFile)
 				{
 					LogError("Problem writing to a binary file");
 				}
-				headOfList->ListOfProcesses->ListOfDlls = headOfList->ListOfProcesses->ListOfDlls->next;
+				if (SnapShotHead->ListOfProcesses->ListOfDlls->next == NULL)
+				{
+					SnapShotHead->ListOfProcesses->ListOfDlls = runToHeadOfDLL(SnapShotHead->ListOfProcesses->ListOfDlls);
+					break;
+				}
+
+				SnapShotHead->ListOfProcesses->ListOfDlls = SnapShotHead->ListOfProcesses->ListOfDlls->next;
 			}
-			headOfList->ListOfProcesses = headOfList->ListOfProcesses->next;
+			if (SnapShotHead->ListOfProcesses->next == NULL)
+			{
+				SnapShotHead->ListOfProcesses = runToHeadOfProcess(SnapShotHead->ListOfProcesses);
+				break;
+			}
+
+			SnapShotHead->ListOfProcesses = SnapShotHead->ListOfProcesses->next;
 		}
 
-		headOfList = headOfList->next;
+		SnapShotHead = SnapShotHead->next;
 	}
 
 	fclose(out2);
 
 }
 
-t_SnapShot* runToHeadOfSanpShot(t_SnapShot* Tail)
+t_SnapShot* runToHeadOfSanpShot(t_SnapShot* SnapShot)
 {
-	t_SnapShot* curr = Tail;
+	t_SnapShot* curr = SnapShot;
 	while (curr)
 	{
 		if (curr->prev == NULL)
@@ -85,5 +105,31 @@ t_SnapShot* runToHeadOfSanpShot(t_SnapShot* Tail)
 		}
 		curr = curr->prev;
 	}
-	
+}
+
+t_Process* runToHeadOfProcess(t_Process* Process)
+{
+	t_Process* curr = Process;
+	while (curr)
+	{
+		if (curr->prev == NULL)
+		{
+			return curr;
+		}
+		curr = curr->prev;
+	}
+
+}
+
+t_DLL* runToHeadOfDLL(t_DLL* DLL)
+{
+	t_DLL* curr = DLL;
+	while (curr)
+	{
+		if (curr->prev == NULL)
+		{
+			return curr;
+		}
+		curr = curr->prev;
+	}
 }

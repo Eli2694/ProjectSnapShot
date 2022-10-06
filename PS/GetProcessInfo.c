@@ -9,7 +9,7 @@
 //Function - Specification
 void CreateListOfDlls(t_DLL* node);
 t_Process* CreateListOfProcesses(t_Process* Process_node);
-void numberOfProcesses(t_Process* StartOfList);
+
 
 //Variable Declaration
 t_DLL* DLL_Head = NULL;
@@ -56,6 +56,12 @@ t_Process* PrintMemoryInfo(DWORD processID)
 	if (GetModuleFileNameEx(hProcess, 0, FoundProcessName, MAX_PATH))
 	{
 		wcstombs_s(&numConverted, process_node->ProcessName, MAX_PATH, FoundProcessName, MAX_PATH);
+
+		if (numConverted == NULL) // If The Process Without Name
+		{
+			free(process_node);
+			return NULL;
+		}
 	}
 	else
 	{

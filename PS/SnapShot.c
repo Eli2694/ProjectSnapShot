@@ -81,6 +81,7 @@ void freeSample(t_SnapShot* sample)
 		free(releaseSample);
 		currSample = NULL;
 	}
+
 }
 
 int CountNumberOfProcess(t_Process*ListOfProcesses)

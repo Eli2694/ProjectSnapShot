@@ -28,35 +28,36 @@ t_SnapShot* AggregationOfData(t_SnapShot* SnapShot_Tail, t_SnapShot* Sample)
 				fixed->ProcessData.QuotaPagedPoolUsage += temp->ProcessData.QuotaPagedPoolUsage;
 				fixed->ProcessData.QuotaPeakPagedPoolUsage += temp->ProcessData.QuotaPeakPagedPoolUsage;
 
-				t_DLL* tempProcessDlls = temp->ListOfDlls;
+				/*t_DLL* tempProcessDlls = temp->ListOfDlls;
 				while (tempProcessDlls)
-				{
-					t_DLL* currProcessDLLs = fixed->ListOfDlls;
+				///*{
+				//	t_DLL* currProcessDLLs = fixed->ListOfDlls;
 
-					while (currProcessDLLs)
-					{
-						if (strcmp(currProcessDLLs->NameOfDLL, temp->ListOfDlls->NameOfDLL) == 0)
-						{
-							break;
-						}
-						if (currProcessDLLs->next == NULL)
-						{
-							addDLL(currProcessDLLs, tempProcessDlls);
-							fixed->NumberOfDLLsInEachProcess++;
-						}
-						currProcessDLLs = currProcessDLLs->next;
-					}
-					tempProcessDlls = tempProcessDlls->next;
+				//	while (currProcessDLLs)
+				//	{
+				//		if (strcmp(currProcessDLLs->NameOfDLL, temp->ListOfDlls->NameOfDLL) == 0)
+				//		{
+				//			break;
+				//		}
+				//		if (currProcessDLLs->next == NULL)
+				//		{
+				//			addDLL(currProcessDLLs, tempProcessDlls);
+				//			fixed->NumberOfDLLsInEachProcess++;
+				//		}
+				//		currProcessDLLs = currProcessDLLs->next;
+				//	}
+				//	tempProcessDlls = tempProcessDlls->next;*/
 
-				}
+				//}*/
 				break;
 			}
-			if (fixed->next == NULL)
-			{
-				// We reached the last member and did not find a match between Processes
-				addProcess(fixed, temp);
-				SnapShot_Tail->CountNumberOfProcessesInEachSnapShot++;
-			}
+			//if (fixed->next == NULL)
+			//{
+			//	// We reached the last member and did not find a match between Processes
+			//	addProcess(fixed, temp);
+			//	SnapShot_Tail->CountNumberOfProcessesInEachSnapShot++;
+			//	break;
+			//}
 			fixed = fixed->next;
 		}
 		fixed = SnapShot_Tail->ListOfProcesses;
