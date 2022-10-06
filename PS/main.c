@@ -6,6 +6,7 @@
 #include "GetProcessInfo.h"
 #include "SnapShot.h"
 #include "SaveToFILE.h"
+#include "AggregationOfData.h"
 #pragma warning(disable:4996)
 
 t_SnapShot* smaple;
