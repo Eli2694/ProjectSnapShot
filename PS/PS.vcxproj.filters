@@ -27,6 +27,12 @@
     <ClCompile Include="OneSnapShot.c">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="SaveToFILE.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="LoadFromFile.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Log.h">
@@ -39,6 +45,12 @@
       <Filter>Source Files</Filter>
     </ClInclude>
     <ClInclude Include="OneSnapShot.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SaveToFILE.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="LoadFromFile.h">
       <Filter>Source Files</Filter>
     </ClInclude>
   </ItemGroup>

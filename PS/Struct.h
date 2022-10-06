@@ -29,3 +29,10 @@ typedef struct s_SnapShot // snapshot description
 	struct s_SnapShot* next;
 	struct s_SnapShot* prev;
 }t_SnapShot;
+
+typedef struct s_HeaderFile
+{
+	int version;
+	int itemCount;
+	char reserve[100];
+}t_HeaderFile;

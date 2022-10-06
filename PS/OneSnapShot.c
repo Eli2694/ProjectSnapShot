@@ -10,6 +10,7 @@ void addProcess(t_Process* fixed, t_Process* temp);
 void addDLL(t_DLL* fixed, t_DLL* temp);
 void freeSample(t_SnapShot* sample);
 
+
 t_SnapShot* SnapShot_Head = NULL;
 t_SnapShot* SnapShot_Tail = NULL;
 
@@ -69,10 +70,11 @@ t_SnapShot* AggregationOfData(t_SnapShot* SnapShot_Tail, t_SnapShot* Sample)
 				fixed->ProcessData.QuotaPagedPoolUsage += temp->ProcessData.QuotaPagedPoolUsage;
 				fixed->ProcessData.QuotaPeakPagedPoolUsage += temp->ProcessData.QuotaPeakPagedPoolUsage;
 
-				while (temp->ListOfDlls)
+				t_DLL* tempProcessDlls = temp->ListOfDlls;
+				while (tempProcessDlls)
 				{
 					t_DLL* currProcessDLLs = fixed->ListOfDlls;
-					t_DLL* tempProcessDlls = temp->ListOfDlls;
+					
 					while (currProcessDLLs)
 					{
 						if (strcmp(currProcessDLLs->NameOfDLL, temp->ListOfDlls->NameOfDLL) == 0)
@@ -81,18 +83,15 @@ t_SnapShot* AggregationOfData(t_SnapShot* SnapShot_Tail, t_SnapShot* Sample)
 						}
 						if (currProcessDLLs->next == NULL)
 						{
-							addDLL(currProcessDLLs, temp->ListOfDlls);
+							addDLL(currProcessDLLs, tempProcessDlls);
 							fixed->NumberOfDLLsInEachProcess++;
 						}
 						currProcessDLLs = currProcessDLLs->next;
 					}
-					temp->ListOfDlls = temp->ListOfDlls->next;
-					if (temp->ListOfDlls->next == NULL)
-					{
-						temp->ListOfDlls->next = tempProcessDlls;
-						break;
-					}
+					tempProcessDlls = tempProcessDlls->next;
+					
 				}
+				break;
 			}
 			if (fixed->next == NULL)
 			{
@@ -104,7 +103,7 @@ t_SnapShot* AggregationOfData(t_SnapShot* SnapShot_Tail, t_SnapShot* Sample)
 		fixed = SnapShot_Tail->ListOfProcesses;
 		temp = temp->next;
 	}
-	return fixed;
+	return SnapShot_Tail;
 }
 
 void addProcess(t_Process*fixed, t_Process*temp)
@@ -124,42 +123,34 @@ void addDLL(t_DLL* fixed, t_DLL* temp)
 	addSampleDLL->prev = lastDLL;
 	addSampleDLL->next = NULL;
 
-	/*if (temp->next != NULL)
-	{
-		temp->prev->next = temp->next;
-		temp->next->prev = temp->prev;
-	}
-	else if (temp->next == NULL)
-	{
-		temp->prev->next = NULL;
-	}
-	else if (temp->prev == NULL && temp->next != NULL)
-	{
-		temp->next->prev = NULL;
-
-	}*/
-
 }
 
 void freeSample(t_SnapShot* sample)
 {
 	t_SnapShot* currSample = sample;
-	t_Process* currSampleProcesses = sample->ListOfProcesses;
-	t_Process* releaseProcess = NULL;
-	
-	while (currSampleProcesses)
-	{
-		releaseProcess = currSampleProcesses;
-		while (currSampleProcesses->ListOfDlls)
-		{
-			releaseProcess->ListOfDlls = currSampleProcesses->ListOfDlls;
-			currSampleProcesses->ListOfDlls = currSampleProcesses->ListOfDlls->next;
-			free(releaseProcess->ListOfDlls);
-	    }
-		currSampleProcesses = currSampleProcesses->next;
-		free(releaseProcess);
-	}
+	t_SnapShot* releaseSample;
+	t_Process* releaseProcess;
+	t_DLL* releaseDLL;
 
-	free(currSample);
+	while (currSample)
+	{
+		while (currSample->ListOfProcesses)
+		{
+			while (currSample->ListOfProcesses->ListOfDlls)
+			{
+				releaseDLL = currSample->ListOfProcesses->ListOfDlls;
+				currSample->ListOfProcesses->ListOfDlls = currSample->ListOfProcesses->ListOfDlls->next;
+				free(releaseDLL);
+			}
+			releaseProcess = currSample->ListOfProcesses;
+			currSample->ListOfProcesses = currSample->ListOfProcesses->next;
+			free(releaseProcess);
+		}
+
+		releaseSample = currSample;
+		free(releaseSample);
+		currSample = NULL;
+	}
 }
+
 

@@ -128,14 +128,18 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="GetProcessInfo.c" />
+    <ClCompile Include="LoadFromFile.c" />
     <ClCompile Include="Log.c" />
     <ClCompile Include="main.c" />
     <ClCompile Include="OneSnapShot.c" />
+    <ClCompile Include="SaveToFILE.c" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GetProcessInfo.h" />
+    <ClInclude Include="LoadFromFile.h" />
     <ClInclude Include="Log.h" />
     <ClInclude Include="OneSnapShot.h" />
+    <ClInclude Include="SaveToFILE.h" />
     <ClInclude Include="Struct.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
