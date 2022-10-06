@@ -10,6 +10,7 @@ void addProcess(t_Process* fixed, t_Process* temp);
 void addDLL(t_DLL* fixed, t_DLL* temp);
 void freeSample(t_SnapShot* sample);
 int CountNumberOfProcess(t_Process* ListOfProcesses);
+int CountNumberOfSnapShots(t_SnapShot* ListOfSnapShots);
 
 
 t_SnapShot* SnapShot_Head = NULL;
@@ -167,4 +168,16 @@ int CountNumberOfProcess(t_Process*ListOfProcesses)
 		curr = curr->next;
 	}
 	return countProcesse;
+}
+
+int CountNumberOfSnapShots(t_SnapShot* ListOfSnapShots)
+{
+	t_SnapShot* curr = ListOfSnapShots;
+	int countSnapShots = 0;
+	while (curr)
+	{
+		countSnapShots++;
+		curr = curr->next;
+	}
+	return countSnapShots;
 }

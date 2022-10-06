@@ -24,7 +24,7 @@
     <ClCompile Include="GetProcessInfo.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="OneSnapShot.c">
+    <ClCompile Include="SnapShot.c">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="SaveToFILE.c">
@@ -44,7 +44,7 @@
     <ClInclude Include="Struct.h">
       <Filter>Source Files</Filter>
     </ClInclude>
-    <ClInclude Include="OneSnapShot.h">
+    <ClInclude Include="SnapShot.h">
       <Filter>Source Files</Filter>
     </ClInclude>
     <ClInclude Include="SaveToFILE.h">

@@ -4,7 +4,8 @@
 #include "Log.h"
 #include "Struct.h"
 #include "GetProcessInfo.h"
-#include "OneSnapShot.h"
+#include "SnapShot.h"
+#include "SaveToFILE.h"
 #pragma warning(disable:4996)
 
 t_SnapShot* smaple;
@@ -42,6 +43,7 @@ int main()
 		case 5:
 			break;
 		case 6:
+			WriteToBinaryFile(tailSnapShot);
 			break;
 		case 7:
 			break;

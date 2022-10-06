@@ -35,5 +35,5 @@ typedef struct s_HeaderFile
 {
 	int version;
 	unsigned int SnapShotCount;
-	char reserve[100];
+	char reservedSpace[100];
 }t_HeaderFile;

@@ -1,0 +1,1 @@
+void WriteToBinaryFile(t_SnapShot* Tail);

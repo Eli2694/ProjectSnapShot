@@ -3,13 +3,13 @@
 #include <string.h>
 #include "Log.h"
 #include "Struct.h"
-#include "OneSnapShot.h"
+#include "SnapShot.h"
 #pragma warning(disable:4996)
 
 //Function - Specification
 void CreateListOfDlls(t_DLL* node);
 t_Process* CreateListOfProcesses(t_Process* Process_node);
-void numberOfProcesses();
+void numberOfProcesses(t_Process* StartOfList);
 
 //Variable Declaration
 t_DLL* DLL_Head = NULL;
@@ -201,14 +201,3 @@ t_Process* CreateListOfProcesses(t_Process* Process_node)
 	return headAddress;
 }
 
-void numberOfProcesses(t_Process*StartOfList)
-{
-	int countNumberOfProcesess = 0;
-	t_Process* curr = StartOfList;
-	while (Process_Head)
-	{
-		countNumberOfProcesess++;
-		Process_Head = Process_Head->next;
-	}
-	Process_Head = curr;
-}
