@@ -25,6 +25,7 @@ typedef struct s_SnapShot // snapshot description
 {
 	t_Process* ListOfProcesses;
 	unsigned int CountNumberOfSnapShot;
+	unsigned int CountNumberOfProcessesInEachSnapShot;
 	char TimeOfSnapShot[100];
 	struct s_SnapShot* next;
 	struct s_SnapShot* prev;
@@ -33,6 +34,6 @@ typedef struct s_SnapShot // snapshot description
 typedef struct s_HeaderFile
 {
 	int version;
-	int itemCount;
+	unsigned int SnapShotCount;
 	char reserve[100];
 }t_HeaderFile;

@@ -9,6 +9,7 @@
 void addProcess(t_Process* fixed, t_Process* temp);
 void addDLL(t_DLL* fixed, t_DLL* temp);
 void freeSample(t_SnapShot* sample);
+int CountNumberOfProcess(t_Process* ListOfProcesses);
 
 
 t_SnapShot* SnapShot_Head = NULL;
@@ -28,6 +29,7 @@ t_SnapShot* OneSnapShot(t_Process* HeadOfProcessList)
 	sample = (t_SnapShot*)malloc(sizeof(t_SnapShot));
 	sample->ListOfProcesses = HeadOfProcessList;
 	strcpy(sample->TimeOfSnapShot, CurrentTimeOfSnapShot);
+	sample->CountNumberOfProcessesInEachSnapShot = CountNumberOfProcess(sample->ListOfProcesses);
 
 	return sample;	
 }
@@ -50,6 +52,7 @@ t_SnapShot* ListOfSnapShots(t_SnapShot* OneSnapShot)
 		OneSnapShot->next = NULL;
 		SnapShot_Tail = OneSnapShot;
 	}
+	SnapShot_Tail->CountNumberOfProcessesInEachSnapShot = CountNumberOfProcess(OneSnapShot->ListOfProcesses);
 	return SnapShot_Tail;
 }
 
@@ -97,6 +100,7 @@ t_SnapShot* AggregationOfData(t_SnapShot* SnapShot_Tail, t_SnapShot* Sample)
 			{
 				// We reached the last member and did not find a match between Processes
 				addProcess(fixed, temp);
+				SnapShot_Tail->CountNumberOfProcessesInEachSnapShot++;
 			}
 			fixed = fixed->next;
 		}
@@ -153,4 +157,14 @@ void freeSample(t_SnapShot* sample)
 	}
 }
 
-
+int CountNumberOfProcess(t_Process*ListOfProcesses)
+{
+	t_Process* curr = ListOfProcesses;
+	int countProcesse = 0;
+	while (curr)
+	{
+		countProcesse++;
+		curr = curr->next;
+	}
+	return countProcesse;
+}
