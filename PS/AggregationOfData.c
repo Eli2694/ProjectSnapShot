@@ -28,36 +28,36 @@ t_SnapShot* AggregationOfData(t_SnapShot* SnapShot_Tail, t_SnapShot* Sample)
 				fixed->ProcessData.QuotaPagedPoolUsage += temp->ProcessData.QuotaPagedPoolUsage;
 				fixed->ProcessData.QuotaPeakPagedPoolUsage += temp->ProcessData.QuotaPeakPagedPoolUsage;
 
-				/*t_DLL* tempProcessDlls = temp->ListOfDlls;
+				t_DLL* tempProcessDlls = temp->ListOfDlls;
 				while (tempProcessDlls)
-				///*{
-				//	t_DLL* currProcessDLLs = fixed->ListOfDlls;
+				{
+					t_DLL* currProcessDLLs = fixed->ListOfDlls;
 
-				//	while (currProcessDLLs)
-				//	{
-				//		if (strcmp(currProcessDLLs->NameOfDLL, temp->ListOfDlls->NameOfDLL) == 0)
-				//		{
-				//			break;
-				//		}
-				//		if (currProcessDLLs->next == NULL)
-				//		{
-				//			addDLL(currProcessDLLs, tempProcessDlls);
-				//			fixed->NumberOfDLLsInEachProcess++;
-				//		}
-				//		currProcessDLLs = currProcessDLLs->next;
-				//	}
-				//	tempProcessDlls = tempProcessDlls->next;*/
+					while (currProcessDLLs)
+					{
+						if (strcmp(currProcessDLLs->NameOfDLL, temp->ListOfDlls->NameOfDLL) == 0)
+						{
+							break;
+						}
+						if (currProcessDLLs->next == NULL)
+						{
+							addDLL(currProcessDLLs, tempProcessDlls);
+							fixed->NumberOfDLLsInEachProcess++;
+						}
+						currProcessDLLs = currProcessDLLs->next;
+					}
+					tempProcessDlls = tempProcessDlls->next;
 
-				//}*/
+				}
 				break;
 			}
-			//if (fixed->next == NULL)
-			//{
-			//	// We reached the last member and did not find a match between Processes
-			//	addProcess(fixed, temp);
-			//	SnapShot_Tail->CountNumberOfProcessesInEachSnapShot++;
-			//	break;
-			//}
+			if (fixed->next == NULL)
+			{
+				// We reached the last member and did not find a match between Processes
+				addProcess(fixed, temp);
+				SnapShot_Tail->CountNumberOfProcessesInEachSnapShot++;
+				break;
+			}
 			fixed = fixed->next;
 		}
 		fixed = SnapShot_Tail->ListOfProcesses;
@@ -68,19 +68,20 @@ t_SnapShot* AggregationOfData(t_SnapShot* SnapShot_Tail, t_SnapShot* Sample)
 
 void addProcess(t_Process* fixed, t_Process* temp)
 {
-	t_Process* lastProcess = fixed;
-	t_Process* addSampleProcess = temp;
-	lastProcess->next = addSampleProcess;
-	addSampleProcess->prev = lastProcess;
-	addSampleProcess->next = NULL;
+	t_Process* newFixedProcess = (t_Process*)malloc(sizeof(t_Process));
+	newFixedProcess = temp;
+	t_Process* fixedProcess = fixed;
+	fixedProcess->next = newFixedProcess;
+	newFixedProcess->prev = fixedProcess;
+	newFixedProcess->next = NULL;
 }
 
 void addDLL(t_DLL* fixed, t_DLL* temp)
 {
-	t_DLL* lastDLL = fixed;
-	t_DLL* addSampleDLL = temp;
-	lastDLL->next = addSampleDLL;
-	addSampleDLL->prev = lastDLL;
-	addSampleDLL->next = NULL;
-
+	t_DLL* newFixeDLL = (t_DLL*)malloc(sizeof(t_DLL));
+	newFixeDLL = temp;
+	t_DLL* fixedDLL = fixed;
+	fixedDLL->next = newFixeDLL;
+	newFixeDLL->prev = fixedDLL;
+	newFixeDLL->next = NULL;
 }
