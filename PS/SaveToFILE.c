@@ -46,6 +46,11 @@ void WriteToBinaryFile(t_SnapShot* Tail)
 		fclose(out);
 	}
 	FILE* out2 = fopen("SnapShot.bin", "ab");
+	if (!out2)
+	{
+		LogError(strerror(GetLastError()));
+		return;
+	}
 	t_SnapShot* SnapShotHead = runToHeadOfSanpShot(Tail);
 	t_SnapShot* beginningOf;
 	while (SnapShotHead)
