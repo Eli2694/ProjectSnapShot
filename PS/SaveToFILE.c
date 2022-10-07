@@ -12,7 +12,7 @@ t_Process* runToHeadOfProcess(t_Process* Process);
 t_DLL* runToHeadOfDLL(t_DLL* DLL);
 
 //Variable Declaration
-t_HeaderFile HeaderFile;
+t_HeaderFile WriteHeaderFile;
 
 void WriteToBinaryFile(t_SnapShot* Tail)
 {
@@ -31,14 +31,14 @@ void WriteToBinaryFile(t_SnapShot* Tail)
 	}
 	else
 	{
-		HeaderFile.version = 1;
-		HeaderFile.SnapShotCount = Tail->CountNumberOfSnapShot;
-		if (!HeaderFile.SnapShotCount)
+		WriteHeaderFile.version = 1;
+		WriteHeaderFile.SnapShotCount = Tail->CountNumberOfSnapShot;
+		if (!WriteHeaderFile.SnapShotCount)
 		{
 			LogError("No SnapShot Found");
 			return;
 		}
-		checkWriteToFile = fwrite(&HeaderFile, sizeof(t_HeaderFile), 1, out);
+		checkWriteToFile = fwrite(&WriteHeaderFile, sizeof(t_HeaderFile), 1, out);
 		if (!checkWriteToFile)
 		{
 			LogError("Problem writing to a binary file");
@@ -55,26 +55,28 @@ void WriteToBinaryFile(t_SnapShot* Tail)
 	t_SnapShot* beginningOf;
 	while (SnapShotHead)
 	{
-		beginningOf = SnapShotHead;
-		checkWriteToFile = fwrite(&SnapShotHead, sizeof(t_SnapShot), 1, out2);
-		if (!checkWriteToFile)
-		{
-			LogError("Problem writing to a binary file");
-		}
+		fwrite(&SnapShotHead->ListOfProcesses, sizeof(t_Process*), 1, out2);
+		fwrite(&SnapShotHead->CountNumberOfSnapShot, sizeof(unsigned int), 1, out2);
+		fwrite(&SnapShotHead->CountNumberOfProcessesInEachSnapShot, sizeof(unsigned int), 1, out2);
+		fwrite(&SnapShotHead->TimeOfSnapShot, sizeof(char[100]), 1, out2);
+		fwrite(&SnapShotHead->next, sizeof(struct s_SnapShot*), 1, out2);
+		fwrite(&SnapShotHead->prev, sizeof(struct s_SnapShot*), 1, out2);
 		while (SnapShotHead->ListOfProcesses)
 		{
-			checkWriteToFile = fwrite(&SnapShotHead->ListOfProcesses, sizeof(t_Process), 1, out2);
-			if (!checkWriteToFile)
-			{
-				LogError("Problem writing to a binary file");
-			}
+			fwrite(&SnapShotHead->ListOfProcesses->ProcessId, sizeof(unsigned int), 1, out2);
+			fwrite(&SnapShotHead->ListOfProcesses->ProcessName, sizeof(char[MAX_PATH]), 1, out2);
+			fwrite(&SnapShotHead->ListOfProcesses->ProcessData, sizeof(PROCESS_MEMORY_COUNTERS), 1, out2);
+			fwrite(&SnapShotHead->ListOfProcesses->NumberOfDLLsInEachProcess, sizeof(unsigned int), 1, out2);
+			fwrite(&SnapShotHead->ListOfProcesses->ListOfDlls, sizeof(t_DLL*), 1, out2);
+			fwrite(&SnapShotHead->ListOfProcesses->next, sizeof(struct s_Process*), 1, out2);
+			fwrite(&SnapShotHead->ListOfProcesses->prev, sizeof(struct s_Process*), 1, out2);
+			
 			while (SnapShotHead->ListOfProcesses->ListOfDlls)
 			{
-				checkWriteToFile = fwrite(&SnapShotHead->ListOfProcesses->ListOfDlls, sizeof(t_DLL), 1, out2);
-				if (!checkWriteToFile)
-				{
-					LogError("Problem writing to a binary file");
-				}
+				fwrite(&SnapShotHead->ListOfProcesses->ListOfDlls->NameOfDLL, sizeof(char[MAX_PATH]), 1, out2);
+				fwrite(&SnapShotHead->ListOfProcesses->ListOfDlls->next, sizeof(struct s_DLL*), 1, out2);
+				fwrite(&SnapShotHead->ListOfProcesses->ListOfDlls->next, sizeof(struct s_DLL*), 1, out2);
+				
 				if (SnapShotHead->ListOfProcesses->ListOfDlls->next == NULL)
 				{
 					SnapShotHead->ListOfProcesses->ListOfDlls = runToHeadOfDLL(SnapShotHead->ListOfProcesses->ListOfDlls);

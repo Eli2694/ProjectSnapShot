@@ -6,6 +6,7 @@
 #include "GetProcessInfo.h"
 #include "SnapShot.h"
 #include "SaveToFILE.h"
+#include "LoadFromFile.h"
 #include "AggregationOfData.h"
 #include "resetCollection.h"
 #pragma warning(disable:4996)
@@ -50,6 +51,7 @@ int main()
 			FreeMemoryAllocation(tailSnapShot);
 			break;
 		case 7:
+			LoadFromFile();
 			break;
 		case 8:
 			exit(1);
