@@ -3,6 +3,7 @@
 #include <string.h>
 #include "Log.h"
 #include "Struct.h"
+#include "GetProcessInfo.h"
 #include "SnapShot.h"
 
 
@@ -37,4 +38,8 @@ void FreeMemoryAllocation(t_SnapShot*EndOfSnapShots)
 		free(releaseSample);
 	}
 	SnapShot_Head = NULL;
+	DLL_Head = NULL;
+	DLL_Tail = NULL;
+	Process_Head = NULL;
+	Process_Tail = NULL;
 }

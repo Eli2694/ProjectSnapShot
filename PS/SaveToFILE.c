@@ -55,27 +55,22 @@ void WriteToBinaryFile(t_SnapShot* Tail)
 	t_SnapShot* beginningOf;
 	while (SnapShotHead)
 	{
-		fwrite(&SnapShotHead->ListOfProcesses, sizeof(t_Process*), 1, out2);
 		fwrite(&SnapShotHead->CountNumberOfSnapShot, sizeof(unsigned int), 1, out2);
 		fwrite(&SnapShotHead->CountNumberOfProcessesInEachSnapShot, sizeof(unsigned int), 1, out2);
 		fwrite(&SnapShotHead->TimeOfSnapShot, sizeof(char[100]), 1, out2);
-		fwrite(&SnapShotHead->next, sizeof(struct s_SnapShot*), 1, out2);
-		fwrite(&SnapShotHead->prev, sizeof(struct s_SnapShot*), 1, out2);
+		
 		while (SnapShotHead->ListOfProcesses)
 		{
 			fwrite(&SnapShotHead->ListOfProcesses->ProcessId, sizeof(unsigned int), 1, out2);
 			fwrite(&SnapShotHead->ListOfProcesses->ProcessName, sizeof(char[MAX_PATH]), 1, out2);
 			fwrite(&SnapShotHead->ListOfProcesses->ProcessData, sizeof(PROCESS_MEMORY_COUNTERS), 1, out2);
 			fwrite(&SnapShotHead->ListOfProcesses->NumberOfDLLsInEachProcess, sizeof(unsigned int), 1, out2);
-			fwrite(&SnapShotHead->ListOfProcesses->ListOfDlls, sizeof(t_DLL*), 1, out2);
-			fwrite(&SnapShotHead->ListOfProcesses->next, sizeof(struct s_Process*), 1, out2);
-			fwrite(&SnapShotHead->ListOfProcesses->prev, sizeof(struct s_Process*), 1, out2);
+			
 			
 			while (SnapShotHead->ListOfProcesses->ListOfDlls)
 			{
 				fwrite(&SnapShotHead->ListOfProcesses->ListOfDlls->NameOfDLL, sizeof(char[MAX_PATH]), 1, out2);
-				fwrite(&SnapShotHead->ListOfProcesses->ListOfDlls->next, sizeof(struct s_DLL*), 1, out2);
-				fwrite(&SnapShotHead->ListOfProcesses->ListOfDlls->next, sizeof(struct s_DLL*), 1, out2);
+				
 				
 				if (SnapShotHead->ListOfProcesses->ListOfDlls->next == NULL)
 				{
