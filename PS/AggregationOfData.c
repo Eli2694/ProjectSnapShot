@@ -14,12 +14,15 @@ t_SnapShot* AggregationOfData(t_SnapShot* SnapShot_Tail, t_SnapShot* Sample);
 
 t_SnapShot* AggregationOfData(t_SnapShot* SnapShot_Tail, t_SnapShot* Sample)
 {
+	char null[1] = "\0";
 	t_Process* fixed = SnapShot_Tail->ListOfProcesses;
 	t_Process* temp = Sample->ListOfProcesses;
 	while (temp)
 	{
 		while (fixed)
 		{
+			
+			
 			if (temp->ProcessId == fixed->ProcessId && strcmp(temp->ProcessName, fixed->ProcessName) == 0)
 			{
 				fixed->ProcessData.PageFaultCount += temp->ProcessData.PageFaultCount;

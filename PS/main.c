@@ -67,7 +67,7 @@ int main()
 			}
 			break;
 		case 4:
-			DLL_Dictionary_List = TraversingSnapshot(tailSnapShot);
+			DLL_Dictionary_List = SnapshotTraversing(tailSnapShot);
 			break;
 		case 5:
 			FreeMemoryAllocation(tailSnapShot);
