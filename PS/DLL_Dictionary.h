@@ -1,0 +1,1 @@
+t_DLL_Dictionary* TraversingSnapshot(t_SnapShot* TailOfSnapShot);

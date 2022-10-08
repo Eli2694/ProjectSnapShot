@@ -10,10 +10,12 @@
 #include "LoadFromFile.h"
 #include "AggregationOfData.h"
 #include "resetCollection.h"
+#include "DLL_Dictionary.h"
 #pragma warning(disable:4996)
 
 t_SnapShot* smaple;
 t_SnapShot* tailSnapShot;
+t_DLL_Dictionary* DLL_Dictionary_List;
 
 int main()
 {
@@ -65,7 +67,7 @@ int main()
 			}
 			break;
 		case 4:
-
+			DLL_Dictionary_List = TraversingSnapshot(tailSnapShot);
 			break;
 		case 5:
 			FreeMemoryAllocation(tailSnapShot);
