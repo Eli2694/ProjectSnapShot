@@ -9,6 +9,7 @@
 
 //function specification
 void replace(t_Process* currProcess);
+void addBeginingOfProcessListToSnapShot(t_Process*temp);
 
 //global Variable
 t_SnapShot* currS;
@@ -20,24 +21,43 @@ void sort(t_SnapShot* TailOfSnapShot)
 		return;
 	}
 	t_SnapShot* HSnapShot = runToHeadOfSanpShot(TailOfSnapShot);
-	t_SnapShot* currS = HSnapShot;
+	currS = HSnapShot;
 	t_Process* currP;
 	t_DLL* currD;
+	int CountNumOfReplacement = 1;
 
 	while (currS)
 	{
-		currP = currS->ListOfProcesses;
-		while (currP)
-		{
-			
-			if (currP->NumberOfDLLsInEachProcess > currP->next->NumberOfDLLsInEachProcess)
-			{
-				replace(currP);
-			}
+		CountNumOfReplacement = 1;
 
-			currP = currP->next;
+		while (CountNumOfReplacement != 0)
+		{
+			CountNumOfReplacement = 0;
+
+			currP = currS->ListOfProcesses;
+			while (currP)
+			{
+
+				if (currP->NumberOfDLLsInEachProcess > currP->next->NumberOfDLLsInEachProcess)
+				{
+					replace(currP);
+					CountNumOfReplacement++;
+					currP = currP->prev;
+				}
+
+				if (currP->next->next == NULL)
+				{
+					break;
+				}
+				currP = currP->next;
+			}
 		}
 
+		
+		if (currS->next == NULL)
+		{
+			break;
+		}
 		currS = currS->next;
 	}	
 
@@ -59,6 +79,7 @@ void replace(t_Process* currProcess)
 		temp1->next = NULL;
 		temp2->prev = NULL;
 		currS->ListOfProcesses = temp2;
+		
 	}
 	else if (temp1->prev != NULL && temp2->next == NULL) // before the last one
 	{
@@ -87,8 +108,9 @@ void replace(t_Process* currProcess)
 		temp1->prev = temp2;
 	}
 
-		
-
 }
 
+void addBeginingOfProcessListToSnapShot(t_Process* temp)
+{
 
+}
