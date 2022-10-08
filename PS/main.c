@@ -11,6 +11,7 @@
 #include "AggregationOfData.h"
 #include "resetCollection.h"
 #include "DLL_Dictionary.h"
+#include "BubbleSort.h"
 #pragma warning(disable:4996)
 
 t_SnapShot* smaple;
@@ -68,6 +69,7 @@ int main()
 			break;
 		case 4:
 			DLL_Dictionary_List = SnapshotTraversing(tailSnapShot);
+			sort(tailSnapShot);
 			break;
 		case 5:
 			FreeMemoryAllocation(tailSnapShot);
