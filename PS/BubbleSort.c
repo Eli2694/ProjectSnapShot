@@ -9,7 +9,6 @@
 
 //function specification
 void replace(t_Process* currProcess);
-void addBeginingOfProcessListToSnapShot(t_Process*temp);
 
 //global Variable
 t_SnapShot* currS;
@@ -110,7 +109,3 @@ void replace(t_Process* currProcess)
 
 }
 
-void addBeginingOfProcessListToSnapShot(t_Process* temp)
-{
-
-}

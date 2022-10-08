@@ -32,7 +32,7 @@ t_DLL_Dictionary* SnapshotTraversing(t_SnapShot* TailOfSnapShot)
 		currProcess = currSnapShot->ListOfProcesses;
 		while (currProcess)
 		{
-			currDLL = currProcess->ListOfDlls;
+			currDLL = currSnapShot->ListOfProcesses->ListOfDlls;
 			while (currDLL)
 			{
 				Dictionary(currDLL, currProcess);
@@ -77,6 +77,7 @@ void Dictionary(t_DLL* DLL, t_Process* Process)
 	{
 		t_DLL_Dictionary* h_DLL = (t_DLL_Dictionary*)malloc(sizeof(t_DLL_Dictionary));
 		h_DLL->Process_List = (t_Process*)malloc(sizeof(t_Process));
+
 		strcpy(h_DLL->Key_Dll_Name, d_DLL->Key_Dll_Name);
 		strcpy(h_DLL->Process_List->ProcessName, d_DLL->Process_List->ProcessName);
 		h_DLL->Process_List->ProcessData = d_DLL->Process_List->ProcessData;
@@ -100,11 +101,13 @@ void Dictionary(t_DLL* DLL, t_Process* Process)
 			{
 				t_DLL_Dictionary* n_DLL = (t_DLL_Dictionary*)malloc(sizeof(t_DLL_Dictionary));
 				n_DLL->Process_List = (t_Process*)malloc(sizeof(t_Process));
+
 				strcpy(n_DLL->Key_Dll_Name, d_DLL->Key_Dll_Name);
 				strcpy(n_DLL->Process_List->ProcessName, d_DLL->Process_List->ProcessName);
 				n_DLL->Process_List->ProcessData = d_DLL->Process_List->ProcessData;
 				n_DLL->next = n_DLL->prev = NULL;
 				n_DLL->Process_List->next = n_DLL->Process_List->prev = NULL;
+
 				addToDLLDictionaryList(n_DLL);
 				break;
 			}
@@ -116,7 +119,6 @@ void Dictionary(t_DLL* DLL, t_Process* Process)
 
 	}
 
-	
 }
 
 void addToDLLDictionaryList(t_DLL_Dictionary* j_DLL)
@@ -155,11 +157,10 @@ void addProcessToDLL(t_DLL_Dictionary*DLL, t_Process* d_DLL)
 			t_Process* new_process = (t_Process*)malloc(sizeof(t_Process));
 			strcpy(new_process->ProcessName, d_DLL->ProcessName);
 			new_process->ProcessData = d_DLL->ProcessData;
-			new_process->next = new_process->prev = NULL;
-			
 
+			//Insetring Into List Of Processes
 			currDictionaryDLL->Process_List->next = new_process;
-			new_process->prev = currDictionaryDLL->Process_List->prev;
+			new_process->prev = currDictionaryDLL->Process_List;
 			new_process->next = NULL;
 			break;
 		}
