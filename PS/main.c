@@ -72,7 +72,6 @@ int main()
 			break;
 		case 6:
 			WriteToBinaryFile(tailSnapShot);
-			FreeMemoryAllocation(tailSnapShot);
 			break;
 		case 7:
 			LoadFromFile();

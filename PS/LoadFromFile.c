@@ -108,8 +108,10 @@ void CreateListOfProcessesFile(t_Process* Process_node)
 		Process_node->prev = Process_Tail;
 		Process_node->next = NULL;
 		Process_Tail = Process_node;
-		return NULL;
 	}
+
+	DLL_Head = NULL;
+	DLL_Tail = NULL;
 }
 
 
