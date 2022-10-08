@@ -68,7 +68,7 @@ int main()
 			}
 			break;
 		case 4:
-			DLL_Dictionary_List = SnapshotTraversing(tailSnapShot);
+			DLL_Dictionary_List = SnapshotTraversing(SnapShot_Head);
 			sort(tailSnapShot);
 			break;
 		case 5:
