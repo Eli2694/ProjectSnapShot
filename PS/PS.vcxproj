@@ -134,6 +134,7 @@
     <ClCompile Include="LoadFromFile.c" />
     <ClCompile Include="Log.c" />
     <ClCompile Include="main.c" />
+    <ClCompile Include="Process_Dictionary.c" />
     <ClCompile Include="resetCollection.c" />
     <ClCompile Include="SnapShot.c" />
     <ClCompile Include="SaveToFILE.c" />
@@ -145,6 +146,7 @@
     <ClInclude Include="GetProcessInfo.h" />
     <ClInclude Include="LoadFromFile.h" />
     <ClInclude Include="Log.h" />
+    <ClInclude Include="Process_Dictionary.h" />
     <ClInclude Include="resetCollection.h" />
     <ClInclude Include="SnapShot.h" />
     <ClInclude Include="SaveToFILE.h" />

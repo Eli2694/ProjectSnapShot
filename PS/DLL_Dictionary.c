@@ -68,6 +68,7 @@ void Dictionary(t_DLL* DLL, t_Process* Process)
 	//Process info inside DLL_Dictionary Structure
 	strcpy(d_DLL->Process_List->ProcessName, Process->ProcessName);
 	d_DLL->Process_List->ProcessData = Process->ProcessData;
+	d_DLL->Process_List->ProcessId = Process->ProcessId;
 	d_DLL->Process_List->next = d_DLL->Process_List->prev = NULL;
 
 	// Variable that will help me traverse the list
@@ -81,6 +82,7 @@ void Dictionary(t_DLL* DLL, t_Process* Process)
 		strcpy(h_DLL->Key_Dll_Name, d_DLL->Key_Dll_Name);
 		strcpy(h_DLL->Process_List->ProcessName, d_DLL->Process_List->ProcessName);
 		h_DLL->Process_List->ProcessData = d_DLL->Process_List->ProcessData;
+		h_DLL->Process_List->ProcessId = d_DLL->Process_List->ProcessId;
 		h_DLL->next = h_DLL->prev = NULL;
 		h_DLL->Process_List->next = h_DLL->Process_List->prev = NULL;
 
@@ -105,6 +107,7 @@ void Dictionary(t_DLL* DLL, t_Process* Process)
 				strcpy(n_DLL->Key_Dll_Name, d_DLL->Key_Dll_Name);
 				strcpy(n_DLL->Process_List->ProcessName, d_DLL->Process_List->ProcessName);
 				n_DLL->Process_List->ProcessData = d_DLL->Process_List->ProcessData;
+				n_DLL->Process_List->ProcessId = d_DLL->Process_List->ProcessId;
 				n_DLL->next = n_DLL->prev = NULL;
 				n_DLL->Process_List->next = n_DLL->Process_List->prev = NULL;
 
