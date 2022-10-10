@@ -12,11 +12,14 @@
 #include "resetCollection.h"
 #include "DLL_Dictionary.h"
 #include "BubbleSort.h"
+#include "Process_Dictionary.h"
 #pragma warning(disable:4996)
 
+//Variable Declaration
 t_SnapShot* smaple;
 t_SnapShot* tailSnapShot;
 t_DLL_Dictionary* DLL_Dictionary_List;
+t_Processes_Dictionary* Process_Dictionary_List;
 
 int main()
 {
@@ -69,6 +72,7 @@ int main()
 			break;
 		case 4:
 			DLL_Dictionary_List = SnapshotTraversing(SnapShot_Head);
+			Process_Dictionary_List = ProcessTraversing(SnapShot_Head);
 			sort(tailSnapShot);
 			break;
 		case 5:

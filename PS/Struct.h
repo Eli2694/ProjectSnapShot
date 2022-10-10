@@ -35,7 +35,7 @@ typedef struct s_HeaderFile
 {
 	int version;
 	unsigned int SnapShotCount;
-	char reservedSpace[100];
+	char reservedSpace[20];
 }t_HeaderFile;
 
 typedef struct s_DLL_Dictionary
@@ -45,3 +45,11 @@ typedef struct s_DLL_Dictionary
 	struct s_DLL_Dictionary* next;
 	struct s_DLL_Dictionary* prev;
 }t_DLL_Dictionary;
+
+typedef struct s_Processes_Dictionary
+{
+	char Key_Process_Name[MAX_PATH];
+	SIZE_T WorkingSetSize;
+	struct s_Processes_Dictionary* next;
+	struct s_Processes_Dictionary* prev;
+}t_Processes_Dictionary;

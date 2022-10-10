@@ -1,1 +1,1 @@
-t_DLL_Dictionary* SnapshotTraversing(t_SnapShot* TailOfSnapShot);
+t_DLL_Dictionary* SnapshotTraversing(t_SnapShot* SnapShot);

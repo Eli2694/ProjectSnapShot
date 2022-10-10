@@ -9,7 +9,7 @@
 //function Specification
 void addToDLLDictionaryList(t_DLL_Dictionary* DLL);
 void Dictionary(t_DLL* DLL, t_Process* Process);
-void addProcessToDLL(t_DLL_Dictionary* curr, t_Process* ProcessOfd_DLL);
+void addProcessToDLL(t_Process* currDLL, t_Process* d_DLL);
 
 //variable Declaration
 t_DLL_Dictionary* DLL_DictionaryHead = NULL;
