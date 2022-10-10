@@ -48,6 +48,9 @@
     <ClCompile Include="Process_Dictionary.c">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="GenerateHTML_DLLs_Dictionary.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Log.h">
@@ -81,6 +84,9 @@
       <Filter>Source Files</Filter>
     </ClInclude>
     <ClInclude Include="Process_Dictionary.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GenerateHTML_DLLs_Dictionary.h">
       <Filter>Source Files</Filter>
     </ClInclude>
   </ItemGroup>

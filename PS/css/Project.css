@@ -1,0 +1,59 @@
+a:visited {
+  color: none;
+}
+
+.back-home {
+  font-size: 2rem;
+  border: 1px none;
+  border-radius: 10px;
+  background-color: rgb(100, 196, 164);
+}
+
+.back-home a {
+  text-decoration: none;
+  color: white;
+}
+
+.titles {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.titles h2 {
+  margin-bottom: 30px;
+}
+
+.Application-Statistics {
+  display: flex;
+  justify-content: space-around;
+}
+
+.Application-Statistics-box {
+  /* From https://css.glass */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.31);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(0px);
+  -webkit-backdrop-filter: blur(0px);
+  border: 1px solid rgba(255, 255, 255, 0.82);
+  width: 250px;
+  height: 100px;
+}
+
+.Application-Statistics-box p {
+  font-weight: 600;
+}
+
+.Statistics-Num {
+  font-size: 25px;
+  color: rgb(0, 119, 255);
+}
+
+.List-Container {
+  display: flex;
+  justify-content: space-around;
+}

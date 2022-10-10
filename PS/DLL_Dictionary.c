@@ -11,6 +11,7 @@ void addToDLLDictionaryList(t_DLL_Dictionary* DLL);
 void Dictionary(t_DLL* DLL, t_Process* Process);
 void addProcessToDLL(t_Process* currDLL, t_Process* d_DLL);
 void calculateNumOfProcessInDll();
+unsigned int calculateSumOfDLLs();
 
 //variable Declaration
 t_DLL_Dictionary* DLL_DictionaryHead = NULL;
@@ -192,4 +193,16 @@ void calculateNumOfProcessInDll()
 
 		curr = curr->next;
 	}
+}
+
+unsigned int calculateSumOfDLLs()
+{
+	unsigned int SumOfDLLs = 0;
+	t_DLL_Dictionary* curr = DLL_DictionaryHead;
+	while (curr)
+	{
+		SumOfDLLs++;
+		curr = curr->next;
+	}
+	return SumOfDLLs;
 }

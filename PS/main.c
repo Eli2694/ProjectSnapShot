@@ -13,6 +13,7 @@
 #include "DLL_Dictionary.h"
 #include "BubbleSort.h"
 #include "Process_Dictionary.h"
+#include "GenerateHTML_DLLs_Dictionary.h"
 #pragma warning(disable:4996)
 
 //Variable Declaration
@@ -75,6 +76,7 @@ int main()
 			calculateNumOfProcessInDll();
 			Process_Dictionary_List = ProcessTraversing(SnapShot_Head);
 			sort(tailSnapShot);
+			CreateNewHTMLtemplate();
 			break;
 		case 5:
 			FreeMemoryAllocation(tailSnapShot);
