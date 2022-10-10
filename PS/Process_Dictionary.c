@@ -15,6 +15,7 @@ t_Processes_Dictionary* Process_DictionaryHead = NULL;
 t_Processes_Dictionary* Process_DictionaryTail = NULL;
 
 unsigned long long AvgWorkingSetSize = 0;
+unsigned int sumOfProcesses = 0;
 
 
 t_Processes_Dictionary* ProcessTraversing(t_SnapShot* SnapShotP)
@@ -85,7 +86,7 @@ void CreateListOfMonovalentProcessess(t_Process* SampleProcess)
 
 int calculateNumOfMonovalentProcess()
 {
-	unsigned int sumOfProcesses = 0;
+	
 	t_Processes_Dictionary* curr = Process_DictionaryHead;
 	while (curr)
 	{
@@ -97,10 +98,12 @@ int calculateNumOfMonovalentProcess()
 
 void calculateAvgOfAvgWorkingSetSize(unsigned int sumOfProcesses)
 {
+	unsigned long long SumWorkingSetSize = 0;
 	t_Processes_Dictionary* curr = Process_DictionaryHead;
 	while (curr)
 	{
-		AvgWorkingSetSize = AvgWorkingSetSize + curr->WorkingSetSize;
+		SumWorkingSetSize = SumWorkingSetSize + curr->WorkingSetSize;
 		curr = curr->next;
 	}
+	AvgWorkingSetSize = SumWorkingSetSize / sumOfProcesses;
 }
