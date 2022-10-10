@@ -8,7 +8,7 @@
 //function Specifications
 void CreateListOfMonovalentProcessess(t_Process* SampleProcess);
 int calculateNumOfMonovalentProcess();
-void calculateAvgOfAvgWorkingSetSize(unsigned int sumOfProcesses);
+unsigned long long calculateAvgOfAvgWorkingSetSize(unsigned int sumOfProcesses);
 
 // Variable Declaration
 t_Processes_Dictionary* Process_DictionaryHead = NULL;
@@ -96,9 +96,10 @@ int calculateNumOfMonovalentProcess()
 	return sumOfProcesses;
 }
 
-void calculateAvgOfAvgWorkingSetSize(unsigned int sumOfProcesses)
+unsigned long long calculateAvgOfAvgWorkingSetSize(unsigned int sumOfProcesses)
 {
 	unsigned long long SumWorkingSetSize = 0;
+	unsigned long long AvgWorkingSetSize;
 	t_Processes_Dictionary* curr = Process_DictionaryHead;
 	while (curr)
 	{
@@ -106,4 +107,5 @@ void calculateAvgOfAvgWorkingSetSize(unsigned int sumOfProcesses)
 		curr = curr->next;
 	}
 	AvgWorkingSetSize = SumWorkingSetSize / sumOfProcesses;
+	return AvgWorkingSetSize;
 }

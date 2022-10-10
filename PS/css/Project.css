@@ -44,13 +44,17 @@ a:visited {
   height: 100px;
 }
 
-.Application-Statistics-box p {
-  font-weight: 600;
+.Statistics-text {
+  font-size: 1.2rem;
+  font-weight: 800;
+  margin: 0;
 }
 
 .Statistics-Num {
-  font-size: 25px;
+  font-size: 38px;
   color: rgb(0, 119, 255);
+  margin: 0;
+  text-align: center;
 }
 
 .List-Container {
