@@ -1,3 +1,9 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 a:visited {
   color: none;
 }
@@ -6,6 +12,8 @@ a:visited {
   font-size: 2rem;
   border: 1px none;
   border-radius: 10px;
+  margin: 5px;
+  padding: 5px;
   background-color: rgb(100, 196, 164);
 }
 
@@ -22,6 +30,12 @@ a:visited {
 
 .titles h2 {
   margin-bottom: 30px;
+  text-decoration: underline;
+  font-style: italic;
+}
+
+.img-welcome {
+  width: 350px;
 }
 
 .Application-Statistics {
@@ -59,5 +73,61 @@ a:visited {
 
 .List-Container {
   display: flex;
-  justify-content: space-around;
+  align-items: center;
+}
+
+.list-of-dlls-h2 {
+  margin-bottom: 30px;
+  text-decoration: underline;
+  font-style: italic;
+  text-align: center;
+  margin-top: 30px;
+}
+
+.table-container {
+  display: flex;
+  justify-content: center;
+  width: 80%;
+  margin: 0 auto;
+  border-radius: 10px;
+  padding: 5px;
+}
+
+table {
+  width: 100%;
+  box-shadow: 15px 15px #0000000d;
+  border-collapse: collapse;
+}
+
+tr:nth-of-type(odd) {
+  background-color: #006cc6;
+  color: #fff;
+}
+tr:nth-of-type(even) {
+  background-color: #fff;
+  color: #333;
+}
+th {
+  background-color: rgb(100, 196, 164);
+  color: #fff;
+  font-weight: 800;
+  font-size: 20px;
+}
+td,
+th {
+  padding: 12px;
+  border: 1px solid #ccc;
+  text-align: center;
+}
+.td-btn {
+  color: #fff;
+  background-color: black;
+  font-size: 15px;
+  padding: 5px 8px;
+  border: none;
+  border-radius: 5px;
+  text-decoration: none;
+}
+.td-btn:hover {
+  background-color: #2e9c81;
 }

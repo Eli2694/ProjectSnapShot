@@ -18,7 +18,7 @@
     </header>
     <main>
       <div class="titles">
-        <h1>Welcome</h1>
+        <img class="img-welcome" src="css/Images/welcome.jpg" alt="" />
         <h2>Application-Statistics</h2>
       </div>
 
@@ -26,29 +26,45 @@
         <div class="Application-Statistics-box">
           <div class="Dll-Count">
             <p class="Statistics-Num">100</p>
-            <p>DLLs Count</p>
+            <p class="Statistics-text">DLLs Count</p>
           </div>
         </div>
         <div class="Application-Statistics-box">
           <div class="Process-Count">
-            <p class="Statistics-Num">102</p>
-            <p>Process Count</p>
+            <p class="Statistics-Num">96</p>
+            <p class="Statistics-text">Process Count</p>
           </div>
         </div>
         <div class="Application-Statistics-box">
           <div class="Memory-Avg">
-            <p class="Statistics-Num">46473296</p>
-            <p>Memory Avg</p>
+            <p class="Statistics-Num">47965781</p>
+            <p class="Statistics-text">Memory Avg</p>
           </div>
         </div>
       </div>
 
-      <div class="List-Container">
-        <div class="Sample-List-Container">
-          <h2>List of samples</h2>
-        </div>
-        <div class="DLL-List-Container">
-          <h2>List of DLLs</h2>
+      <div class="list-container">
+        <h2 class="list-of-dlls-h2">List Of DLLs</h2>
+        <div class="table-container">
+          <table>
+            <thead>
+              <tr>
+                <th>DLL Name</th>
+                <th>Processes Using This DLL</th>
+              </tr>
+            </thead>
+
+            <tbody>
+              <tr>
+                <td>Name Of DLL</td>
+                <td><a href="#" class="td-btn">Processes</a></td>
+              </tr>
+              <tr>
+                <td>Name Of DLL</td>
+                <td><a href="#" class="td-btn">Popup bottun</a></td>
+              </tr>
+            </tbody>
+          </table>
         </div>
       </div>
     </main>
