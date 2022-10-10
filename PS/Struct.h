@@ -41,6 +41,7 @@ typedef struct s_HeaderFile
 typedef struct s_DLL_Dictionary
 {
 	char Key_Dll_Name[MAX_PATH];
+	unsigned int NumOfProcess;
 	t_Process* Process_List;
 	struct s_DLL_Dictionary* next;
 	struct s_DLL_Dictionary* prev;

@@ -10,6 +10,7 @@
 void addToDLLDictionaryList(t_DLL_Dictionary* DLL);
 void Dictionary(t_DLL* DLL, t_Process* Process);
 void addProcessToDLL(t_Process* currDLL, t_Process* d_DLL);
+void calculateNumOfProcessInDll();
 
 //variable Declaration
 t_DLL_Dictionary* DLL_DictionaryHead = NULL;
@@ -69,6 +70,7 @@ void Dictionary(t_DLL* DLL, t_Process* Process)
 	strcpy(d_DLL->Process_List->ProcessName, Process->ProcessName);
 	d_DLL->Process_List->ProcessData = Process->ProcessData;
 	d_DLL->Process_List->ProcessId = Process->ProcessId;
+	d_DLL->NumOfProcess = 1;
 	d_DLL->Process_List->next = d_DLL->Process_List->prev = NULL;
 
 	// Variable that will help me traverse the list
@@ -83,6 +85,7 @@ void Dictionary(t_DLL* DLL, t_Process* Process)
 		strcpy(h_DLL->Process_List->ProcessName, d_DLL->Process_List->ProcessName);
 		h_DLL->Process_List->ProcessData = d_DLL->Process_List->ProcessData;
 		h_DLL->Process_List->ProcessId = d_DLL->Process_List->ProcessId;
+		h_DLL->NumOfProcess = d_DLL->NumOfProcess;
 		h_DLL->next = h_DLL->prev = NULL;
 		h_DLL->Process_List->next = h_DLL->Process_List->prev = NULL;
 
@@ -108,6 +111,7 @@ void Dictionary(t_DLL* DLL, t_Process* Process)
 				strcpy(n_DLL->Process_List->ProcessName, d_DLL->Process_List->ProcessName);
 				n_DLL->Process_List->ProcessData = d_DLL->Process_List->ProcessData;
 				n_DLL->Process_List->ProcessId = d_DLL->Process_List->ProcessId;
+				n_DLL->NumOfProcess = d_DLL->NumOfProcess;
 				n_DLL->next = n_DLL->prev = NULL;
 				n_DLL->Process_List->next = n_DLL->Process_List->prev = NULL;
 
@@ -159,13 +163,33 @@ void addProcessToDLL(t_Process* currDLL, t_Process* d_DLL)
 			t_Process* new_process = (t_Process*)malloc(sizeof(t_Process));
 			strcpy(new_process->ProcessName, d_DLL->ProcessName);
 			new_process->ProcessData = d_DLL->ProcessData;
+			
 
 			//Insetring Into List Of Processes
 			currDictionaryDLL->next = new_process;
 			new_process->prev = currDictionaryDLL;
 			new_process->next = NULL;
+			
 			break;
 		}
 		currDictionaryDLL = currDictionaryDLL->next;
+	}
+}
+
+void calculateNumOfProcessInDll()
+{
+	t_DLL_Dictionary* curr = DLL_DictionaryHead;
+	t_Process* currProcesses;
+	while (curr)
+	{
+		curr->NumOfProcess = 1;
+		currProcesses = curr->Process_List;
+		while (currProcesses)
+		{
+			curr->NumOfProcess++;
+			currProcesses = currProcesses->next;
+		}
+
+		curr = curr->next;
 	}
 }

@@ -72,6 +72,7 @@ int main()
 			break;
 		case 4:
 			DLL_Dictionary_List = SnapshotTraversing(SnapShot_Head);
+			calculateNumOfProcessInDll();
 			Process_Dictionary_List = ProcessTraversing(SnapShot_Head);
 			sort(tailSnapShot);
 			break;
