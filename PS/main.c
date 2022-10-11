@@ -76,7 +76,7 @@ int main()
 			calculateNumOfProcessInDll();
 			Process_Dictionary_List = ProcessTraversing(SnapShot_Head);
 			sort(tailSnapShot);
-			CreateNewHTMLtemplate();
+			CreateProjectPage();
 			break;
 		case 5:
 			FreeMemoryAllocation(tailSnapShot);

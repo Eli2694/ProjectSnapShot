@@ -11,7 +11,7 @@
 void inputDictionaryDLLsList();
 int SaveIntoFile(char* fileName, char* buff);
 char* ReadAllFile(char* fileName);
-void CreateNewHTMLtemplate();
+void CreateProjectPage();
 
 #define SEPERATOR "[seperator]"
 
@@ -73,7 +73,7 @@ char* ReadAllFile(char* fileName)
 }
 
 
-void CreateNewHTMLtemplate()
+void CreateProjectPage()
 {
 	//information to add - Application Statistics
 	int sumOfDLLs = calculateSumOfDLLs();

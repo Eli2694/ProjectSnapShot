@@ -1,1 +1,1 @@
-void CreateNewHTMLtemplate();
+void CreateProjectPage();
