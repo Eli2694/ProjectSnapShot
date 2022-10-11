@@ -138,6 +138,7 @@ void CreateProjectPage()
 	free(newFileSpace);
 	free(newFileSpace2);
 	free(newFileSpace3);
+	free(newFileSpace4);
 	free(htmlTemplate);
 
 }

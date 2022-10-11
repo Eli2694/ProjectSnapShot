@@ -86,7 +86,7 @@ void createsnapShotListxt()
 	char quotaPeakpagepoolusage[50];
 	char dllcount[50];
 	char td_dll[50] = "<td class=\"dll-list\">";
-	char tdEnd[10] = "</td>";
+	char tdEnd[15] = "</td>";
 	char select[50] = "<select class=\"select-list\">";
 	char selectEnd[10] = "</select>";
 	char option[200];
@@ -116,7 +116,7 @@ void createsnapShotListxt()
 		newFileSpace[len] = NULL;
 		strcat(newFileSpace, SampleListNumber);
 		strcat(newFileSpace, found + strlen(SEPERATOR)); // newFileSpace - current Template
-
+		free(htmlTemplate);
 
 		SampleProcess = currSample->ListOfProcesses;
 		while (SampleProcess)
@@ -147,7 +147,7 @@ void createsnapShotListxt()
 			while (DllSample)
 			{
 				sprintf(option, "<option class=\"list-option\">%s</option>", DllSample->NameOfDLL);
-
+				fputs(option, out);
 				DllSample = DllSample->next;
 			}
 
@@ -168,13 +168,14 @@ void createsnapShotListxt()
 		newFileSpace2[len2] = NULL;
 		strcat(newFileSpace2, dataFromSmapleFile);
 		strcat(newFileSpace2, found2 + strlen(SEPERATOR)); // newFileSpace2 - current Template
+		free(dataFromSmapleFile);
 
 		sprintf(HTMLfile, "SnapShot_%d.html", k);
 		SaveIntoFile(HTMLfile, newFileSpace2);
 
 		//free(newFileSpace);
 		free(newFileSpace);
-		free(newFileSpace2);
+		free(newFileSpace2); // problam freeing memory
 		
 		
 
