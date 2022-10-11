@@ -99,14 +99,6 @@ table {
   border-collapse: collapse;
 }
 
-tr:nth-of-type(odd) {
-  background-color: #006cc6;
-  color: #fff;
-}
-tr:nth-of-type(even) {
-  background-color: #fff;
-  color: #333;
-}
 th {
   background-color: rgb(100, 196, 164);
   color: #fff;
@@ -118,20 +110,19 @@ th {
   padding: 12px;
   border: 1px solid #ccc;
   text-align: center;
-}
-.td-btn {
-  color: #fff;
-  background-color: black;
-  font-size: 15px;
-  padding: 5px 8px;
-  border: none;
-  border-radius: 5px;
-  text-decoration: none;
-}
-.td-btn:hover {
-  background-color: #2e9c81;
+  position: relative;
 }
 
 .name-of-dll {
   overflow: hidden;
+}
+
+tr .name-of-dll {
+  background-color: #006cc6;
+  color: #fff;
+}
+
+tr .name-of-process {
+  background-color: #fff;
+  color: #333;
 }

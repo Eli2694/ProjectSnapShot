@@ -7,6 +7,12 @@
 #include "Process_Dictionary.h"
 #pragma warning(disable:4996)
 
+//function - specifications
+void inputDictionaryDLLsList();
+int SaveIntoFile(char* fileName, char* buff);
+char* ReadAllFile(char* fileName);
+void CreateNewHTMLtemplate();
+
 #define SEPERATOR "[seperator]"
 
 
@@ -69,13 +75,13 @@ char* ReadAllFile(char* fileName)
 
 void CreateNewHTMLtemplate()
 {
-	//information to add
+	//information to add - Application Statistics
 	int sumOfDLLs = calculateSumOfDLLs();
 	int sumOfProcesses = calculateNumOfMonovalentProcess();
 	unsigned long long AvgWorkingSetSize = calculateAvgOfAvgWorkingSetSize(sumOfProcesses);
 	char DLLsCount[10];
 	char ProcessCount[10];
-	char WorkingSet[20];
+	char WorkingSet[30];
 	sprintf(DLLsCount, "%d", sumOfDLLs);
 	sprintf(ProcessCount, "%d", sumOfProcesses);
 	sprintf(WorkingSet, "%d", AvgWorkingSetSize);
@@ -96,7 +102,7 @@ void CreateNewHTMLtemplate()
 	//add the the second part of the template
 	strcat(newFileSpace, found + strlen(SEPERATOR));
 	
-
+	
 	char* found2 = strstr(newFileSpace, SEPERATOR);
 	int len2 = found2 - newFileSpace;
 	char* newFileSpace2 = (char*)malloc(strlen(htmlTemplate) + strlen(ProcessCount));
@@ -105,17 +111,28 @@ void CreateNewHTMLtemplate()
 	strcat(newFileSpace2, ProcessCount);
 	strcat(newFileSpace2, found2 + strlen(SEPERATOR));
 	
-
+	
 	char* found3 = strstr(newFileSpace2, SEPERATOR);
 	int len3 = found3 - newFileSpace2;
 	char* newFileSpace3 = (char*)malloc(strlen(htmlTemplate) + strlen(WorkingSet));
 	strncpy(newFileSpace3, newFileSpace2, len3);
 	newFileSpace3[len3] = NULL;
 	strcat(newFileSpace3, WorkingSet);
-	strcat(newFileSpace3, found3 + strlen(SEPERATOR));
+	strcat(newFileSpace3, found3 + strlen(SEPERATOR)); // newFileSpace3 - new template HTML
+
+	//create dll list
+	inputDictionaryDLLsList();
+	char* dll_list_info = ReadAllFile("C:\\Users\\User\\source\\repos\\PS\\PS\\dll_list.txt");
+	char* found4 = strstr(newFileSpace3, SEPERATOR);
+	int len4 = found4 - newFileSpace3;
+	char* newFileSpace4 = (char*)malloc(strlen(newFileSpace3) + strlen(dll_list_info));
+	strncpy(newFileSpace4, newFileSpace3, len4);
+	newFileSpace4[len4] = NULL;
+	strcat(newFileSpace4, dll_list_info);
+	strcat(newFileSpace4, found4 + strlen(SEPERATOR));
 	
 
-	SaveIntoFile("Project.html", newFileSpace3);
+	SaveIntoFile("Project.html", newFileSpace4);
 
 	//free(newFileSpace);
 	free(newFileSpace);
@@ -123,5 +140,37 @@ void CreateNewHTMLtemplate()
 	free(newFileSpace3);
 	free(htmlTemplate);
 
+}
 
+void inputDictionaryDLLsList()
+{
+	FILE* out = fopen("dll_list.txt", "w");
+	if (!out)
+	{
+		return NULL;
+	}
+
+	char DLLs[500];
+	char name_of_dll[100];
+	char Processes[500];
+	t_DLL_Dictionary* curr = DLL_DictionaryHead;
+	t_Process* currProcesses;
+	while (curr)
+	{
+		//strcpy(name_of_dll, curr->Key_Dll_Name);
+		sprintf(DLLs, "<tr><td class=\"name-of-dll\">Name Of DLL</td><td class=\"name-of-dll\">%s</td></tr>", curr->Key_Dll_Name);
+		fputs(DLLs, out);
+
+		currProcesses = curr->Process_List;
+		while (currProcesses)
+		{
+			sprintf(Processes, "<tr><td class=\"name-of-process\">Name Of Process</td><td class=\"name-of-process\">%s</td></tr>", currProcesses->ProcessName);
+			fputs(Processes, out);
+
+			currProcesses = currProcesses->next;
+		}
+
+		curr = curr->next;
+	}
+	fclose(out);
 }
