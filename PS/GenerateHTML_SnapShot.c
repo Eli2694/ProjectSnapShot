@@ -139,7 +139,7 @@ void createsnapShotListxt()
 			fputs(process_name, out);
 			sprintf(process_id, "<td class=\"data\">%ld</td>", SampleProcess->ProcessId);
 			fputs(process_id, out);
-			sprintf(pagefaultcount, "<td class=\"data\">%lld</td>", SampleProcess->ProcessData.PageFaultCount);
+			sprintf(pagefaultcount, "<td class=\"data\">%ld</td>", SampleProcess->ProcessData.PageFaultCount);
 			fputs(pagefaultcount, out);
 			sprintf(workingsetsize, "<td class=\"data\">%lld</td>", SampleProcess->ProcessData.WorkingSetSize);
 			fputs(workingsetsize, out);
