@@ -23,7 +23,7 @@ t_SnapShot* AggregationOfData(t_SnapShot* SnapShot_Tail, t_SnapShot* Sample)
 		{
 			
 			
-			if (temp->ProcessId == fixed->ProcessId && strcmp(temp->ProcessName, fixed->ProcessName) == 0)
+			if (temp->ProcessId == fixed->ProcessId)
 			{
 				fixed->ProcessData.PageFaultCount += temp->ProcessData.PageFaultCount;
 				fixed->ProcessData.WorkingSetSize += temp->ProcessData.WorkingSetSize;

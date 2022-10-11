@@ -14,6 +14,7 @@
 #include "BubbleSort.h"
 #include "Process_Dictionary.h"
 #include "GenerateHTML_DLLs_Dictionary.h"
+#include "GenerateHTML_SnapShot.h"
 #pragma warning(disable:4996)
 
 //Variable Declaration
@@ -77,6 +78,7 @@ int main()
 			Process_Dictionary_List = ProcessTraversing(SnapShot_Head);
 			sort(tailSnapShot);
 			CreateProjectPage();
+			createsnapShotListxt();
 			break;
 		case 5:
 			FreeMemoryAllocation(tailSnapShot);
