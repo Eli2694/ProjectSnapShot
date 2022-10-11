@@ -39,9 +39,10 @@ char* ReadAllFile(char* fileName)
 
 
 	// Get the file size
+	//fgets read rows (lines)
 	char* buff = (char*)malloc(1000);
 	char* read;
-	int fileSize = 0;
+	unsigned long fileSize = 0;
 	while ((read = fgets(buff, 1000, f)))
 	{
 		fileSize += strlen(buff);
@@ -58,7 +59,7 @@ char* ReadAllFile(char* fileName)
 	{
 		return NULL;
 	}
-	int readPosition = 0;
+	unsigned long readPosition = 0;
 	char charToRead;
 	while ((charToRead = fgetc(f)) != EOF)
 	{

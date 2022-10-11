@@ -86,10 +86,7 @@ th {
   padding: 12px;
   border: 1px solid #ccc;
   text-align: center;
-}
-
-.Process-Name {
-  overflow-x: scroll;
+  width: 20%;
 }
 
 .data {
@@ -99,9 +96,12 @@ th {
 }
 
 .select-list {
-  width: 20px;
+  width: 50px;
   padding: 5px;
-  border: 1px solid white;
+  border: 1px solid rgb(14, 13, 13);
+  background-color: chocolate;
+  cursor: pointer;
+  box-shadow: 5px 5px #a84913e3;
 }
 
 .list-option {

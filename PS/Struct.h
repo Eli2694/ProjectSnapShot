@@ -12,7 +12,7 @@ typedef struct s_DLL // dll description
 
 typedef struct s_Process // process description
 {
-	unsigned int ProcessId;
+	unsigned long ProcessId;
 	char ProcessName[MAX_PATH];
 	PROCESS_MEMORY_COUNTERS ProcessData;
 	unsigned int NumberOfDLLsInEachProcess;
