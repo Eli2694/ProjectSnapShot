@@ -51,6 +51,9 @@
     <ClCompile Include="GenerateHTML_DLLs_Dictionary.c">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="GenerateHTML_SnapShot.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Log.h">
@@ -87,6 +90,9 @@
       <Filter>Source Files</Filter>
     </ClInclude>
     <ClInclude Include="GenerateHTML_DLLs_Dictionary.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GenerateHTML_SnapShot.h">
       <Filter>Source Files</Filter>
     </ClInclude>
   </ItemGroup>

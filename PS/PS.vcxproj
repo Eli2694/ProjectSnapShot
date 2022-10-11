@@ -131,6 +131,7 @@
     <ClCompile Include="BubbleSort.c" />
     <ClCompile Include="DLL_Dictionary.c" />
     <ClCompile Include="GenerateHTML_DLLs_Dictionary.c" />
+    <ClCompile Include="GenerateHTML_SnapShot.c" />
     <ClCompile Include="GetProcessInfo.c" />
     <ClCompile Include="LoadFromFile.c" />
     <ClCompile Include="Log.c" />
@@ -145,6 +146,7 @@
     <ClInclude Include="BubbleSort.h" />
     <ClInclude Include="DLL_Dictionary.h" />
     <ClInclude Include="GenerateHTML_DLLs_Dictionary.h" />
+    <ClInclude Include="GenerateHTML_SnapShot.h" />
     <ClInclude Include="GetProcessInfo.h" />
     <ClInclude Include="LoadFromFile.h" />
     <ClInclude Include="Log.h" />

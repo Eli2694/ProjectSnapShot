@@ -1,0 +1,111 @@
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+a:visited {
+  color: none;
+}
+
+a {
+  text-decoration: none;
+  color: white;
+}
+
+body {
+  font-family: sans-serif;
+}
+
+.back-home {
+  font-size: 2rem;
+  border: 1px none;
+  border-radius: 15px;
+  margin: 5px;
+  padding: 5px;
+  background-color: rgb(100, 196, 164);
+}
+
+.back-Project {
+  font-size: 2rem;
+  border: 1px none;
+  border-radius: 15px;
+  margin: 5px;
+  padding: 5px;
+  background-color: rgb(84, 187, 201);
+}
+
+.titles {
+  width: 400px;
+  margin: 0 auto;
+}
+
+.Process-list-img {
+  width: 450px;
+  margin-bottom: 5vh;
+}
+
+.main-title {
+  text-align: center;
+}
+
+.table-container {
+  display: flex;
+  justify-content: center;
+  width: 80%;
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 5px;
+  margin: 3vh auto;
+}
+
+table {
+  width: 100%;
+  box-shadow: 15px 15px #0000000d;
+  border-collapse: collapse;
+}
+
+tr:nth-of-type(odd) {
+  background-color: #646566;
+  color: #fff;
+}
+tr:nth-of-type(even) {
+  background-color: #fff;
+  color: #333;
+}
+
+th {
+  background-color: #096b3d;
+  color: #fff;
+  font-weight: 800;
+  font-size: 20px;
+}
+
+td,
+th {
+  padding: 12px;
+  border: 1px solid #ccc;
+  text-align: center;
+}
+
+.Process-Name {
+  overflow-x: scroll;
+}
+
+.data {
+  font-size: 1.2rem;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+}
+
+.select-list {
+  width: 20px;
+  padding: 5px;
+  border: 1px solid white;
+}
+
+.list-option {
+  background-color: coral;
+  font-size: 1.2rem;
+  text-align: center;
+}
