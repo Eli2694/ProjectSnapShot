@@ -82,7 +82,7 @@ void CreateNewHTMLtemplate()
 
 
 	// htmlTemplate = content of Project.html
-	char* htmlTemplate = ReadAllFile("C:\\Users\\User\\source\\repos\\PS\\PS\\TProject.html");
+	char* htmlTemplate = ReadAllFile("C:\\Users\\User\\source\\repos\\PS\\PS\\T_Project.html");
 	// find the token (---- [seperator] ---- )
 	char* found = strstr(htmlTemplate, SEPERATOR);
 	// Memory Allocation to fit the added information
@@ -118,6 +118,8 @@ void CreateNewHTMLtemplate()
 	SaveIntoFile("Project.html", newFileSpace3);
 
 	//free(newFileSpace);
+	free(newFileSpace);
+	free(newFileSpace2);
 	free(newFileSpace3);
 	free(htmlTemplate);
 

@@ -131,3 +131,7 @@ th {
 .td-btn:hover {
   background-color: #2e9c81;
 }
+
+.name-of-dll {
+  overflow: hidden;
+}
