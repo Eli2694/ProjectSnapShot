@@ -5,13 +5,17 @@
 #include "Log.h"
 #include "DLL_Dictionary.h"
 #include "Process_Dictionary.h"
+#include "SnapShot.h"
 #pragma warning(disable:4996)
 
 //function - specifications
-void inputDictionaryDLLsList();
+void inputListOfDlls();
 int SaveIntoFile(char* fileName, char* buff);
 char* ReadAllFile(char* fileName);
 void CreateProjectPage();
+void inputListOfSamples();
+unsigned int AllNumOfDllsInSnapShot(t_SnapShot* curr);
+unsigned long long AvgMemoryOfSnapShot(t_SnapShot* curr);
 
 #define SEPERATOR "[seperator]"
 
@@ -85,16 +89,17 @@ void CreateProjectPage()
 	char WorkingSet[30];
 	sprintf(DLLsCount, "%d", sumOfDLLs);
 	sprintf(ProcessCount, "%d", sumOfProcesses);
-	sprintf(WorkingSet, "%d", AvgWorkingSetSize);
+	sprintf(WorkingSet, "%lld", AvgWorkingSetSize);
 
 
-	// htmlTemplate = content of Project.html
+	// htmlTemplate = content of Template Project.html
 	char* htmlTemplate = ReadAllFile("C:\\Users\\User\\source\\repos\\PS\\PS\\T_Project.html");
 	// find the token (---- [seperator] ---- )
 	char* found = strstr(htmlTemplate, SEPERATOR);
-	// Memory Allocation to fit the added information
+	// found integer of charecters from the beginning og the html file until the seperator
 	int len = found - htmlTemplate;
-	char* newFileSpace = (char*)malloc(strlen(htmlTemplate) + strlen(DLLsCount));
+	// Memory Allocation to fit the added information
+	char* newFileSpace = (char*)malloc(strlen(htmlTemplate) + strlen(DLLsCount)); // Adding DLLs count
 	//content of newFileSpace will be from the beginning of the page until the seperator - 1 part of the page template
 	strncpy(newFileSpace, htmlTemplate, len);
 	newFileSpace[len] = NULL;
@@ -103,7 +108,7 @@ void CreateProjectPage()
 	//add the the second part of the template
 	strcat(newFileSpace, found + strlen(SEPERATOR));
 	
-	
+	//Adding monovalent Process count
 	char* found2 = strstr(newFileSpace, SEPERATOR);
 	int len2 = found2 - newFileSpace;
 	char* newFileSpace2 = (char*)malloc(strlen(htmlTemplate) + strlen(ProcessCount));
@@ -112,7 +117,7 @@ void CreateProjectPage()
 	strcat(newFileSpace2, ProcessCount);
 	strcat(newFileSpace2, found2 + strlen(SEPERATOR));
 	
-	
+	//Adding Memory Avg
 	char* found3 = strstr(newFileSpace2, SEPERATOR);
 	int len3 = found3 - newFileSpace2;
 	char* newFileSpace3 = (char*)malloc(strlen(htmlTemplate) + strlen(WorkingSet));
@@ -122,7 +127,9 @@ void CreateProjectPage()
 	strcat(newFileSpace3, found3 + strlen(SEPERATOR)); // newFileSpace3 - new template HTML
 
 	//create dll list
-	inputDictionaryDLLsList();
+	// function that create file of type txt of - list of dlls - to read from
+	inputListOfDlls();
+	// dll_list_info will contain the information of dll_list txt file
 	char* dll_list_info = ReadAllFile("C:\\Users\\User\\source\\repos\\PS\\PS\\dll_list.txt");
 	char* found4 = strstr(newFileSpace3, SEPERATOR);
 	int len4 = found4 - newFileSpace3;
@@ -131,48 +138,126 @@ void CreateProjectPage()
 	newFileSpace4[len4] = NULL;
 	strcat(newFileSpace4, dll_list_info);
 	strcat(newFileSpace4, found4 + strlen(SEPERATOR));
+
+	//create SnapShot list
+	inputListOfSamples();
+	char* sample_list_info = ReadAllFile("C:\\Users\\User\\source\\repos\\PS\\PS\\sample_list.txt");
+	char* found5 = strstr(newFileSpace4, SEPERATOR);
+	int len5 = found5 - newFileSpace4;
+	char* newFileSpace5 = (char*)malloc(strlen(newFileSpace4) + strlen(sample_list_info));
+	strncpy(newFileSpace5, newFileSpace4, len5);
+	newFileSpace5[len5] = NULL;
+	strcat(newFileSpace5, sample_list_info);
+	strcat(newFileSpace5, found5 + strlen(SEPERATOR));
 	
 
-	SaveIntoFile("Project.html", newFileSpace4);
+	SaveIntoFile("Project.html", newFileSpace5);
 
 	//free(newFileSpace);
 	free(newFileSpace);
 	free(newFileSpace2);
 	free(newFileSpace3);
 	free(newFileSpace4);
+	free(newFileSpace5);
 	free(htmlTemplate);
+	free(dll_list_info);
+	free(sample_list_info);
 
 }
 
-void inputDictionaryDLLsList()
+void inputListOfDlls()
 {
 	FILE* out = fopen("dll_list.txt", "w");
 	if (!out)
 	{
 		return NULL;
 	}
-
+	int i = 1;
 	char DLLs[500];
-	char name_of_dll[100];
-	char Processes[500];
 	t_DLL_Dictionary* curr = DLL_DictionaryHead;
-	t_Process* currProcesses;
 	while (curr)
 	{
 		//strcpy(name_of_dll, curr->Key_Dll_Name);
-		sprintf(DLLs, "<tr><td class=\"name-of-dll\">Name Of DLL</td><td class=\"name-of-dll\">%s</td></tr>", curr->Key_Dll_Name);
+		sprintf(DLLs, "<tr><td class=\"name-of-dll\">%s</td> <td><a href=\"Process%d.html\">Processes that use this DLL </a></td></tr>", curr->Key_Dll_Name,i);
 		fputs(DLLs, out);
-
-		currProcesses = curr->Process_List;
-		while (currProcesses)
-		{
-			sprintf(Processes, "<tr><td class=\"name-of-process\">Name Of Process</td><td class=\"name-of-process\">%s</td></tr>", currProcesses->ProcessName);
-			fputs(Processes, out);
-
-			currProcesses = currProcesses->next;
-		}
-
+		i++;
 		curr = curr->next;
 	}
 	fclose(out);
+}
+
+void inputListOfSamples()
+{
+	FILE* out1 = fopen("sample_list.txt", "w");
+	if (!out1)
+	{
+		return NULL;
+	}
+
+	char numOfSamples[50];
+	char linkToSample[100];
+	char ProcessCount[50];
+	char DllsCount[50];
+	char MemoryAvgCount[300];
+	unsigned int TotalDllCount;
+	unsigned long long AvgMemory;
+
+	t_SnapShot* temp = SnapShot_Head;
+	t_SnapShot* curr = SnapShot_Head;
+
+	while (curr)
+	{
+		
+		sprintf(numOfSamples,"<td>%d</td>",curr->CountNumberOfSnapShot);
+		sprintf(linkToSample, "<td><a href=\"SnapShot_%d.html\">SnapShot.%d</a> </td>", curr->CountNumberOfSnapShot, curr->CountNumberOfSnapShot);
+		sprintf(ProcessCount, "<td>%d</td>", curr->CountNumberOfProcessesInEachSnapShot);
+		TotalDllCount = AllNumOfDllsInSnapShot(curr);
+		sprintf(DllsCount, "<td>%d</td>", TotalDllCount);
+		AvgMemory = AvgMemoryOfSnapShot(curr);
+		sprintf(MemoryAvgCount, "<td>%lld</td>", AvgMemory);
+
+		fputs("<tr>", out1);
+		fputs(numOfSamples, out1);
+		fputs(linkToSample, out1);
+		fputs(ProcessCount, out1);
+		fputs(DllsCount, out1);
+		fputs(MemoryAvgCount, out1);
+		fputs("</tr>",out1);
+
+		curr = curr->next;
+	}
+
+	fclose(out1);
+}
+
+unsigned int AllNumOfDllsInSnapShot(t_SnapShot* curr)
+{
+	unsigned int sumOfDllsInSnapShot = 0;
+	t_SnapShot* sample = curr;
+	t_Process* process;
+	
+	process = sample->ListOfProcesses;
+	while (process)
+	{
+		sumOfDllsInSnapShot = sumOfDllsInSnapShot + process->NumberOfDLLsInEachProcess;
+		process = process->next;
+	}
+
+	return sumOfDllsInSnapShot;
+}
+
+unsigned long long AvgMemoryOfSnapShot(t_SnapShot* curr)
+{
+	unsigned long long memoryAvg = 0;
+	t_SnapShot* snapShot = curr;
+	t_Process* processes;
+
+	processes = snapShot->ListOfProcesses;
+	while (processes)
+	{
+		memoryAvg = memoryAvg + processes->ProcessData.WorkingSetSize;
+		processes = processes->next;
+	}
+
+	return memoryAvg / snapShot->CountNumberOfProcessesInEachSnapShot;
 }

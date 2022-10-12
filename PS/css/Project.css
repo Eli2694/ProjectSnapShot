@@ -8,6 +8,13 @@ a:visited {
   color: none;
 }
 
+a {
+  text-decoration: none;
+  font-weight: 800;
+  color: #333;
+  cursor: pointer;
+}
+
 .back-home {
   font-size: 2rem;
   border: 1px none;
@@ -110,19 +117,26 @@ th {
   padding: 12px;
   border: 1px solid #ccc;
   text-align: center;
-  position: relative;
 }
 
-.name-of-dll {
-  overflow: hidden;
-}
-
-tr .name-of-dll {
-  background-color: #006cc6;
+tr:nth-of-type(odd) {
+  background-color: #94999e;
   color: #fff;
 }
 
-tr .name-of-process {
+tr:nth-of-type(even) {
   background-color: #fff;
   color: #333;
+}
+
+.name-of-dll {
+  font-weight: 800;
+}
+
+.list-of-SnapShot-h2 {
+  margin-bottom: 30px;
+  text-decoration: underline;
+  font-style: italic;
+  text-align: center;
+  margin-top: 30px;
 }
