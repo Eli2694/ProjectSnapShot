@@ -15,6 +15,7 @@
 #include "Process_Dictionary.h"
 #include "GenerateHTML_DLLs_Dictionary.h"
 #include "GenerateHTML_SnapShot.h"
+#include "GenerateHTML_DLLsProcesses.h"
 #pragma warning(disable:4996)
 
 //Variable Declaration
@@ -78,6 +79,7 @@ int main()
 			Process_Dictionary_List = ProcessTraversing(SnapShot_Head);
 			sort(tailSnapShot);
 			CreateProjectPage();
+			createDLLsProcessListInHTML();
 			createsnapShotLisInHTML();
 			break;
 		case 5:

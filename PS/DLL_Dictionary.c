@@ -164,6 +164,7 @@ void addProcessToDLL(t_Process* currDLL, t_Process* d_DLL)
 			t_Process* new_process = (t_Process*)malloc(sizeof(t_Process));
 			strcpy(new_process->ProcessName, d_DLL->ProcessName);
 			new_process->ProcessData = d_DLL->ProcessData;
+			new_process->ProcessId = d_DLL->ProcessId;
 			
 
 			//Insetring Into List Of Processes
