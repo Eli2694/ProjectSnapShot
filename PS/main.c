@@ -78,10 +78,12 @@ int main()
 			Process_Dictionary_List = ProcessTraversing(SnapShot_Head);
 			sort(tailSnapShot);
 			CreateProjectPage();
-			createsnapShotListxt();
+			createsnapShotLisInHTML();
 			break;
 		case 5:
-			FreeMemoryAllocation(tailSnapShot);
+			FreeSnapShotList(tailSnapShot);
+			FreeDictionaryListOfDLLs(DLL_Dictionary_List);
+			FreeDictionaryListOfProcesses(Process_Dictionary_List);
 			break;
 		case 6:
 			WriteToBinaryFile(tailSnapShot);

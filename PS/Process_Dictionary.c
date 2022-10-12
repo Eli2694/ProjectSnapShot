@@ -34,7 +34,6 @@ t_Processes_Dictionary* ProcessTraversing(t_SnapShot* SnapShotP)
 		while (currentProcess)
 		{
 			CreateListOfMonovalentProcessess(currentProcess);
-		
 			currentProcess = currentProcess->next;
 		}
 		currentSnapShot = currentSnapShot->next;

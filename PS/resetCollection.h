@@ -1,1 +1,3 @@
-void FreeMemoryAllocation(t_SnapShot* EndOfSnapShots);
+void FreeSnapShotList(t_SnapShot* EndOfSnapShots);
+void FreeDictionaryListOfDLLs(t_DLL_Dictionary* HeadOfDictionaryList);
+void FreeDictionaryListOfProcesses(t_Processes_Dictionary* HeadOfDictionaryProcessList);;

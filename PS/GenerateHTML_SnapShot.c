@@ -11,7 +11,7 @@
 #define SEPERATOR "[seperator]"
 
 //function specification
-void createsnapShotListxt();
+void createsnapShotLisInHTML();
 
 
 int saveIntoFile(char* fileName, char* buff)
@@ -72,7 +72,7 @@ char* readAllFile(char* fileName)
 
 
 
-void createsnapShotListxt()
+void createsnapShotLisInHTML()
 {
 	
 	t_SnapShot* currSample = SnapShot_Head;
