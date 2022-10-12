@@ -16,6 +16,7 @@ unsigned int calculateSumOfDLLs();
 //variable Declaration
 t_DLL_Dictionary* DLL_DictionaryHead = NULL;
 t_DLL_Dictionary* DLL_DictionaryTail = NULL;
+t_DLL_Dictionary* curr;
 
 t_DLL_Dictionary* SnapshotTraversing(t_SnapShot* SnapShot)
 {
@@ -75,7 +76,7 @@ void Dictionary(t_DLL* DLL, t_Process* Process)
 	d_DLL->Process_List->next = d_DLL->Process_List->prev = NULL;
 
 	// Variable that will help me traverse the list
-	t_DLL_Dictionary* curr = DLL_DictionaryHead;
+	curr = DLL_DictionaryHead;
 
 	if (curr == NULL)
 	{
@@ -165,6 +166,7 @@ void addProcessToDLL(t_Process* currDLL, t_Process* d_DLL)
 			strcpy(new_process->ProcessName, d_DLL->ProcessName);
 			new_process->ProcessData = d_DLL->ProcessData;
 			new_process->ProcessId = d_DLL->ProcessId;
+			curr->NumOfProcess++;
 			
 
 			//Insetring Into List Of Processes
