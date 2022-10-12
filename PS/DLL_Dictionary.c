@@ -9,14 +9,14 @@
 //function Specification
 void addToDLLDictionaryList(t_DLL_Dictionary* DLL);
 void Dictionary(t_DLL* DLL, t_Process* Process);
-void addProcessToDLL(t_Process* currDLL, t_Process* d_DLL);
+int addProcessToDLL(t_Process* currDLL, t_Process* d_DLL);
 void calculateNumOfProcessInDll();
 unsigned int calculateSumOfDLLs();
 
 //variable Declaration
 t_DLL_Dictionary* DLL_DictionaryHead = NULL;
 t_DLL_Dictionary* DLL_DictionaryTail = NULL;
-t_DLL_Dictionary* curr;
+
 
 t_DLL_Dictionary* SnapshotTraversing(t_SnapShot* SnapShot)
 {
@@ -76,7 +76,8 @@ void Dictionary(t_DLL* DLL, t_Process* Process)
 	d_DLL->Process_List->next = d_DLL->Process_List->prev = NULL;
 
 	// Variable that will help me traverse the list
-	curr = DLL_DictionaryHead;
+	t_DLL_Dictionary*curr = DLL_DictionaryHead;
+	int checkIfProcessAdded;
 
 	if (curr == NULL)
 	{
@@ -101,7 +102,11 @@ void Dictionary(t_DLL* DLL, t_Process* Process)
 		{
 			if (strcmp(curr->Key_Dll_Name, d_DLL->Key_Dll_Name) == 0)
 			{
-				addProcessToDLL(curr->Process_List,d_DLL->Process_List);
+				checkIfProcessAdded = addProcessToDLL(curr->Process_List,d_DLL->Process_List);
+				if (checkIfProcessAdded == 1)
+				{
+					curr->NumOfProcess++;
+				}
 				break;
 			}
 			if (curr->next == NULL)
@@ -149,7 +154,7 @@ void addToDLLDictionaryList(t_DLL_Dictionary* j_DLL)
 	}
 }
 
-void addProcessToDLL(t_Process* currDLL, t_Process* d_DLL)
+int addProcessToDLL(t_Process* currDLL, t_Process* d_DLL)
 {
 	t_Process* currDictionaryDLL = currDLL;
 	
@@ -157,7 +162,7 @@ void addProcessToDLL(t_Process* currDLL, t_Process* d_DLL)
 	{
 		if (strcmp(currDictionaryDLL->ProcessName, d_DLL->ProcessName) == 0)
 		{
-			break;
+			return 0;
 		}
 
 		if (currDictionaryDLL->next == NULL)
@@ -166,15 +171,14 @@ void addProcessToDLL(t_Process* currDLL, t_Process* d_DLL)
 			strcpy(new_process->ProcessName, d_DLL->ProcessName);
 			new_process->ProcessData = d_DLL->ProcessData;
 			new_process->ProcessId = d_DLL->ProcessId;
-			curr->NumOfProcess++;
+			
 			
 
 			//Insetring Into List Of Processes
 			currDictionaryDLL->next = new_process;
 			new_process->prev = currDictionaryDLL;
 			new_process->next = NULL;
-			
-			break;
+			return 1;
 		}
 		currDictionaryDLL = currDictionaryDLL->next;
 	}
