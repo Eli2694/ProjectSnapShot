@@ -1,1 +1,1 @@
-<tr><td>1</td><td><a href="SnapShot_1.html">SnapShot.1</a> </td><td>269</td><td>14077</td><td>46021468</td></tr><tr><td>2</td><td><a href="SnapShot_2.html">SnapShot.2</a> </td><td>270</td><td>1684314907</td><td>938078465</td></tr>
+<tr><td>1</td><td><a href="SnapShot_1.html">SnapShot.1</a> </td><td>266</td><td>-1768501905</td><td>1362116854</td></tr>

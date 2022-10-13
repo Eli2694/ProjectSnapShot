@@ -169,6 +169,11 @@ void createsnapShotLisInHTML()
 			fputs("</tr>", out);
 
 			SampleProcess = SampleProcess->next; // next procees
+			if (SampleProcess->NumberOfDLLsInEachProcess > 10000)
+			{
+				break;
+			}
+			
 			
 		}
 		//Closing file for writing
