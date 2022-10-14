@@ -109,3 +109,7 @@ th {
   font-size: 1.2rem;
   text-align: center;
 }
+
+.warning-icon {
+  width: 30px;
+}

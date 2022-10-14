@@ -12,6 +12,7 @@
 
 //function specification
 void createsnapShotLisInHTML();
+int FoundBiggestWorkingSetSize(t_Process* head);
 
 
 int saveIntoFile(char* fileName, char* buff)
@@ -96,15 +97,16 @@ void createsnapShotLisInHTML()
 	char file_name[15] = "SnapShot_1.txt";
 	char readFromfile[100];
 	char HTMLfile[50];
-	int k = 0;
+	int fileCount = 0;
+	int BiggestWorkingSetSizeLocation = 0;
 
 	while (currSample)
 	{
 		
 
-		k++;
+		fileCount++;
 
-		sprintf(file_name, "SnapShot_%d.txt",k);
+		sprintf(file_name, "SnapShot_%d.txt", fileCount);
 		//Openning File for writing into
 		FILE* out = fopen(file_name, "w");
 		if (!out)
@@ -132,7 +134,11 @@ void createsnapShotLisInHTML()
 		strcat(newFileSpace, found + strlen(SEPERATOR)); 
 		//newFileSpace contain the template + SampleListNumber;
 
+		int icon = 0;
+
 		SampleProcess = currSample->ListOfProcesses;
+		BiggestWorkingSetSizeLocation = FoundBiggestWorkingSetSize(SampleProcess);
+
 		while (SampleProcess)
 		{
 
@@ -141,29 +147,60 @@ void createsnapShotLisInHTML()
 			{
 				break;
 			}
+			icon++;
+			
+			if (BiggestWorkingSetSizeLocation == icon)
+			{
+				//Write to file to use the content for an HTML file
+				fputs("<tr>", out);
+				sprintf(process_name, "<td class=\"Process-Name\">%s</td>", SampleProcess->ProcessName);
+				fputs(process_name, out);
+				sprintf(process_id, "<td class=\"data\">%ld</td>", SampleProcess->ProcessId);
+				fputs(process_id, out);
+				sprintf(pagefaultcount, "<td class=\"data\">%ld</td>", SampleProcess->ProcessData.PageFaultCount);
+				fputs(pagefaultcount, out);
+				sprintf(workingsetsize, "<td class=\"data\">%lld<img src=\"css/Images/warning-icon.png\"class=\"warning-icon\" /> </td>", SampleProcess->ProcessData.WorkingSetSize);
+				fputs(workingsetsize, out);
+				sprintf(pagefileusage, "<td class=\"data\">%lld</tld>", SampleProcess->ProcessData.PagefileUsage);
+				fputs(pagefileusage, out);
+				sprintf(quotapagedpoolusage, "<td class=\"data\">%lld</td>", SampleProcess->ProcessData.QuotaPagedPoolUsage);
+				fputs(quotapagedpoolusage, out);
+				sprintf(quotaPeakpagepoolusage, "<td class=\"data\">%lld</td>", SampleProcess->ProcessData.QuotaPeakPagedPoolUsage);
+				fputs(quotaPeakpagepoolusage, out);
+				sprintf(dllcount, "<td class=\"data\">%d</td>", SampleProcess->NumberOfDLLsInEachProcess);
+				fputs(dllcount, out);
 
-			//Write to file to use the content for an HTML file
-			fputs("<tr>", out);
-			sprintf(process_name, "<td class=\"Process-Name\">%s</td>", SampleProcess->ProcessName);
-			fputs(process_name, out);
-			sprintf(process_id, "<td class=\"data\">%ld</td>", SampleProcess->ProcessId);
-			fputs(process_id, out);
-			sprintf(pagefaultcount, "<td class=\"data\">%ld</td>", SampleProcess->ProcessData.PageFaultCount);
-			fputs(pagefaultcount, out);
-			sprintf(workingsetsize, "<td class=\"data\">%lld</td>", SampleProcess->ProcessData.WorkingSetSize);
-			fputs(workingsetsize, out);
-			sprintf(pagefileusage, "<td class=\"data\">%lld</tld>", SampleProcess->ProcessData.PagefileUsage);
-			fputs(pagefileusage, out);
-			sprintf(quotapagedpoolusage, "<td class=\"data\">%lld</td>", SampleProcess->ProcessData.QuotaPagedPoolUsage);
-			fputs(quotapagedpoolusage, out);
-			sprintf(quotaPeakpagepoolusage, "<td class=\"data\">%lld</td>", SampleProcess->ProcessData.QuotaPeakPagedPoolUsage);
-			fputs(quotaPeakpagepoolusage, out);
-			sprintf(dllcount, "<td class=\"data\">%d</td>", SampleProcess->NumberOfDLLsInEachProcess);
-			fputs(dllcount, out);
+				// for list of dlls
+				fputs(td_dll, out);
+				fputs(select, out);
+			}
+			else
+			{
+				//Write to file to use the content for an HTML file
+				fputs("<tr>", out);
+				sprintf(process_name, "<td class=\"Process-Name\">%s</td>", SampleProcess->ProcessName);
+				fputs(process_name, out);
+				sprintf(process_id, "<td class=\"data\">%ld</td>", SampleProcess->ProcessId);
+				fputs(process_id, out);
+				sprintf(pagefaultcount, "<td class=\"data\">%ld</td>", SampleProcess->ProcessData.PageFaultCount);
+				fputs(pagefaultcount, out);
+				sprintf(workingsetsize, "<td class=\"data\">%lld</td>", SampleProcess->ProcessData.WorkingSetSize);
+				fputs(workingsetsize, out);
+				sprintf(pagefileusage, "<td class=\"data\">%lld</tld>", SampleProcess->ProcessData.PagefileUsage);
+				fputs(pagefileusage, out);
+				sprintf(quotapagedpoolusage, "<td class=\"data\">%lld</td>", SampleProcess->ProcessData.QuotaPagedPoolUsage);
+				fputs(quotapagedpoolusage, out);
+				sprintf(quotaPeakpagepoolusage, "<td class=\"data\">%lld</td>", SampleProcess->ProcessData.QuotaPeakPagedPoolUsage);
+				fputs(quotaPeakpagepoolusage, out);
+				sprintf(dllcount, "<td class=\"data\">%d</td>", SampleProcess->NumberOfDLLsInEachProcess);
+				fputs(dllcount, out);
 
-			// for list of dlls
-			fputs(td_dll, out);
-			fputs(select, out);
+				// for list of dlls
+				fputs(td_dll, out);
+				fputs(select, out);
+			}
+
+			
 
 			DllSample = SampleProcess->ListOfDlls;
 			while (DllSample)
@@ -200,7 +237,7 @@ void createsnapShotLisInHTML()
 		strcat(newFileSpace2, found2 + strlen(SEPERATOR)); // newFileSpace2 - current Template
 
 		//Saving into HTML file
-		sprintf(HTMLfile, "SnapShot_%d.html", k);
+		sprintf(HTMLfile, "SnapShot_%d.html", fileCount);
 		SaveIntoFile(HTMLfile, newFileSpace2);
 
 		free(newFileSpace2);
@@ -211,4 +248,24 @@ void createsnapShotLisInHTML()
 		currSample = currSample->next; // next sample
 		
 	}
+}
+
+int FoundBiggestWorkingSetSize(t_Process*head)
+{
+	int ret;
+	int placementCount = 0;
+	unsigned long long WSS = 0;
+	t_Process* curr = head;
+	while (curr)
+	{
+		placementCount++;
+		if (WSS < curr->ProcessData.WorkingSetSize)
+		{
+			WSS = curr->ProcessData.WorkingSetSize;
+			ret = placementCount;
+		}
+		
+		curr = curr->next;
+	}
+	return ret;
 }
