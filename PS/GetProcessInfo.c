@@ -57,7 +57,7 @@ t_Process* PrintMemoryInfo(DWORD processID)
 	{
 		wcstombs_s(&numConverted, process_node->ProcessName, MAX_PATH, FoundProcessName, MAX_PATH);
 
-		if (numConverted == NULL) // If The Process Without Name
+		if (numConverted == 0) // If The Process Without Name
 		{
 			free(process_node);
 			return NULL;
@@ -101,8 +101,16 @@ t_Process* PrintMemoryInfo(DWORD processID)
 
 				// Convert wChar to regular char array (string)
 				wcstombs_s(&numConverted, Dll_node->NameOfDLL, MAX_PATH, FoundDllName, MAX_PATH);
-				process_node->NumberOfDLLsInEachProcess = i + 1;
-				CreateListOfDlls(Dll_node);
+				if (numConverted == 0) // If The DLL Without Name
+				{
+					free(Dll_node);
+				}
+				else
+				{
+					process_node->NumberOfDLLsInEachProcess = i + 1;
+					CreateListOfDlls(Dll_node);
+				}
+				
 			}
 		}
 	}

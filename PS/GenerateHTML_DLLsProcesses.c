@@ -46,8 +46,8 @@ void createDLLsProcessListInHTML()
 		// htmlTemplate hold address from heap so i need to free it at the end
 		char* htmlTemplate = ReadAllFile("C:\\Users\\User\\source\\repos\\PS\\PS\\T_ProcessesOfDLL.html");
 
-		numProcesses = countNumOfProcessesInDLL(currProcess);
-		sprintf(DllTitleInfo, "%d Processes Used %s - DLL", currDLL->NumOfProcess, currDLL->Key_Dll_Name);
+		numProcesses = countNumOfProcessesInDLL(currDLL->Process_List);
+		sprintf(DllTitleInfo, "%d Processes Used %s - DLL", numProcesses, currDLL->Key_Dll_Name);
 
 		//search seperator
 		char* found = strstr(htmlTemplate, SEPERATOR);

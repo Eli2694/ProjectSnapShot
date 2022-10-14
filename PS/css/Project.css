@@ -132,6 +132,7 @@ tr:nth-of-type(even) {
 
 .name-of-dll {
   font-weight: 800;
+  overflow-x: scroll;
 }
 
 .list-of-SnapShot-h2 {
@@ -153,5 +154,9 @@ footer {
 }
 
 .Process-Name {
+  overflow-x: scroll;
+}
+
+.QuotaPeakPagedPoolUsage {
   overflow-x: scroll;
 }
