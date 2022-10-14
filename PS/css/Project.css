@@ -104,6 +104,7 @@ table {
   width: 100%;
   box-shadow: 15px 15px #0000000d;
   border-collapse: collapse;
+  table-layout: fixed;
 }
 
 th {
@@ -149,4 +150,8 @@ footer {
 
 .footer-img {
   width: 350px;
+}
+
+.Process-Name {
+  overflow-x: scroll;
 }

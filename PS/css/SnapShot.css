@@ -63,6 +63,7 @@ table {
   width: 100%;
   box-shadow: 15px 15px #0000000d;
   border-collapse: collapse;
+  table-layout: fixed;
 }
 
 tr:nth-of-type(odd) {
@@ -112,4 +113,8 @@ th {
 
 .warning-icon {
   width: 30px;
+}
+
+.Process-Name {
+  overflow-x: scroll;
 }
