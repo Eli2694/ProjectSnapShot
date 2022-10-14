@@ -100,6 +100,8 @@ void createsnapShotLisInHTML()
 
 	while (currSample)
 	{
+		
+
 		k++;
 
 		sprintf(file_name, "SnapShot_%d.txt",k);
@@ -133,6 +135,13 @@ void createsnapShotLisInHTML()
 		SampleProcess = currSample->ListOfProcesses;
 		while (SampleProcess)
 		{
+
+			//condition to eliminate a problem when Number Of DLLs In Process is more then 10000
+			if (SampleProcess->NumberOfDLLsInEachProcess > 10000)
+			{
+				break;
+			}
+
 			//Write to file to use the content for an HTML file
 			fputs("<tr>", out);
 			sprintf(process_name, "<td class=\"Process-Name\">%s</td>", SampleProcess->ProcessName);
@@ -169,10 +178,7 @@ void createsnapShotLisInHTML()
 			fputs("</tr>", out);
 
 			SampleProcess = SampleProcess->next; // next procees
-			if (SampleProcess->NumberOfDLLsInEachProcess > 10000)
-			{
-				break;
-			}
+			
 			
 			
 		}
