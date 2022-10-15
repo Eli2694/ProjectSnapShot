@@ -38,10 +38,12 @@ int main()
 		switch (user_response)
 		{
 		case 1:
-			smaple = GetProcessesInfo();
-			tailSnapShot = ListOfSnapShots(smaple);
+			LogEvent("Creating one sample");
+			smaple = GetProcessesInfo(); // Creating a sample
+			tailSnapShot = ListOfSnapShots(smaple); // Inserting into a list of samples
 			break;
 		case 2:
+			LogEvent("Create one sample with data accumulation for at least 20 seconds");
 			smaple = GetProcessesInfo();
 			tailSnapShot = ListOfSnapShots(smaple);
 			for (int i = 0; i < 19; i++)
@@ -53,6 +55,7 @@ int main()
 			}
 			break;
 		case 3:
+			LogEvent("Creating a single sample with data accumulation until the user decides to stop");
 			smaple = GetProcessesInfo();
 			tailSnapShot = ListOfSnapShots(smaple);
 			while (stop != 1)
@@ -74,23 +77,28 @@ int main()
 			}
 			break;
 		case 4:
-			DLL_Dictionary_List = SnapshotTraversing(SnapShot_Head);
-			calculateNumOfProcessInDll();
-			Process_Dictionary_List = ProcessTraversing(SnapShot_Head);
-			sort(tailSnapShot);
+			LogEvent("Creating Dictionary List Of DLLs");
+			DLL_Dictionary_List = SnapshotTraversing(SnapShot_Head); // monovalent list 
+			LogEvent("Creating Dictionary List Of Processes");
+			Process_Dictionary_List = ProcessTraversing(SnapShot_Head); // monovalent list 
+			sort(tailSnapShot); // Bubble sort
+			LogEvent("Generating HTML Files");
 			CreateProjectPage();
-			createDLLsProcessListInHTML();
+			createDLLsProcessListInHTML(); // including list of processe using the Dlls
 			createsnapShotLisInHTML();
 			break;
 		case 5:
+			LogEvent("Release linked lists and freeing memory");
 			FreeSnapShotList(tailSnapShot);
 			FreeDictionaryListOfDLLs(DLL_Dictionary_List);
 			FreeDictionaryListOfProcesses(Process_Dictionary_List);
 			break;
 		case 6:
+			LogEvent("Writing linked-list to binary files");
 			WriteToBinaryFile(tailSnapShot);
 			break;
 		case 7:
+			LogEvent("Reading linked-list from binary files");
 			LoadFromFile();
 			break;
 		case 8:

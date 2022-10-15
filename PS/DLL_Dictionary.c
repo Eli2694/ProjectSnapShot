@@ -165,6 +165,7 @@ int addProcessToDLL(t_Process* currDLL, t_Process* d_DLL)
 			return 0;
 		}
 
+
 		if (currDictionaryDLL->next == NULL)
 		{
 			t_Process* new_process = (t_Process*)malloc(sizeof(t_Process));

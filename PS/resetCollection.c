@@ -81,6 +81,9 @@ void FreeDictionaryListOfDLLs(t_DLL_Dictionary* HeadOfDictionaryList)
 		currDLL = currDLL->next;
 		free(releaseCurrDLL);
 	}
+
+	DLL_DictionaryHead = NULL;
+	DLL_DictionaryTail = NULL;
 }
 
 void FreeDictionaryListOfProcesses(t_Processes_Dictionary* HeadOfDictionaryProcessList)
@@ -98,5 +101,8 @@ void FreeDictionaryListOfProcesses(t_Processes_Dictionary* HeadOfDictionaryProce
 		currProcess = currProcess->next;
 		free(release);
 	}
+
+	Process_DictionaryHead = NULL;
+	Process_DictionaryTail = NULL;
 	
 }
