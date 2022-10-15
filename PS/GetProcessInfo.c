@@ -26,7 +26,7 @@ t_Process* PrintMemoryInfo(DWORD processID)
 	hProcess = OpenProcess(PROCESS_QUERY_INFORMATION |
 		PROCESS_VM_READ,
 		FALSE, processID);
-	if (NULL == hProcess)
+	if (hProcess == NULL)
 	{
 		return NULL;
 	}
@@ -48,7 +48,7 @@ t_Process* PrintMemoryInfo(DWORD processID)
 	process_node = (t_Process*)malloc(sizeof(t_Process));
 	if (process_node == NULL)
 	{
-		LogError(strerror(GetLastError()));
+		LogError("Problam of memory allocation (process_node)",strerror(GetLastError()));
 		return NULL;
 	}
 
@@ -57,7 +57,7 @@ t_Process* PrintMemoryInfo(DWORD processID)
 	{
 		wcstombs_s(&numConverted, process_node->ProcessName, MAX_PATH, FoundProcessName, MAX_PATH);
 
-		if (numConverted == 0) // If The Process Without Name
+		if (!numConverted) // If The Process Without Name
 		{
 			free(process_node);
 			return NULL;
@@ -77,7 +77,7 @@ t_Process* PrintMemoryInfo(DWORD processID)
 	}
 	else
 	{
-		LogError(strerror(GetLastError()));
+		LogError("Problam getting memory info of process",strerror(GetLastError()));
 		return NULL;
 	}
 
@@ -95,10 +95,10 @@ t_Process* PrintMemoryInfo(DWORD processID)
 				Dll_node = (t_DLL*)malloc(sizeof(t_DLL));
 				if (Dll_node == NULL)
 				{
-					LogError(strerror(GetLastError()));
+					LogError("Problam of memory allocation (Dll_node)",strerror(GetLastError()));
 					return NULL;
 				}
-
+				char* ret; // to use strstr and check if the DLL is standard
 				// Convert wChar to regular char array (string)
 				wcstombs_s(&numConverted, Dll_node->NameOfDLL, MAX_PATH, FoundDllName, MAX_PATH);
 				if (numConverted == 0) // If The DLL Without Name
@@ -109,6 +109,7 @@ t_Process* PrintMemoryInfo(DWORD processID)
 				{
 					process_node->NumberOfDLLsInEachProcess = i + 1;
 					CreateListOfDlls(Dll_node);
+					
 				}
 				
 			}

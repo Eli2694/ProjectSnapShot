@@ -40,12 +40,14 @@ int main()
 		case 1:
 			LogEvent("Creating one sample");
 			smaple = GetProcessesInfo(); // Creating a sample
+			LogEvent("Creating list of snapshots");
 			tailSnapShot = ListOfSnapShots(smaple); // Inserting into a list of samples
 			break;
 		case 2:
-			LogEvent("Create one sample with data accumulation for at least 20 seconds");
+			
 			smaple = GetProcessesInfo();
 			tailSnapShot = ListOfSnapShots(smaple);
+			LogEvent("Create one sample with data accumulation for at least 20 seconds");
 			for (int i = 0; i < 19; i++)
 			{
 				smaple = GetProcessesInfo();

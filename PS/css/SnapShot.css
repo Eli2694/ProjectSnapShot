@@ -98,7 +98,7 @@ th {
 }
 
 .select-list {
-  width: 50px;
+  width: 40px;
   padding: 5px;
   border: 1px solid rgb(14, 13, 13);
   background-color: chocolate;
@@ -128,5 +128,4 @@ th {
 
 .dll-list {
   display: inline-block;
-  background: transparent;
 }

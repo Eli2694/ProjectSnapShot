@@ -17,7 +17,7 @@ t_SnapShot* SnapShot_Tail = NULL;
 t_SnapShot* OneSnapShot(t_Process* HeadOfProcessList)
 {
 	//time
-	char CurrentTimeOfSnapShot[100];
+	char CurrentTimeOfSnapShot[40];
 	time_t t;
 	time(&t);
 	struct tm* timeInfo;
@@ -28,7 +28,6 @@ t_SnapShot* OneSnapShot(t_Process* HeadOfProcessList)
 	sample = (t_SnapShot*)malloc(sizeof(t_SnapShot));
 	sample->ListOfProcesses = HeadOfProcessList;
 	strcpy(sample->TimeOfSnapShot, CurrentTimeOfSnapShot);
-	sample->CountNumberOfProcessesInEachSnapShot = CountNumberOfProcess(sample->ListOfProcesses);
 
 	return sample;	
 }
@@ -80,6 +79,7 @@ void freeSample(t_SnapShot* sample)
 		releaseSample = currSample;
 		free(releaseSample);
 		currSample = NULL;
+		
 	}
 
 }

@@ -29,7 +29,7 @@ void LogError(char str[])
 {
 	char Error[100];
 	sprintf(Error, "Error - %s", str);
-	Log(str);
+	Log(Error);
 }
 
 void LogEvent(char str[])
