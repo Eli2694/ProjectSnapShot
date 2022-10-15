@@ -30,7 +30,6 @@ int main()
 	int user_response = -1;
 	char str[10];
 
-	LogEvent("User_Response");
 	do {
 		printf("<--User-Response-->\n1.Take One SnapShot\n2.Take 20 SnapShots\n3.Start Long SnapShot\n4.Generate HTML Report\n5.Reset Collections\n6.Save In File\n7.Load From File\n8.Quit\n");
 		scanf("%d", &user_response);
@@ -42,15 +41,17 @@ int main()
 			smaple = GetProcessesInfo(); // Creating a sample
 			LogEvent("Creating list of snapshots");
 			tailSnapShot = ListOfSnapShots(smaple); // Inserting into a list of samples
+			cleaningDistruptingProcess(SnapShot_Head);
 			break;
 		case 2:
-			
 			smaple = GetProcessesInfo();
 			tailSnapShot = ListOfSnapShots(smaple);
+			cleaningDistruptingProcess(SnapShot_Head);
 			LogEvent("Create one sample with data accumulation for at least 20 seconds");
 			for (int i = 0; i < 19; i++)
 			{
 				smaple = GetProcessesInfo();
+				cleaningDistruptingProcess(smaple);
 				tailSnapShot = AggregationOfData(tailSnapShot, smaple);
 				freeSample(smaple);
 				Sleep(1000);
@@ -60,9 +61,11 @@ int main()
 			LogEvent("Creating a single sample with data accumulation until the user decides to stop");
 			smaple = GetProcessesInfo();
 			tailSnapShot = ListOfSnapShots(smaple);
+			cleaningDistruptingProcess(SnapShot_Head);
 			while (stop != 1)
 			{
 				smaple = GetProcessesInfo();
+				cleaningDistruptingProcess(smaple);
 				tailSnapShot = AggregationOfData(tailSnapShot, smaple);
 				freeSample(smaple);
 				Sleep(1000);

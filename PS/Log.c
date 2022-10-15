@@ -6,7 +6,7 @@
 
 void Log(char str[])
 {
-	char Log[100];
+	char Log[200];
 	char file_Name[50];
 	strcpy(Log, str);
 	time_t t;

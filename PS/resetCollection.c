@@ -30,10 +30,20 @@ void FreeSnapShotList(t_SnapShot*EndOfSnapShots)
 		releaseSample = currSample;
 		while (currSample->ListOfProcesses)
 		{
+			// Preventing non-routine processes from harming the program
+			if (currSample->ListOfProcesses->ProcessId > 100000)
+			{
+				currSample->ListOfProcesses->prev->next = NULL;
+				currSample->ListOfProcesses->next = NULL;
+				free(currSample->ListOfProcesses);
+				currSample->ListOfProcesses = NULL;
+			}
+
 			releaseProcess = currSample->ListOfProcesses;
 			// free Processes
 			while (currSample->ListOfProcesses->ListOfDlls)
 			{
+
 				//free DLLs
 				releaseDLL = currSample->ListOfProcesses->ListOfDlls;
 				currSample->ListOfProcesses->ListOfDlls = currSample->ListOfProcesses->ListOfDlls->next;

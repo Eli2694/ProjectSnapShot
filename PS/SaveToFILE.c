@@ -10,6 +10,7 @@
 t_SnapShot* runToHeadOfSanpShot(t_SnapShot* Tail);
 t_Process* runToHeadOfProcess(t_Process* Process);
 t_DLL* runToHeadOfDLL(t_DLL* DLL);
+int countNumOfSnapShot(t_SnapShot* headOfSnapshot);
 
 //Variable Declaration
 t_HeaderFile WriteHeaderFile;
@@ -32,7 +33,7 @@ void WriteToBinaryFile(t_SnapShot* Tail)
 	else
 	{
 		WriteHeaderFile.version = 1;
-		WriteHeaderFile.SnapShotCount = Tail->CountNumberOfSnapShot;
+		WriteHeaderFile.SnapShotCount = countNumOfSnapShot(SnapShot_Head);
 		if (!WriteHeaderFile.SnapShotCount)
 		{
 			LogError("No SnapShot Found");
@@ -134,4 +135,17 @@ t_DLL* runToHeadOfDLL(t_DLL* DLL)
 		}
 		curr = curr->prev;
 	}
+}
+
+int countNumOfSnapShot(t_SnapShot* headOfSnapshot)
+{
+	int CSnapShot = 0;
+	t_SnapShot* curr = headOfSnapshot;
+	while (curr)
+	{
+		CSnapShot++;
+		curr = curr->next;
+	}
+
+	return CSnapShot;
 }

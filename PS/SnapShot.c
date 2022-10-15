@@ -28,6 +28,7 @@ t_SnapShot* OneSnapShot(t_Process* HeadOfProcessList)
 	sample = (t_SnapShot*)malloc(sizeof(t_SnapShot));
 	sample->ListOfProcesses = HeadOfProcessList;
 	strcpy(sample->TimeOfSnapShot, CurrentTimeOfSnapShot);
+	sample->next = sample->prev = NULL;
 
 	return sample;	
 }

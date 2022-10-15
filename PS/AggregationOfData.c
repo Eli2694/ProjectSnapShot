@@ -11,6 +11,7 @@
 void addProcess(t_Process* fixed, t_Process* temp);
 void addDLL(t_DLL* fixed, t_DLL* temp);
 t_SnapShot* AggregationOfData(t_SnapShot* SnapShot_Tail, t_SnapShot* Sample);
+void cleaningDistruptingProcess(t_SnapShot* HeadOfSnapShot);
 
 
 t_SnapShot* AggregationOfData(t_SnapShot* SnapShot_Tail, t_SnapShot* Sample)
@@ -51,7 +52,7 @@ t_SnapShot* AggregationOfData(t_SnapShot* SnapShot_Tail, t_SnapShot* Sample)
 							//Adding DLL To a fixedProcessDLLs
 							addDLL(fixedProcessDLLs, tempProcessDlls);
 							fixed->NumberOfDLLsInEachProcess++;
-							break;
+							
 						}
 						fixedProcessDLLs = fixedProcessDLLs->next;
 					}
@@ -68,6 +69,7 @@ t_SnapShot* AggregationOfData(t_SnapShot* SnapShot_Tail, t_SnapShot* Sample)
 				break;
 			}
 			fixed = fixed->next;
+			
 		}
 		// Every time i compare temp variable with the whole list of fixed SnapShot
 		fixed = saveSnapShotAddress;
@@ -78,6 +80,14 @@ t_SnapShot* AggregationOfData(t_SnapShot* SnapShot_Tail, t_SnapShot* Sample)
 
 void addProcess(t_Process* fixed, t_Process* temp)
 { 
+	if (temp->ProcessId > 100000)
+	{
+		temp->prev->next = NULL;
+		temp->next = NULL;
+		free(temp);
+		temp = NULL;
+		return;
+	}
 	//Allocate memory to a new variable so as not to disrupt the list it is in
 	t_Process* newFixedProcess = (t_Process*)malloc(sizeof(t_Process));
 	if (newFixedProcess == NULL)
@@ -107,4 +117,32 @@ void addDLL(t_DLL* fixed, t_DLL* temp)
 	fixedDLL->next = newFixeDLL;
 	newFixeDLL->prev = fixedDLL;
 	newFixeDLL->next = NULL;
+}
+
+//Preventing non-routine processes from harming the program
+void cleaningDistruptingProcess(t_SnapShot*HeadOfSnapShot)
+{
+	t_SnapShot* curr = HeadOfSnapShot;
+	t_Process* currProcess = curr->ListOfProcesses;
+
+	while (curr)
+	{
+		while (currProcess)
+		{
+			if (currProcess->ProcessId > 100000)
+			{
+				currProcess->next = NULL;
+				currProcess->ListOfDlls = NULL;
+				currProcess->prev->next = NULL;
+				free(currProcess);
+
+			}
+
+			currProcess = currProcess->next;
+		}
+
+		curr = curr->next;
+	}
+
+	
 }
