@@ -14,109 +14,142 @@ t_SnapShot* AggregationOfData(t_SnapShot* SnapShot_Tail, t_SnapShot* Sample);
 void cleaningDistruptingProcess(t_SnapShot* HeadOfSnapShot);
 
 
+
+
 t_SnapShot* AggregationOfData(t_SnapShot* SnapShot_Tail, t_SnapShot* Sample)
 {
-	t_Process* saveSnapShotAddress = SnapShot_Tail->ListOfProcesses;
-	t_Process* fixed = SnapShot_Tail->ListOfProcesses;
-	t_Process* temp = Sample->ListOfProcesses;
-	t_DLL* fixedProcessDLLs;
-	t_DLL* tempProcessDlls;
-	while (temp)
+	t_SnapShot* headOfList = SnapShot_Tail;
+	t_SnapShot* currS = SnapShot_Tail;
+	t_SnapShot* tempS = Sample;
+
+	t_Process* currProcesses;
+	t_Process* tempProcesses;
+	t_DLL* currDlls;
+	t_DLL* tempDlls;
+	while (tempS)
 	{
-		while (fixed)
+		while (currS)
 		{
-			// Checking if the ID of processes from different lists is the same
-			if (temp->ProcessId == fixed->ProcessId)
-			{
-				//AggregationOfData
-				fixed->ProcessData.PageFaultCount += temp->ProcessData.PageFaultCount;
-				fixed->ProcessData.WorkingSetSize += temp->ProcessData.WorkingSetSize;
-				fixed->ProcessData.PagefileUsage += temp->ProcessData.PagefileUsage;
-				fixed->ProcessData.QuotaPagedPoolUsage += temp->ProcessData.QuotaPagedPoolUsage;
-				fixed->ProcessData.QuotaPeakPagedPoolUsage += temp->ProcessData.QuotaPeakPagedPoolUsage;
-
-				tempProcessDlls = temp->ListOfDlls;
-				while (tempProcessDlls)
-				{
-					fixedProcessDLLs = fixed->ListOfDlls;
-
-					while (fixedProcessDLLs)
-					{
-						//Checking if the Name of DLLs from different lists is the same
-						if (strcmp(fixedProcessDLLs->NameOfDLL, temp->ListOfDlls->NameOfDLL) == 0)
-						{
-							break;
-						}
-						if (fixedProcessDLLs->next == NULL)
-						{
-							//Adding DLL To a fixedProcessDLLs
-							addDLL(fixedProcessDLLs, tempProcessDlls);
-							fixed->NumberOfDLLsInEachProcess++;
-							break;
-							
-						}
-						fixedProcessDLLs = fixedProcessDLLs->next;
-					}
-					tempProcessDlls = tempProcessDlls->next;
-
-				}
-				break;
-			}
-			if (fixed->next == NULL)
-			{
-				// We reached the last member and did not find a match between Processes
-				addProcess(fixed, temp);
-				SnapShot_Tail->CountNumberOfProcessesInEachSnapShot++;
-				break;
-			}
-			fixed = fixed->next;
 			
+			tempProcesses = tempS->ListOfProcesses;
+			while (tempProcesses)
+			{
+				currProcesses = currS->ListOfProcesses;
+				while (currProcesses)
+				{
+					if (tempProcesses->ProcessId == currProcesses->ProcessId)
+					{
+						//AggregationOfData
+						currProcesses->ProcessData.PageFaultCount += tempProcesses->ProcessData.PageFaultCount;
+						currProcesses->ProcessData.WorkingSetSize += tempProcesses->ProcessData.WorkingSetSize;
+						currProcesses->ProcessData.PagefileUsage += tempProcesses->ProcessData.PagefileUsage;
+						currProcesses->ProcessData.QuotaPagedPoolUsage += tempProcesses->ProcessData.QuotaPagedPoolUsage;
+						currProcesses->ProcessData.QuotaPeakPagedPoolUsage += tempProcesses->ProcessData.QuotaPeakPagedPoolUsage;
+
+						tempDlls = tempProcesses->ListOfDlls;
+						while (tempDlls)
+						{
+							currDlls = currProcesses->ListOfDlls;
+							while (currDlls)
+							{
+								if (strcmp(tempDlls->NameOfDLL, currDlls->NameOfDLL) == 0)
+								{
+									break;
+								}
+								if (currDlls->next == NULL)
+								{
+									//addDLL(currDlls, tempDlls);
+									break;
+								}
+
+								currDlls = currDlls->next;
+							}
+
+							tempDlls = tempDlls->next;
+						}
+
+						break;
+					}
+					// Identical processes were not found
+					// Add new Process
+					if (currProcesses->next == NULL)
+					{
+						//addProcess(currProcesses, tempProcesses); // problam
+						break; // to change tempProcesses
+					}
+
+					currProcesses = currProcesses->next;
+				}
+				tempProcesses = tempProcesses->next;
+			}
+			
+			currS = currS->next;
 		}
+
 		// Every time i compare temp variable with the whole list of fixed SnapShot
-		fixed = saveSnapShotAddress;
-		temp = temp->next;
+		currS = headOfList;
+
+		tempS = tempS->next;
 	}
+
 	return SnapShot_Tail;
+
 }
 
-void addProcess(t_Process* fixed, t_Process* temp)
+void addProcess(t_Process* curr, t_Process* temp)
 { 
-	if (temp->ProcessId > 100000)
-	{
-		temp->prev->next = NULL;
-		free(temp);
-		return;
-	}
+	t_Process* cProcess = curr;
+	t_Process* tProcess = temp;
 
 	//Allocate memory to a new variable so as not to disrupt the list it is in
-	t_Process* newFixedProcess = (t_Process*)malloc(sizeof(t_Process));
-	if (newFixedProcess == NULL)
+	t_Process* newCurrProcess = (t_Process*)malloc(sizeof(t_Process));
+	if (newCurrProcess == NULL)
 	{
 		LogError("Allocation memory Program (addProcess)");
 		exit(1);
 	}
-	newFixedProcess = temp;
-	t_Process* fixedProcess = fixed;
-	fixedProcess->next = newFixedProcess;
-	newFixedProcess->prev = fixedProcess;
-	newFixedProcess->next = NULL;
+	newCurrProcess->ListOfDlls = (t_DLL*)malloc(sizeof(t_DLL));
+	if (newCurrProcess->ListOfDlls == NULL)
+	{
+		LogError("Allocation memory Program (addProcess)");
+		exit(1);
+	}
+
+	strcpy(newCurrProcess->ProcessName, tProcess->ProcessName);
+	newCurrProcess->ProcessData = tProcess->ProcessData;
+	newCurrProcess->ProcessId = tProcess->ProcessId;
+	newCurrProcess->NumberOfDLLsInEachProcess = tProcess->NumberOfDLLsInEachProcess;
+	newCurrProcess->ListOfDlls = tProcess->ListOfDlls;
+	newCurrProcess->next = tProcess->next;
+	newCurrProcess->prev = tProcess->prev;
+
+	cProcess->next = newCurrProcess;
+	newCurrProcess->prev = cProcess;
+	newCurrProcess->next = NULL;
 
 }
 
-void addDLL(t_DLL* fixed, t_DLL* temp)
+void addDLL(t_DLL* curr, t_DLL*temp)
 { 
+
+	t_DLL* cDLL = curr;
+	t_DLL* tDLL = temp;
+
 	//Allocate memory to a new variable so as not to disrupt the list it is in
-	t_DLL* newFixeDLL = (t_DLL*)malloc(sizeof(t_DLL));
-	if (newFixeDLL == NULL)
+	t_DLL* newCurrDLL = (t_DLL*)malloc(sizeof(t_DLL));
+	if (newCurrDLL == NULL)
 	{
 		LogError("Allocation memory Program (addDLL)");
 		exit(1);
 	}
-	newFixeDLL = temp;
-	t_DLL* fixedDLL = fixed;
-	fixedDLL->next = newFixeDLL;
-	newFixeDLL->prev = fixedDLL;
-	newFixeDLL->next = NULL;
+
+	strcpy(newCurrDLL->NameOfDLL, tDLL->NameOfDLL);
+	newCurrDLL->next = tDLL->next;
+	newCurrDLL->prev = tDLL->prev;
+
+	cDLL->next = newCurrDLL;
+	newCurrDLL->prev = cDLL;
+	newCurrDLL->next = NULL;
 }
 
 //Preventing non-routine processes from harming the program
@@ -144,5 +177,4 @@ void cleaningDistruptingProcess(t_SnapShot*HeadOfSnapShot)
 		curr = curr->next;
 	}
 
-	
 }

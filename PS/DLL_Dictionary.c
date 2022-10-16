@@ -50,7 +50,7 @@ t_DLL_Dictionary* SnapshotTraversing(t_SnapShot* SnapShot)
 	return DLL_DictionaryHead;
 }
 
-void Dictionary(t_DLL* DLL, t_Process* Process)
+void Dictionary(t_DLL* currD, t_Process* Process)
 {
 	t_DLL_Dictionary* d_DLL = (t_DLL_Dictionary*)malloc(sizeof(t_DLL_Dictionary));
 	if (!d_DLL)
@@ -59,7 +59,7 @@ void Dictionary(t_DLL* DLL, t_Process* Process)
 		return;
 	}
 	//DLL info
-	strcpy(d_DLL->Key_Dll_Name, DLL->NameOfDLL);
+	strcpy(d_DLL->Key_Dll_Name, currD->NameOfDLL);
 	d_DLL->next = d_DLL->prev = NULL;
 	
 	d_DLL->Process_List = (t_Process*)malloc(sizeof(t_Process));

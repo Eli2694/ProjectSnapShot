@@ -1,1 +1,1 @@
-<tr><td class="Process-Name">C:\Windows\System32\RuntimeBroker.exe</td><td class="data">19016</td><td class="data">7146</td><td class="data">20811776</td><td class="data">5033984</tld><td class="data">221032</td><td class="data">224072</td></tr>
+<tr><td class="Process-Name">C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe</td><td class="data">31652</td><td class="data">848940</td><td class="data">2386124800</td><td class="data">828047360</tld><td class="data">20322720</td><td class="data">21742560</td></tr>

@@ -44,6 +44,7 @@ t_Processes_Dictionary* ProcessTraversing(t_SnapShot* SnapShotP)
 
 void CreateListOfMonovalentProcessess(t_Process* SampleProcess)
 {
+
 	t_Processes_Dictionary* d_Process = (t_Processes_Dictionary*)malloc(sizeof(t_Processes_Dictionary));
 	if (d_Process == NULL)
 	{
@@ -55,15 +56,16 @@ void CreateListOfMonovalentProcessess(t_Process* SampleProcess)
 	d_Process->next = d_Process->prev = NULL;
 
 	t_Processes_Dictionary* curr = Process_DictionaryHead;
+	t_Processes_Dictionary* temp = Process_DictionaryHead;
 	if (curr == NULL)
 	{
-
 		Process_DictionaryHead = Process_DictionaryTail = d_Process;
 	}
 	else
 	{
 		while (curr)
 		{
+			//checking if process from smaple already Exists in dictionary list of processes
 			if (strcmp(curr->Key_Process_Name, d_Process->Key_Process_Name) == 0)
 			{
 				free(d_Process);
@@ -71,16 +73,20 @@ void CreateListOfMonovalentProcessess(t_Process* SampleProcess)
 			}
 			if (curr->next == NULL)
 			{
-				curr->next = d_Process;
-				d_Process->prev = curr;
-				curr = d_Process;
-				d_Process->next = NULL;
+				t_Processes_Dictionary* newProcess = (t_Processes_Dictionary*)malloc(sizeof(t_Processes_Dictionary));
+				*newProcess = *d_Process;
+
+				curr->next = newProcess;
+				newProcess->prev = curr;
+				curr = newProcess;
+				newProcess->next = NULL;
+				free(d_Process);
 				break;
 			}
 			curr = curr->next;
 		}
 	}
-	curr = Process_DictionaryHead;
+	curr = temp; // i need to always check all the dictionary list for similar processes
 }
 
 int calculateNumOfMonovalentProcess()

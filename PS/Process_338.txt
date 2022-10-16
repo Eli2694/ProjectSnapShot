@@ -1,1 +1,1 @@
-<tr><td class="Process-Name">C:\Windows\System32\amdfendrsr.exe</td><td class="data">2100</td><td class="data">2168</td><td class="data">6426624</td><td class="data">2207744</tld><td class="data">98744</td><td class="data">99016</td></tr>
+<tr><td class="Process-Name">C:\Windows\System32\amdfendrsr.exe</td><td class="data">2100</td><td class="data">43360</td><td class="data">128532480</td><td class="data">44154880</tld><td class="data">1974880</td><td class="data">1980320</td></tr>

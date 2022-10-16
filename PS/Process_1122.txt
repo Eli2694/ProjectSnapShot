@@ -1,1 +1,1 @@
-<tr><td class="Process-Name">C:\Program Files (x86)\LightingService\LightingService.exe</td><td class="data">5992</td><td class="data">7227</td><td class="data">18288640</td><td class="data">11366400</tld><td class="data">166224</td><td class="data">183576</td></tr>
+<tr><td class="Process-Name">C:\Program Files (x86)\ASUS\ROG Live Service\ROGLiveService.exe</td><td class="data">5948</td><td class="data">468220</td><td class="data">568197120</td><td class="data">190545920</tld><td class="data">5008640</td><td class="data">5889920</td></tr>

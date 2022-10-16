@@ -1,1 +1,1 @@
-<tr><td class="Process-Name">C:\Program Files (x86)\ASUS\AsusCertService\AsusCertService.exe</td><td class="data">2124</td><td class="data">554223</td><td class="data">9900032</td><td class="data">3354624</tld><td class="data">97048</td><td class="data">117696</td></tr>
+<tr><td class="Process-Name">C:\Program Files (x86)\ASUS\AsusCertService\AsusCertService.exe</td><td class="data">2124</td><td class="data">15504848</td><td class="data">212893696</td><td class="data">85196800</tld><td class="data">1940960</td><td class="data">2353920</td></tr>

@@ -1,1 +1,1 @@
-<tr><td class="Process-Name">C:\Program Files\Google\Chrome\Application\chrome.exe</td><td class="data">9052</td><td class="data">126646232</td><td class="data">68239360</td><td class="data">26378240</tld><td class="data">733456</td><td class="data">1039168</td></tr>
+<tr><td class="Process-Name">C:\Program Files\Google\Chrome\Application\chrome.exe</td><td class="data">4632</td><td class="data">108117920</td><td class="data">4994662400</td><td class="data">12155289600</tld><td class="data">23673440</td><td class="data">31262720</td></tr>

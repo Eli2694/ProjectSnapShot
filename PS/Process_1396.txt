@@ -1,1 +1,1 @@
-<tr><td class="Process-Name">C:\Program Files\Common Files\LogiShrd\KHAL3\KHALMNPR.exe</td><td class="data">11368</td><td class="data">3387</td><td class="data">9375744</td><td class="data">3829760</tld><td class="data">179824</td><td class="data">180320</td></tr>
+<tr><td class="Process-Name">C:\Program Files\Common Files\LogiShrd\KHAL3\KHALMNPR.exe</td><td class="data">11368</td><td class="data">68820</td><td class="data">187596800</td><td class="data">76595200</tld><td class="data">3596480</td><td class="data">3606400</td></tr>

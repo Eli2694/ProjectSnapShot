@@ -1,1 +1,1 @@
-<tr><td class="Process-Name">C:\Program Files (x86)\Common Files\Java\Java Update\jucheck.exe</td><td class="data">2708</td><td class="data">5886</td><td class="data">14774272</td><td class="data">3330048</tld><td class="data">199736</td><td class="data">316952</td></tr>
+<tr><td class="Process-Name">C:\Windows\System32\MoUsoCoreWorker.exe</td><td class="data">15228</td><td class="data">19898480</td><td class="data">522485760</td><td class="data">331857920</tld><td class="data">2908160</td><td class="data">3714880</td></tr>

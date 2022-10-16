@@ -1,1 +1,1 @@
-<tr><td class="Process-Name">C:\Program Files (x86)\Common Files\Adobe\ARM\1.0\armsvc.exe</td><td class="data">5940</td><td class="data">1877</td><td class="data">5849088</td><td class="data">1585152</tld><td class="data">73936</td><td class="data">74208</td></tr>
+<tr><td class="Process-Name">C:\Windows\System32\DriverStore\FileRepository\dal.inf_amd64_ffc75848a6342fdf\jhi_service.exe</td><td class="data">5924</td><td class="data">35960</td><td class="data">106496000</td><td class="data">26787840</tld><td class="data">1700000</td><td class="data">1705440</td></tr>
