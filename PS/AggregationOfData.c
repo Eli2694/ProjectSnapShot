@@ -52,6 +52,7 @@ t_SnapShot* AggregationOfData(t_SnapShot* SnapShot_Tail, t_SnapShot* Sample)
 							//Adding DLL To a fixedProcessDLLs
 							addDLL(fixedProcessDLLs, tempProcessDlls);
 							fixed->NumberOfDLLsInEachProcess++;
+							break;
 							
 						}
 						fixedProcessDLLs = fixedProcessDLLs->next;
@@ -83,11 +84,10 @@ void addProcess(t_Process* fixed, t_Process* temp)
 	if (temp->ProcessId > 100000)
 	{
 		temp->prev->next = NULL;
-		temp->next = NULL;
 		free(temp);
-		temp = NULL;
 		return;
 	}
+
 	//Allocate memory to a new variable so as not to disrupt the list it is in
 	t_Process* newFixedProcess = (t_Process*)malloc(sizeof(t_Process));
 	if (newFixedProcess == NULL)

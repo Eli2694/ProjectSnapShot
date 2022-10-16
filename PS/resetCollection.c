@@ -33,10 +33,12 @@ void FreeSnapShotList(t_SnapShot*EndOfSnapShots)
 			// Preventing non-routine processes from harming the program
 			if (currSample->ListOfProcesses->ProcessId > 100000)
 			{
+				if (currSample->ListOfProcesses->next != NULL)
+				{
+					free(currSample->ListOfProcesses->next);
+				}
 				currSample->ListOfProcesses->prev->next = NULL;
-				currSample->ListOfProcesses->next = NULL;
 				free(currSample->ListOfProcesses);
-				currSample->ListOfProcesses = NULL;
 			}
 
 			releaseProcess = currSample->ListOfProcesses;
