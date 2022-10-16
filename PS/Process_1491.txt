@@ -1,0 +1,1 @@
+<tr><td class="Process-Name">C:\Program Files\AMD\CNext\CNext\cncmd.exe</td><td class="data">13528</td><td class="data">1790</td><td class="data">786432</td><td class="data">1482752</tld><td class="data">136512</td><td class="data">137008</td></tr>

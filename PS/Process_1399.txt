@@ -1,0 +1,1 @@
+<tr><td class="Process-Name">C:\Program Files (x86)\Razer\Synapse3\WPFUI\Framework\Razer Synapse 3 Host\Razer Synapse 3.exe</td><td class="data">5452</td><td class="data">212977</td><td class="data">135630848</td><td class="data">118083584</tld><td class="data">1230000</td><td class="data">1253088</td></tr>

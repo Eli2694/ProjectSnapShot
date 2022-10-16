@@ -1,0 +1,1 @@
+<tr><td class="Process-Name">C:\Program Files (x86)\ASUS\AXSP\4.02.06\atkexComSvc.exe</td><td class="data">3436</td><td class="data">4158</td><td class="data">8986624</td><td class="data">6594560</tld><td class="data">103280</td><td class="data">103552</td></tr>

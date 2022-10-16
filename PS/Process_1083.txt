@@ -1,0 +1,1 @@
+<tr><td class="Process-Name">C:\Program Files (x86)\Razer\Razer Services\Razer Central\RazerCentralService.exe</td><td class="data">5684</td><td class="data">82497</td><td class="data">73117696</td><td class="data">49176576</tld><td class="data">537720</td><td class="data">547072</td></tr>

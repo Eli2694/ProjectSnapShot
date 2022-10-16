@@ -1,0 +1,1 @@
+<tr><td class="Process-Name">C:\Program Files (x86)\LightingService\LightingService.exe</td><td class="data">5992</td><td class="data">7227</td><td class="data">18288640</td><td class="data">11366400</tld><td class="data">166224</td><td class="data">183576</td></tr>

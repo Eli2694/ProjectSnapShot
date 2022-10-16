@@ -1,0 +1,1 @@
+<tr><td class="Process-Name">C:\Program Files (x86)\ASUS\ArmouryDevice\dll\SwAgent\ArmourySwAgent.exe</td><td class="data">11404</td><td class="data">21033</td><td class="data">5931008</td><td class="data">47443968</tld><td class="data">537888</td><td class="data">539744</td></tr>

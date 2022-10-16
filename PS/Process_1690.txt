@@ -1,0 +1,1 @@
+<tr><td class="Process-Name">C:\Program Files\Adobe\Acrobat DC\Acrobat\acrocef_1\AcroCEF.exe</td><td class="data">12308</td><td class="data">13784</td><td class="data">25292800</td><td class="data">16830464</tld><td class="data">562200</td><td class="data">563120</td></tr>

@@ -1,0 +1,1 @@
+<tr><td class="Process-Name">C:\Program Files (x86)\ASUS\ArmouryDevice\asus_framework.exe</td><td class="data">3212</td><td class="data">23412</td><td class="data">14786560</td><td class="data">23683072</tld><td class="data">194696</td><td class="data">194920</td></tr>

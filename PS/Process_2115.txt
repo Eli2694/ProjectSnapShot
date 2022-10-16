@@ -1,0 +1,1 @@
+<tr><td class="Process-Name">C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\ServiceHub\Hosts\ServiceHub.Host.CoreCLR\ServiceHub.IndexingService.exe</td><td class="data">6320</td><td class="data">35470</td><td class="data">104611840</td><td class="data">131612672</tld><td class="data">357000</td><td class="data">365288</td></tr>

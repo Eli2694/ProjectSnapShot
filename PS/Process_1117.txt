@@ -1,0 +1,1 @@
+<tr><td class="Process-Name">C:\Program Files (x86)\ASUS\ROG Live Service\ROGLiveService.exe</td><td class="data">5948</td><td class="data">23247</td><td class="data">27799552</td><td class="data">9527296</tld><td class="data">250432</td><td class="data">294496</td></tr>

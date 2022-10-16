@@ -1,0 +1,1 @@
+<tr><td class="Process-Name">C:\Program Files (x86)\ASUS\AsusFanControlService\2.01.07\AsusFanControlService.exe</td><td class="data">5960</td><td class="data">4657</td><td class="data">14807040</td><td class="data">2801664</tld><td class="data">135864</td><td class="data">137400</td></tr>

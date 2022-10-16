@@ -20,7 +20,7 @@ void createDLLsProcessListInHTML()
 {
 	
 
-	char DllTitleInfo[200];
+	char DllTitleInfo[300];
 	char process_name[500];
 	char process_id[200];
 	char pagefaultcount[200];

@@ -1,0 +1,1 @@
+<tr><td class="Process-Name">C:\Windows\System32\DriverStore\FileRepository\iaahcic.inf_amd64_778512ee63a728ec\RstMwService.exe</td><td class="data">5932</td><td class="data">2023</td><td class="data">6144000</td><td class="data">1482752</tld><td class="data">83232</td><td class="data">83504</td></tr>

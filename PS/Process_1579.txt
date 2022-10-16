@@ -1,0 +1,1 @@
+<tr><td class="Process-Name">C:\Program Files (x86)\Common Files\Java\Java Update\jucheck.exe</td><td class="data">2708</td><td class="data">5886</td><td class="data">14774272</td><td class="data">3330048</tld><td class="data">199736</td><td class="data">316952</td></tr>

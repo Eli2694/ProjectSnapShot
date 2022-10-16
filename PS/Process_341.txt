@@ -1,0 +1,1 @@
+<tr><td class="Process-Name">C:\Windows\System32\DriverStore\FileRepository\u0375709.inf_amd64_b5db6b3799486cf8\B375758\atiesrxx.exe</td><td class="data">2112</td><td class="data">1916</td><td class="data">5468160</td><td class="data">1593344</tld><td class="data">82664</td><td class="data">83344</td></tr>

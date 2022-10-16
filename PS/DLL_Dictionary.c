@@ -35,7 +35,7 @@ t_DLL_Dictionary* SnapshotTraversing(t_SnapShot* SnapShot)
 		currProcess = currSnapShot->ListOfProcesses;
 		while (currProcess)
 		{
-			currDLL = currSnapShot->ListOfProcesses->ListOfDlls;
+			currDLL = currProcess->ListOfDlls;
 			while (currDLL)
 			{
 				Dictionary(currDLL, currProcess);
@@ -81,6 +81,8 @@ void Dictionary(t_DLL* DLL, t_Process* Process)
 
 	if (curr == NULL)
 	{
+		// I create a new variable to store the data of d_dll because i free d_dll in the end.
+
 		t_DLL_Dictionary* h_DLL = (t_DLL_Dictionary*)malloc(sizeof(t_DLL_Dictionary));
 		h_DLL->Process_List = (t_Process*)malloc(sizeof(t_Process));
 
@@ -100,6 +102,7 @@ void Dictionary(t_DLL* DLL, t_Process* Process)
 	{
 		while (curr)
 		{
+			// Checking if the names of dll are the same between two different lists
 			if (strcmp(curr->Key_Dll_Name, d_DLL->Key_Dll_Name) == 0)
 			{
 				checkIfProcessAdded = addProcessToDLL(curr->Process_List,d_DLL->Process_List);
@@ -111,6 +114,9 @@ void Dictionary(t_DLL* DLL, t_Process* Process)
 			}
 			if (curr->next == NULL)
 			{
+
+				// I create a new variable to store the data of d_dll because i free d_dll in the end.
+
 				t_DLL_Dictionary* n_DLL = (t_DLL_Dictionary*)malloc(sizeof(t_DLL_Dictionary));
 				n_DLL->Process_List = (t_Process*)malloc(sizeof(t_Process));
 
@@ -135,45 +141,42 @@ void Dictionary(t_DLL* DLL, t_Process* Process)
 
 }
 
-void addToDLLDictionaryList(t_DLL_Dictionary* j_DLL)
+void addToDLLDictionaryList(t_DLL_Dictionary* DLL)
 {
 	if (DLL_DictionaryHead == NULL)
 	{
-		j_DLL->next = NULL;
-		j_DLL->prev = NULL;
-		DLL_DictionaryHead = j_DLL;
-		DLL_DictionaryTail = j_DLL;
+		DLL->next = NULL;
+		DLL->prev = NULL;
+		DLL_DictionaryHead = DLL;
+		DLL_DictionaryTail = DLL;
 
 	}
 	else
 	{
-		DLL_DictionaryTail->next = j_DLL;
-		j_DLL->prev = DLL_DictionaryTail;
-		j_DLL->next = NULL;
-		DLL_DictionaryTail = j_DLL;
+		DLL_DictionaryTail->next = DLL;
+		DLL->prev = DLL_DictionaryTail;
+		DLL->next = NULL;
+		DLL_DictionaryTail = DLL;
 	}
 }
 
-int addProcessToDLL(t_Process* currDLL, t_Process* d_DLL)
+int addProcessToDLL(t_Process* currDLLProcess, t_Process* newProcess)
 {
-	t_Process* currDictionaryDLL = currDLL;
+	t_Process* currDictionaryDLL = currDLLProcess;
+	t_Process* nProcess = newProcess;
 	
 	while (currDictionaryDLL)
 	{
-		if (strcmp(currDictionaryDLL->ProcessName, d_DLL->ProcessName) == 0)
+		if (strcmp(currDictionaryDLL->ProcessName, nProcess->ProcessName) == 0)
 		{
 			return 0;
 		}
-
-
 		if (currDictionaryDLL->next == NULL)
 		{
 			t_Process* new_process = (t_Process*)malloc(sizeof(t_Process));
-			strcpy(new_process->ProcessName, d_DLL->ProcessName);
-			new_process->ProcessData = d_DLL->ProcessData;
-			new_process->ProcessId = d_DLL->ProcessId;
-			
-			
+			strcpy(new_process->ProcessName, nProcess->ProcessName);
+			new_process->ProcessData = nProcess->ProcessData;
+			new_process->ProcessId = nProcess->ProcessId;
 
 			//Insetring Into List Of Processes
 			currDictionaryDLL->next = new_process;
