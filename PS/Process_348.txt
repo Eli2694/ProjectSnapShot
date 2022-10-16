@@ -1,1 +1,1 @@
-<tr><td class="Process-Name">C:\Program Files (x86)\ASUS\AsusCertService\AsusCertService.exe</td><td class="data">2124</td><td class="data">15504848</td><td class="data">212893696</td><td class="data">85196800</tld><td class="data">1940960</td><td class="data">2353920</td></tr>
+<tr><td class="Process-Name">C:\Windows\System32\amdfendrsr.exe</td><td class="data">2164</td><td class="data">42720</td><td class="data">150814720</td><td class="data">48087040</tld><td class="data">1974560</td><td class="data">1980000</td></tr>

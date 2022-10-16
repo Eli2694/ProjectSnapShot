@@ -1,1 +1,1 @@
-<tr><td class="Process-Name">C:\Program Files (x86)\ASUS\ArmouryDevice\dll\SwAgent\ArmourySwAgent.exe</td><td class="data">11404</td><td class="data">449640</td><td class="data">119037952</td><td class="data">952893440</tld><td class="data">10757760</td><td class="data">10800000</td></tr>
+<tr><td class="Process-Name">C:\Windows\System32\smartscreen.exe</td><td class="data">11540</td><td class="data">135480</td><td class="data">474808320</td><td class="data">170229760</tld><td class="data">4572000</td><td class="data">4584480</td></tr>

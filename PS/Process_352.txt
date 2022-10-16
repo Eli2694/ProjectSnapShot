@@ -1,1 +1,1 @@
-<tr><td class="Process-Name">C:\Windows\System32\svchost.exe</td><td class="data">2132</td><td class="data">141280</td><td class="data">228638720</td><td class="data">99942400</tld><td class="data">2115680</td><td class="data">2134880</td></tr>
+<tr><td class="Process-Name">C:\Windows\System32\amdfendrsr.exe</td><td class="data">2164</td><td class="data">42720</td><td class="data">150814720</td><td class="data">48087040</tld><td class="data">1974560</td><td class="data">1980000</td></tr>

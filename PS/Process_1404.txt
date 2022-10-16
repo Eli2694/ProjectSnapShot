@@ -1,1 +1,1 @@
-<tr><td class="Process-Name">C:\Program Files\Common Files\LogiShrd\KHAL3\KHALMNPR.exe</td><td class="data">11368</td><td class="data">68820</td><td class="data">187596800</td><td class="data">76595200</tld><td class="data">3596480</td><td class="data">3606400</td></tr>
+<tr><td class="Process-Name">C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe</td><td class="data">12504</td><td class="data">816922</td><td class="data">2246979584</td><td class="data">806064128</tld><td class="data">20289920</td><td class="data">21441120</td></tr>

@@ -1,1 +1,1 @@
-<tr><td class="Process-Name">C:\Program Files (x86)\ASUS\AsusFanControlService\2.01.07\AsusFanControlService.exe</td><td class="data">5960</td><td class="data">96760</td><td class="data">307118080</td><td class="data">56033280</tld><td class="data">2717280</td><td class="data">2748000</td></tr>
+<tr><td class="Process-Name">C:\Windows\System32\wbem\WmiPrvSE.exe</td><td class="data">6456</td><td class="data">2346597</td><td class="data">392908800</td><td class="data">228274176</tld><td class="data">2512864</td><td class="data">2543520</td></tr>

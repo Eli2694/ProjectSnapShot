@@ -1,1 +1,1 @@
-<tr><td class="Process-Name">C:\Windows\System32\MoUsoCoreWorker.exe</td><td class="data">15228</td><td class="data">19898480</td><td class="data">522485760</td><td class="data">331857920</tld><td class="data">2908160</td><td class="data">3714880</td></tr>
+<tr><td class="Process-Name">C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\devenv.exe</td><td class="data">13032</td><td class="data">6311788</td><td class="data">14569390080</td><td class="data">14218604544</tld><td class="data">43366144</td><td class="data">58025760</td></tr>

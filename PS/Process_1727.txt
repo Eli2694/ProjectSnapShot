@@ -1,1 +1,1 @@
-<tr><td class="Process-Name">C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\devenv.exe</td><td class="data">3420</td><td class="data">19141243</td><td class="data">16120410112</td><td class="data">15504908288</tld><td class="data">44231056</td><td class="data">58029600</td></tr>
+<tr><td class="Process-Name">C:\Program Files\AMD\CNext\CNext\RadeonSoftware.exe</td><td class="data">13756</td><td class="data">722628</td><td class="data">492363776</td><td class="data">1223147520</tld><td class="data">22079680</td><td class="data">24320480</td></tr>

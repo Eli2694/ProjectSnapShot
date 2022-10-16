@@ -74,7 +74,7 @@ t_SnapShot* AggregationOfData(t_SnapShot* SnapShot_Tail, t_SnapShot* Sample)
 					// Add new Process
 					if (currProcesses->next == NULL)
 					{
-						//addProcess(currProcesses, tempProcesses); // problam
+						addProcess(currProcesses, tempProcesses); // problam
 						break; // to change tempProcesses
 					}
 
@@ -126,6 +126,9 @@ void addProcess(t_Process* curr, t_Process* temp)
 	cProcess->next = newCurrProcess;
 	newCurrProcess->prev = cProcess;
 	newCurrProcess->next = NULL;
+
+	// I need to keep the list of DLLS in newCurrProcess
+	temp->ListOfDlls = NULL;
 
 }
 

@@ -1,1 +1,1 @@
-<tr><td class="Process-Name">C:\Program Files (x86)\Razer\Razer Services\GMS3\GameManagerService3.exe</td><td class="data">5876</td><td class="data">7678259</td><td class="data">4103139328</td><td class="data">3783118848</tld><td class="data">13249408</td><td class="data">13263640</td></tr>
+<tr><td class="Process-Name">C:\Program Files (x86)\LightingService\LightingService.exe</td><td class="data">5800</td><td class="data">131060</td><td class="data">426065920</td><td class="data">233881600</tld><td class="data">3328960</td><td class="data">3674720</td></tr>

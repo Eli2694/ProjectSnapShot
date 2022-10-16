@@ -1,1 +1,1 @@
-<tr><td class="Process-Name">C:\Program Files\Logitech\SetPointP\SetPoint.exe</td><td class="data">12240</td><td class="data">16289320</td><td class="data">400916480</td><td class="data">153190400</tld><td class="data">5086560</td><td class="data">5894880</td></tr>
+<tr><td class="Process-Name">C:\Program Files\Logitech\SetPointP\SetPoint.exe</td><td class="data">11836</td><td class="data">353101</td><td class="data">556228608</td><td class="data">152092672</tld><td class="data">5328960</td><td class="data">5708160</td></tr>
