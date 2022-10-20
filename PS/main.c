@@ -107,6 +107,7 @@ int main()
 			LoadFromFile();
 			break;
 		case 8:
+			LogEvent("Exit Program");
 			exit(1);
 			break;
 		}

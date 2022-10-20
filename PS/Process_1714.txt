@@ -1,1 +1,1 @@
-<tr><td class="Process-Name">C:\Program Files\AMD\CNext\CNext\RadeonSoftware.exe</td><td class="data">13756</td><td class="data">722628</td><td class="data">492363776</td><td class="data">1223147520</tld><td class="data">22079680</td><td class="data">24320480</td></tr>
+<tr><td class="Process-Name">C:\Program Files\Adobe\Acrobat DC\Acrobat\acrocef_1\AcroCEF.exe</td><td class="data">12500</td><td class="data">268180</td><td class="data">671662080</td><td class="data">367984640</tld><td class="data">11330400</td><td class="data">11344320</td></tr>

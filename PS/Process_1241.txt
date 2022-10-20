@@ -1,1 +1,1 @@
-<tr><td class="Process-Name">C:\Program Files (x86)\Razer\Synapse3\Service\Razer Synapse Service.exe</td><td class="data">8352</td><td class="data">3100190</td><td class="data">3232555008</td><td class="data">2036932608</tld><td class="data">16227840</td><td class="data">16248960</td></tr>
+<tr><td class="Process-Name">C:\Windows\explorer.exe</td><td class="data">11012</td><td class="data">5525811</td><td class="data">3096735744</td><td class="data">1983684608</tld><td class="data">21234480</td><td class="data">26865120</td></tr>

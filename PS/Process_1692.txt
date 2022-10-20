@@ -1,1 +1,1 @@
-<tr><td class="Process-Name">C:\Program Files\AMD\CNext\CNext\RadeonSoftware.exe</td><td class="data">13756</td><td class="data">722628</td><td class="data">492363776</td><td class="data">1223147520</tld><td class="data">22079680</td><td class="data">24320480</td></tr>
+<tr><td class="Process-Name">C:\Windows\System32\svchost.exe</td><td class="data">1460</td><td class="data">62200</td><td class="data">235438080</td><td class="data">46120960</tld><td class="data">2120640</td><td class="data">2127360</td></tr>

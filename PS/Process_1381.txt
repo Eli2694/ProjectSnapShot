@@ -1,1 +1,1 @@
-<tr><td class="Process-Name">C:\Program Files\Logitech\SetPointP\SetPoint.exe</td><td class="data">11836</td><td class="data">353101</td><td class="data">556228608</td><td class="data">152092672</tld><td class="data">5328960</td><td class="data">5708160</td></tr>
+<tr><td class="Process-Name">C:\Program Files (x86)\Razer\Synapse3\UserProcess\Razer Synapse Service Process.exe</td><td class="data">8152</td><td class="data">3581465</td><td class="data">1237958656</td><td class="data">948625408</tld><td class="data">12148512</td><td class="data">12177920</td></tr>

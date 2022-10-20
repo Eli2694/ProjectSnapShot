@@ -1,1 +1,1 @@
-<tr><td class="Process-Name">C:\Program Files (x86)\LightingService\LightingService.exe</td><td class="data">5800</td><td class="data">131060</td><td class="data">426065920</td><td class="data">233881600</tld><td class="data">3328960</td><td class="data">3674720</td></tr>
+<tr><td class="Process-Name">C:\Program Files\Norton Security\Engine\22.22.8.15\NortonSecurity.exe</td><td class="data">7544</td><td class="data">16825275</td><td class="data">210186240</td><td class="data">524206080</tld><td class="data">14981760</td><td class="data">17705120</td></tr>
