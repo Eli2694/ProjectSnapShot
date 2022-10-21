@@ -1,1 +1,1 @@
-<tr><td class="Process-Name">C:\Program Files\Adobe\Acrobat DC\Acrobat\acrocef_1\AcroCEF.exe</td><td class="data">12500</td><td class="data">268180</td><td class="data">671662080</td><td class="data">367984640</tld><td class="data">11330400</td><td class="data">11344320</td></tr>
+<tr><td class="Process-Name">C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\devenv.exe</td><td class="data">12836</td><td class="data">523939</td><td class="data">684171264</td><td class="data">711008256</tld><td class="data">2182736</td><td class="data">2857096</td></tr>

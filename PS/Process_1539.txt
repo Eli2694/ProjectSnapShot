@@ -1,1 +1,1 @@
-<tr><td class="Process-Name">C:\Windows\System32\svchost.exe</td><td class="data">6272</td><td class="data">150340</td><td class="data">449495040</td><td class="data">90030080</tld><td class="data">3010560</td><td class="data">3019840</td></tr>
+<tr><td class="Process-Name">C:\Users\User\AppData\Local\WhatsApp\app-2.2238.7\WhatsApp.exe</td><td class="data">7312</td><td class="data">300934</td><td class="data">127553536</td><td class="data">275156992</tld><td class="data">788976</td><td class="data">841696</td></tr>

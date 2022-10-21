@@ -1,1 +1,1 @@
-<tr><td class="Process-Name">C:\Windows\System32\svchost.exe</td><td class="data">5112</td><td class="data">70300</td><td class="data">214876160</td><td class="data">61767680</tld><td class="data">2058720</td><td class="data">2070400</td></tr>
+<tr><td class="Process-Name">C:\Windows\System32\wbem\WmiPrvSE.exe</td><td class="data">4288</td><td class="data">8611613</td><td class="data">37425152</td><td class="data">26959872</tld><td class="data">208128</td><td class="data">260616</td></tr>

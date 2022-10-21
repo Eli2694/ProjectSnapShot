@@ -1,1 +1,1 @@
-<tr><td class="Process-Name">C:\Windows\System32\MoUsoCoreWorker.exe</td><td class="data">8384</td><td class="data">1413280</td><td class="data">743915520</td><td class="data">473251840</tld><td class="data">2887520</td><td class="data">4000640</td></tr>
+<tr><td class="Process-Name">C:\Windows\explorer.exe</td><td class="data">3752</td><td class="data">92636</td><td class="data">85106688</td><td class="data">44523520</tld><td class="data">525504</td><td class="data">853360</td></tr>

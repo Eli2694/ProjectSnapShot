@@ -1,1 +1,1 @@
-<tr><td class="Process-Name">C:\Program Files\AMD\CNext\CNext\cncmd.exe</td><td class="data">7832</td><td class="data">35480</td><td class="data">14008320</td><td class="data">29409280</tld><td class="data">2730560</td><td class="data">2740480</td></tr>
+<tr><td class="Process-Name">C:\Windows\System32\svchost.exe</td><td class="data">2568</td><td class="data">10185</td><td class="data">20754432</td><td class="data">5537792</tld><td class="data">184968</td><td class="data">198600</td></tr>

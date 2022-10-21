@@ -1,1 +1,1 @@
-<tr><td class="Process-Name">C:\Users\User\AppData\Local\Programs\Microsoft VS Code\Code.exe</td><td class="data">6368</td><td class="data">9004964</td><td class="data">3878207488</td><td class="data">4916617216</tld><td class="data">16360160</td><td class="data">17528160</td></tr>
+<tr><td class="Process-Name">C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\devenv.exe</td><td class="data">12836</td><td class="data">523939</td><td class="data">684171264</td><td class="data">711008256</tld><td class="data">2182736</td><td class="data">2857096</td></tr>

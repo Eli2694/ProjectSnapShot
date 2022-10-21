@@ -101,16 +101,29 @@ t_Process* PrintMemoryInfo(DWORD processID)
 				char* ret; // to use strstr and check if the DLL is standard
 				// Convert wChar to regular char array (string)
 				wcstombs_s(&numConverted, Dll_node->NameOfDLL, MAX_PATH, FoundDllName, MAX_PATH);
-				if (numConverted == 0) // If The DLL Without Name
-				{
-					free(Dll_node);
-				}
-				else
+				if (strstr(Dll_node->NameOfDLL, ".dll") || strstr(Dll_node->NameOfDLL, ".DLL"))
 				{
 					process_node->NumberOfDLLsInEachProcess = i + 1;
 					CreateListOfDlls(Dll_node);
-					
 				}
+				else
+				{
+					free(Dll_node);
+
+				}
+
+				
+
+				//if (numConverted == 0) // If The DLL Without Name
+				//{
+				//	free(Dll_node);
+				//}
+				//else
+				//{
+				//	process_node->NumberOfDLLsInEachProcess = i + 1;
+				//	CreateListOfDlls(Dll_node);
+				//	
+				//}
 				
 			}
 		}

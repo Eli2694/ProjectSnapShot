@@ -1,1 +1,1 @@
-<tr><td class="Process-Name">C:\Users\User\AppData\Local\WhatsApp\app-2.2238.7\WhatsApp.exe</td><td class="data">14384</td><td class="data">3303358</td><td class="data">2936455168</td><td class="data">1652056064</tld><td class="data">15441184</td><td class="data">16460320</td></tr>
+<tr><td class="Process-Name">C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\devenv.exe</td><td class="data">12836</td><td class="data">523939</td><td class="data">684171264</td><td class="data">711008256</tld><td class="data">2182736</td><td class="data">2857096</td></tr>

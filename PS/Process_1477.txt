@@ -1,1 +1,1 @@
-<tr><td class="Process-Name">C:\Program Files\AMD\CNext\CNext\amdow.exe</td><td class="data">3948</td><td class="data">49190</td><td class="data">22241280</td><td class="data">43253760</tld><td class="data">2933920</td><td class="data">2943840</td></tr>
+<tr><td class="Process-Name">C:\Windows\System32\svchost.exe</td><td class="data">1144</td><td class="data">39838</td><td class="data">15978496</td><td class="data">11681792</tld><td class="data">183336</td><td class="data">183832</td></tr>

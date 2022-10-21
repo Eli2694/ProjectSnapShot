@@ -126,29 +126,31 @@ void CreateProjectPage()
 	strcat(newFileSpace3, WorkingSet);
 	strcat(newFileSpace3, found3 + strlen(SEPERATOR)); // newFileSpace3 - new template HTML
 
+	//create SnapShot list
+	inputListOfSamples();
+	char* sample_list_info = ReadAllFile("C:\\Users\\User\\source\\repos\\PS\\PS\\sample_list.txt");
+	char* found4 = strstr(newFileSpace3, SEPERATOR);
+	int len4 = found4 - newFileSpace3;
+	char* newFileSpace4 = (char*)malloc(strlen(newFileSpace3) + strlen(sample_list_info));
+	strncpy(newFileSpace4, newFileSpace3, len4);
+	newFileSpace4[len4] = NULL;
+	strcat(newFileSpace4, sample_list_info);
+	strcat(newFileSpace4, found4 + strlen(SEPERATOR));
+
 	//create dll list
 	// function that create file of type txt of - list of dlls - to read from
 	inputListOfDlls();
 	// dll_list_info will contain the information of dll_list txt file
 	char* dll_list_info = ReadAllFile("C:\\Users\\User\\source\\repos\\PS\\PS\\dll_list.txt");
-	char* found4 = strstr(newFileSpace3, SEPERATOR);
-	int len4 = found4 - newFileSpace3;
-	char* newFileSpace4 = (char*)malloc(strlen(newFileSpace3) + strlen(dll_list_info));
-	strncpy(newFileSpace4, newFileSpace3, len4);
-	newFileSpace4[len4] = NULL;
-	strcat(newFileSpace4, dll_list_info);
-	strcat(newFileSpace4, found4 + strlen(SEPERATOR));
-
-	//create SnapShot list
-	inputListOfSamples();
-	char* sample_list_info = ReadAllFile("C:\\Users\\User\\source\\repos\\PS\\PS\\sample_list.txt");
 	char* found5 = strstr(newFileSpace4, SEPERATOR);
 	int len5 = found5 - newFileSpace4;
-	char* newFileSpace5 = (char*)malloc(strlen(newFileSpace4) + strlen(sample_list_info));
+	char* newFileSpace5 = (char*)malloc(strlen(newFileSpace4) + strlen(dll_list_info));
 	strncpy(newFileSpace5, newFileSpace4, len5);
 	newFileSpace5[len5] = NULL;
-	strcat(newFileSpace5, sample_list_info);
+	strcat(newFileSpace5, dll_list_info);
 	strcat(newFileSpace5, found5 + strlen(SEPERATOR));
+
+	
 	
 
 	SaveIntoFile("Project.html", newFileSpace5);
