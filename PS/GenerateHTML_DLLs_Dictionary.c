@@ -128,7 +128,7 @@ void CreateProjectPage()
 
 	//create SnapShot list
 	inputListOfSamples();
-	char* sample_list_info = ReadAllFile("C:\\Users\\User\\source\\repos\\PS\\PS\\sample_list.txt");
+	char* sample_list_info = ReadAllFile("C:\\Users\\User\\source\\repos\\PS\\PS\\txtFiles\\sample_list.txt");
 	char* found4 = strstr(newFileSpace3, SEPERATOR);
 	int len4 = found4 - newFileSpace3;
 	char* newFileSpace4 = (char*)malloc(strlen(newFileSpace3) + strlen(sample_list_info));
@@ -141,7 +141,7 @@ void CreateProjectPage()
 	// function that create file of type txt of - list of dlls - to read from
 	inputListOfDlls();
 	// dll_list_info will contain the information of dll_list txt file
-	char* dll_list_info = ReadAllFile("C:\\Users\\User\\source\\repos\\PS\\PS\\dll_list.txt");
+	char* dll_list_info = ReadAllFile("C:\\Users\\User\\source\\repos\\PS\\PS\\txtFiles\\dll_list.txt");
 	char* found5 = strstr(newFileSpace4, SEPERATOR);
 	int len5 = found5 - newFileSpace4;
 	char* newFileSpace5 = (char*)malloc(strlen(newFileSpace4) + strlen(dll_list_info));
@@ -153,7 +153,7 @@ void CreateProjectPage()
 	
 	
 
-	SaveIntoFile("Project.html", newFileSpace5);
+	SaveIntoFile("C:\\Users\\User\\source\\repos\\PS\\PS\\HTML\\Project.html", newFileSpace5);
 
 	//free(newFileSpace);
 	free(newFileSpace);
@@ -169,7 +169,7 @@ void CreateProjectPage()
 
 void inputListOfDlls()
 {
-	FILE* out = fopen("dll_list.txt", "w");
+	FILE* out = fopen("C:\\Users\\User\\source\\repos\\PS\\PS\\txtFiles\\dll_list.txt", "w");
 	if (!out)
 	{
 		return NULL;
@@ -190,7 +190,7 @@ void inputListOfDlls()
 
 void inputListOfSamples()
 {
-	FILE* out1 = fopen("sample_list.txt", "w");
+	FILE* out1 = fopen("C:\\Users\\User\\source\\repos\\PS\\PS\\txtFiles\\sample_list.txt", "w");
 	if (!out1)
 	{
 		return NULL;

@@ -94,9 +94,9 @@ void createsnapShotLisInHTML()
 	char option[300];
 	char SampleListNumber[200];
 	char* dataFromSmapleFile;
-	char file_name[15] = "SnapShot_1.txt";
-	char readFromfile[100];
-	char HTMLfile[50];
+	char writeTxtFile[100];
+	char readTxtFile[100];
+	char HTMLfile[100];
 	int fileCount = 0;
 	int BiggestWorkingSetSizeLocation = 0;
 
@@ -106,9 +106,9 @@ void createsnapShotLisInHTML()
 
 		fileCount++;
 
-		sprintf(file_name, "SnapShot_%d.txt", fileCount);
+		sprintf(writeTxtFile, "C:\\Users\\User\\source\\repos\\PS\\PS\\txtFiles\\SnapShot_%d.txt", fileCount);
 		//Openning File for writing into
-		FILE* out = fopen(file_name, "w");
+		FILE* out = fopen(writeTxtFile, "w");
 		if (!out)
 		{
 			return NULL;
@@ -225,9 +225,9 @@ void createsnapShotLisInHTML()
 		//Closing file for writing
 		fclose(out);
 		//reading from file that contain list of processes and it's DLLs
-		sprintf(readFromfile,"C:\\Users\\User\\source\\repos\\PS\\PS\\%s", file_name);
+		sprintf(readTxtFile, writeTxtFile);
 		// dataFromSmapleFile contains list of process and its content - need to free
-		dataFromSmapleFile = ReadAllFile(readFromfile);
+		dataFromSmapleFile = ReadAllFile(readTxtFile);
 		char* found2 = strstr(newFileSpace, SEPERATOR);
 		int len2 = found2 - newFileSpace;
 		//newFileSpace2 - memory allocation - need to free 
@@ -240,7 +240,7 @@ void createsnapShotLisInHTML()
 		strcat(newFileSpace2, found2 + strlen(SEPERATOR)); // newFileSpace2 - current Template
 
 		//Saving into HTML file
-		sprintf(HTMLfile, "SnapShot_%d.html", fileCount);
+		sprintf(HTMLfile, "C:\\Users\\User\\source\\repos\\PS\\PS\\HTML\\SnapShot_%d.html", fileCount);
 		SaveIntoFile(HTMLfile, newFileSpace2);
 
 		free(newFileSpace2);

@@ -1,0 +1,1 @@
+<tr><td class="Process-Name">C:\Windows\System32\smartscreen.exe</td><td class="data">21200</td><td class="data">7240</td><td class="data">25530368</td><td class="data">8781824</tld><td class="data">228840</td><td class="data">229264</td></tr>

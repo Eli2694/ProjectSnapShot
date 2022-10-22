@@ -28,12 +28,14 @@ void createDLLsProcessListInHTML()
 	char pagefileusage[200];
 	char quotapagedpoolusage[200];
 	char quotaPeakpagepoolusage[200];
-	char writeTxtFile[20];
-	char readTxtFile[100];
-	char createHTMLFile[50];
+	
 	int numOfFile = 0;
 	int numProcesses;
 	char* infoFromTxtFile;
+
+	char writeTxtFile[100];
+	char readTxtFile[100];
+	char createHTMLFile[100];
 
 	t_DLL_Dictionary* currDLL = DLL_DictionaryHead;
 	t_Process* currProcess = currDLL->Process_List;
@@ -64,7 +66,7 @@ void createDLLsProcessListInHTML()
 		strcat(newFileSpace, found + strlen(SEPERATOR));
 		//newFileSpace contain the template + DllTitleInfo;
 
-		sprintf(writeTxtFile, "Process_%d.txt", numOfFile);
+		sprintf(writeTxtFile,"C:\\Users\\User\\source\\repos\\PS\\PS\\txtFiles\\Process_%d.txt", numOfFile);
 		//Openning File for writing into
 		FILE* out = fopen(writeTxtFile, "w");
 		if (!out)
@@ -100,7 +102,7 @@ void createDLLsProcessListInHTML()
 		//Closing file for writing
 		fclose(out);
 		//reading from file that contain list of processes and it's DLLs
-		sprintf(readTxtFile, "C:\\Users\\User\\source\\repos\\PS\\PS\\%s", writeTxtFile);
+		sprintf(readTxtFile,writeTxtFile);
 		// dataFromSmapleFile contains list of process and its content - need to free
 		infoFromTxtFile = ReadAllFile(readTxtFile);
 		char* found2 = strstr(newFileSpace, SEPERATOR);
@@ -115,7 +117,7 @@ void createDLLsProcessListInHTML()
 		strcat(newFileSpace2, found2 + strlen(SEPERATOR)); // newFileSpace2 - current Template
 
 		//Saving into HTML file
-		sprintf(createHTMLFile, "Process%d.html", numOfFile);
+		sprintf(createHTMLFile, "C:\\Users\\User\\source\\repos\\PS\\PS\\HTML\\Process%d.html", numOfFile);
 		SaveIntoFile(createHTMLFile, newFileSpace2);
 
 

@@ -1,1 +1,0 @@
-<tr><td class="Process-Name">C:\Windows\System32\backgroundTaskHost.exe</td><td class="data">20984</td><td class="data">8073</td><td class="data">4440064</td><td class="data">5738496</tld><td class="data">259552</td><td class="data">261224</td></tr>

@@ -1,1 +1,0 @@
-<tr><td class="Process-Name">C:\Users\User\AppData\Local\Programs\Microsoft VS Code\Code.exe</td><td class="data">16184</td><td class="data">611870</td><td class="data">13737984</td><td class="data">87949312</tld><td class="data">767856</td><td class="data">839904</td></tr>

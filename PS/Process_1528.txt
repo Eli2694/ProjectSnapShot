@@ -1,1 +1,0 @@
-<tr><td class="Process-Name">C:\Program Files\Adobe\Acrobat DC\Acrobat\Acrobat.exe</td><td class="data">4288</td><td class="data">37260</td><td class="data">3284992</td><td class="data">42483712</tld><td class="data">309928</td><td class="data">343104</td></tr>
