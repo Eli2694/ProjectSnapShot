@@ -54,40 +54,34 @@ void WriteToBinaryFile(t_SnapShot* Tail)
 	}
 	t_SnapShot* SnapShotHead = runToHeadOfSanpShot(Tail);
 	t_SnapShot* beginningOf;
+	t_Process* Process;
+	t_DLL* DLL;
 	while (SnapShotHead)
 	{
-		fwrite(&SnapShotHead->CountNumberOfSnapShot, sizeof(unsigned int), 1, out2);
+		fwrite(SnapShotHead, sizeof(t_SnapShot), 1, out2);
+
+		/*fwrite(&SnapShotHead->CountNumberOfSnapShot, sizeof(unsigned int), 1, out2);
 		fwrite(&SnapShotHead->CountNumberOfProcessesInEachSnapShot, sizeof(unsigned int), 1, out2);
-		fwrite(&SnapShotHead->TimeOfSnapShot, sizeof(char[100]), 1, out2);
+		fwrite(&SnapShotHead->TimeOfSnapShot, sizeof(100), 1, out2);*/
 		
-		while (SnapShotHead->ListOfProcesses)
+		Process = SnapShotHead->ListOfProcesses;
+		while (Process)
 		{
-			fwrite(&SnapShotHead->ListOfProcesses->ProcessId, sizeof(unsigned int), 1, out2);
-			fwrite(&SnapShotHead->ListOfProcesses->ProcessName, sizeof(char[MAX_PATH]), 1, out2);
-			fwrite(&SnapShotHead->ListOfProcesses->ProcessData, sizeof(PROCESS_MEMORY_COUNTERS), 1, out2);
-			fwrite(&SnapShotHead->ListOfProcesses->NumberOfDLLsInEachProcess, sizeof(unsigned int), 1, out2);
-			
-			
-			while (SnapShotHead->ListOfProcesses->ListOfDlls)
-			{
-				fwrite(&SnapShotHead->ListOfProcesses->ListOfDlls->NameOfDLL, sizeof(char[MAX_PATH]), 1, out2);
-				
-				
-				if (SnapShotHead->ListOfProcesses->ListOfDlls->next == NULL)
-				{
-					SnapShotHead->ListOfProcesses->ListOfDlls = runToHeadOfDLL(SnapShotHead->ListOfProcesses->ListOfDlls);
-					break;
-				}
+			fwrite(Process, sizeof(t_Process), 1, out2);
 
-				SnapShotHead->ListOfProcesses->ListOfDlls = SnapShotHead->ListOfProcesses->ListOfDlls->next;
-			}
-			if (SnapShotHead->ListOfProcesses->next == NULL)
+			/*fwrite(&Process->ProcessId, sizeof(unsigned int), 1, out2);
+			fwrite(&Process->ProcessName, sizeof(char[MAX_PATH]), 1, out2);
+			fwrite(&Process->ProcessData, sizeof(PROCESS_MEMORY_COUNTERS), 1, out2);
+			fwrite(&Process->NumberOfDLLsInEachProcess, sizeof(unsigned int), 1, out2);*/
+			
+			DLL = Process->ListOfDlls;
+			while (DLL)
 			{
-				SnapShotHead->ListOfProcesses = runToHeadOfProcess(SnapShotHead->ListOfProcesses);
-				break;
+				fwrite(DLL, sizeof(t_DLL), 1, out2);
+				DLL = DLL->next;
 			}
 
-			SnapShotHead->ListOfProcesses = SnapShotHead->ListOfProcesses->next;
+			Process = Process->next;
 		}
 
 		SnapShotHead = SnapShotHead->next;

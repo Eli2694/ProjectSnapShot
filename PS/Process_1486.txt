@@ -1,1 +1,1 @@
-<tr><td class="Process-Name">C:\Windows\System32\MoUsoCoreWorker.exe</td><td class="data">13384</td><td class="data">42534</td><td class="data">9777152</td><td class="data">20279296</tld><td class="data">144632</td><td class="data">200640</td></tr>
+<tr><td class="Process-Name">C:\Program Files\AMD\CNext\CNext\AMDRSSrcExt.exe</td><td class="data">3672</td><td class="data">14058</td><td class="data">6279168</td><td class="data">44093440</tld><td class="data">750160</td><td class="data">768120</td></tr>

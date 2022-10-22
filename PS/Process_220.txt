@@ -1,1 +1,1 @@
-<tr><td class="Process-Name">C:\Windows\System32\dwm.exe</td><td class="data">1440</td><td class="data">192957</td><td class="data">23961600</td><td class="data">85962752</tld><td class="data">671520</td><td class="data">684928</td></tr>
+<tr><td class="Process-Name">C:\Windows\System32\dwm.exe</td><td class="data">1440</td><td class="data">199759</td><td class="data">24653824</td><td class="data">78999552</tld><td class="data">673112</td><td class="data">684928</td></tr>

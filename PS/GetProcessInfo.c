@@ -44,6 +44,7 @@ t_Process* PrintMemoryInfo(DWORD processID)
 	DLL_Tail = NULL;
 
 	int i = 0; // Count Name Of DLLs
+	int counterOfDlls = 0;
 
 	process_node = (t_Process*)malloc(sizeof(t_Process));
 	if (process_node == NULL)
@@ -91,6 +92,7 @@ t_Process* PrintMemoryInfo(DWORD processID)
 
 			if (GetModuleFileNameEx(hProcess, hMods[i], FoundDllName, MAX_PATH))
 			{
+
 				//allocation of memory
 				Dll_node = (t_DLL*)malloc(sizeof(t_DLL));
 				if (Dll_node == NULL)
@@ -103,7 +105,7 @@ t_Process* PrintMemoryInfo(DWORD processID)
 				wcstombs_s(&numConverted, Dll_node->NameOfDLL, MAX_PATH, FoundDllName, MAX_PATH);
 				if (strstr(Dll_node->NameOfDLL, ".dll") || strstr(Dll_node->NameOfDLL, ".DLL"))
 				{
-					process_node->NumberOfDLLsInEachProcess = i + 1;
+					counterOfDlls++;
 					CreateListOfDlls(Dll_node);
 				}
 				else
@@ -126,8 +128,11 @@ t_Process* PrintMemoryInfo(DWORD processID)
 				//}
 				
 			}
+
 		}
 	}
+
+	process_node->NumberOfDLLsInEachProcess = counterOfDlls;
 
 	//Process Without DLLs
 	if (i == 0)
