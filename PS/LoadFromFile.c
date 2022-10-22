@@ -8,6 +8,8 @@
 #include "SaveToFILE.h"
 #pragma warning(disable:4996)
 
+// something do not work
+
 //function specification
 t_SnapShot* SnapShotInfoFromFile(t_SnapShot* oldSample);
 void CreateListOfSnapshots(t_SnapShot* newSample);

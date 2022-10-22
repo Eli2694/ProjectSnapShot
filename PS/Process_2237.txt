@@ -1,1 +1,0 @@
-<tr><td class="Process-Name">C:\Program Files\WindowsApps\Microsoft.WindowsCalculator_10.1906.55.0_x64__8wekyb3d8bbwe\Calculator.exe</td><td class="data">26036</td><td class="data">31587</td><td class="data">117923840</td><td class="data">48021504</tld><td class="data">1385872</td><td class="data">1386656</td></tr>

@@ -1,1 +1,1 @@
-<tr><td class="Process-Name">C:\Program Files\Adobe\Acrobat DC\Acrobat\acrocef_1\AcroCEF.exe</td><td class="data">12728</td><td class="data">15110</td><td class="data">42835968</td><td class="data">15507456</tld><td class="data">610992</td><td class="data">619344</td></tr>
+<tr><td class="Process-Name">C:\Program Files\Google\Chrome\Application\chrome.exe</td><td class="data">2744</td><td class="data">17152</td><td class="data">14823424</td><td class="data">19611648</tld><td class="data">653552</td><td class="data">1039136</td></tr>

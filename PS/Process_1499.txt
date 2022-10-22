@@ -1,1 +1,1 @@
-<tr><td class="Process-Name">C:\Windows\System32\wbem\WmiPrvSE.exe</td><td class="data">592</td><td class="data">2537</td><td class="data">9183232</td><td class="data">3244032</tld><td class="data">72320</td><td class="data">73504</td></tr>
+<tr><td class="Process-Name">C:\Program Files\AMD\CNext\CNext\AMDRSSrcExt.exe</td><td class="data">3672</td><td class="data">13807</td><td class="data">6283264</td><td class="data">44126208</tld><td class="data">750160</td><td class="data">768120</td></tr>

@@ -1,1 +1,0 @@
-<tr><td class="Process-Name">C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Platform\Debugger\VsDebugConsole.exe</td><td class="data">18468</td><td class="data">1724</td><td class="data">6660096</td><td class="data">1392640</tld><td class="data">98128</td><td class="data">106272</td></tr>

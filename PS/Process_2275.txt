@@ -1,1 +1,0 @@
-<tr><td class="Process-Name">C:\Program Files (x86)\Microsoft\EdgeWebView\Application\104.0.1293.70\msedgewebview2.exe</td><td class="data">5348</td><td class="data">685284</td><td class="data">2227187712</td><td class="data">790380544</tld><td class="data">20667232</td><td class="data">20733312</td></tr>

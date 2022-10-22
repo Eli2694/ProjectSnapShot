@@ -1,1 +1,0 @@
-<tr><td class="Process-Name">C:\Program Files\WindowsApps\microsoft.windowscommunicationsapps_16005.11629.20316.0_x64__8wekyb3d8bbwe\HxTsr.exe</td><td class="data">20572</td><td class="data">44381</td><td class="data">170610688</td><td class="data">48893952</tld><td class="data">1526528</td><td class="data">1527160</td></tr>
