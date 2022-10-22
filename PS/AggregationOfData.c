@@ -58,7 +58,8 @@ t_SnapShot* AggregationOfData(t_SnapShot* SnapShot_Tail, t_SnapShot* Sample)
 								}
 								if (currDlls->next == NULL)
 								{
-									//addDLL(currDlls, tempDlls);
+									currProcesses->NumberOfDLLsInEachProcess++;
+									addDLL(currDlls, tempDlls);
 									break;
 								}
 
@@ -74,6 +75,7 @@ t_SnapShot* AggregationOfData(t_SnapShot* SnapShot_Tail, t_SnapShot* Sample)
 					// Add new Process
 					if (currProcesses->next == NULL)
 					{
+						currS->CountNumberOfProcessesInEachSnapShot++;
 						addProcess(currProcesses, tempProcesses); // problam
 						break; // to change tempProcesses
 					}

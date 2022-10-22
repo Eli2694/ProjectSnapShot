@@ -1,1 +1,1 @@
-<tr><td class="Process-Name">C:\Users\User\AppData\Local\Programs\Microsoft VS Code\Code.exe</td><td class="data">16184</td><td class="data">704051</td><td class="data">61571072</td><td class="data">138563584</tld><td class="data">781376</td><td class="data">839904</td></tr>
+<tr><td class="Process-Name">C:\Windows\explorer.exe</td><td class="data">5912</td><td class="data">484288</td><td class="data">130084864</td><td class="data">129667072</tld><td class="data">692368</td><td class="data">858256</td></tr>

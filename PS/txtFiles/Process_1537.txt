@@ -1,1 +1,1 @@
-<tr><td class="Process-Name">C:\Program Files\Adobe\Acrobat DC\Acrobat\Acrobat.exe</td><td class="data">14964</td><td class="data">282194</td><td class="data">17616896</td><td class="data">188985344</tld><td class="data">513352</td><td class="data">531504</td></tr>
+<tr><td class="Process-Name">C:\Users\User\AppData\Local\Programs\Microsoft VS Code\Code.exe</td><td class="data">16184</td><td class="data">723173</td><td class="data">54628352</td><td class="data">162467840</tld><td class="data">782944</td><td class="data">839904</td></tr>
