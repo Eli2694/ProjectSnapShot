@@ -1,1 +1,1 @@
-<tr><td class="Process-Name">C:\Windows\SystemApps\ShellExperienceHost_cw5n1h2txyewy\ShellExperienceHost.exe</td><td class="data">540</td><td class="data">16701</td><td class="data">46653440</td><td class="data">15527936</tld><td class="data">555184</td><td class="data">566832</td></tr>
+<tr><td class="Process-Name">C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\devenv.exe</td><td class="data">18040</td><td class="data">328674</td><td class="data">678920192</td><td class="data">667693056</tld><td class="data">2193296</td><td class="data">2970848</td></tr>

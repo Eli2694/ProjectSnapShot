@@ -1,1 +1,1 @@
-<tr><td class="Process-Name">C:\Users\User\AppData\Local\WhatsApp\app-2.2238.7\WhatsApp.exe</td><td class="data">10408</td><td class="data">136317</td><td class="data">92532736</td><td class="data">77144064</tld><td class="data">781312</td><td class="data">817064</td></tr>
+<tr><td class="Process-Name">C:\Users\User\AppData\Local\Programs\Microsoft VS Code\Code.exe</td><td class="data">16020</td><td class="data">341098</td><td class="data">107589632</td><td class="data">49451008</tld><td class="data">796592</td><td class="data">866696</td></tr>

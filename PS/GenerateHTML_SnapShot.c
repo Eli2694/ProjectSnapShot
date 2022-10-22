@@ -173,6 +173,7 @@ void createsnapShotLisInHTML()
 				// for list of dlls
 				fputs(td_dll, out);
 				fputs(select, out);
+				fputs("<option class=\"list-option\">DLLs</option>", out);
 			}
 			else
 			{
@@ -198,6 +199,7 @@ void createsnapShotLisInHTML()
 				// for list of dlls
 				fputs(td_dll, out);
 				fputs(select, out);
+				fputs("<option class=\"list-option\">DLLs</option>", out);
 			}
 
 			

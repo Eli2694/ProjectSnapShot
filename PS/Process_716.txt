@@ -1,1 +1,1 @@
-<tr><td class="Process-Name">C:\Windows\System32\spoolsv.exe</td><td class="data">5296</td><td class="data">5480</td><td class="data">10543104</td><td class="data">5873664</tld><td class="data">145904</td><td class="data">153000</td></tr>
+<tr><td class="Process-Name">C:\Windows\explorer.exe</td><td class="data">2204</td><td class="data">214432</td><td class="data">129363968</td><td class="data">86376448</tld><td class="data">1016896</td><td class="data">1354728</td></tr>

@@ -11,50 +11,38 @@ a:visited {
   display: flex;
   border: 1px none;
   height: 100px;
-  justify-content: space-around;
+  justify-content: flex-start;
   align-items: center;
+  margin-left: 10px;
 }
 
 .top-bar-links {
   display: flex;
   align-items: center;
-  border: 1px none;
   gap: 30px;
-}
-.logo-zionet {
-  align-self: center;
-}
-
-.top-bar-links a {
-  text-decoration: none;
-  font-weight: 400px;
-  font-size: 2rem;
 }
 
 .Song {
   margin-top: 10.5px;
   margin-bottom: 10.5px;
-  color: black;
-  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+}
+
+.note {
+  width: 76px;
+}
+
+.github-image {
+  width: 76px;
 }
 
 .my-github {
-  font-weight: 400px;
-  padding-left: 10px;
-  padding-right: 10px;
-  padding-top: 10px;
-  padding-bottom: 10px;
-  background-color: rgba(24, 144, 255, 1);
+  background-color: #69eacb;
   border: 1px none;
   border-radius: 10px;
   cursor: pointer;
   align-items: center;
-}
-
-.my-github a {
-  color: white;
-  font-size: 1.7rem;
-  font-family: "Times New Roman", Times, serif;
+  margin-top: 10.5px;
+  margin-bottom: 10.5px;
 }
 
 .About-Me {
@@ -63,7 +51,6 @@ a:visited {
   justify-content: center;
   border: 1px none;
   height: 500px;
-  background: rgba(71, 78, 90, 0.178);
 }
 
 .Hello {
@@ -84,31 +71,25 @@ a:visited {
 
 .line {
   width: 65px;
-  border: 2px solid rgba(0, 173, 181, 1);
+  border: 2px solid rgba(5, 118, 124, 0.425);
 }
 
 .quote {
   line-height: 1.4;
   font-size: 20px;
-  color: grey;
+  color: rgb(83, 81, 81);
   font-family: "Courier New", Courier, monospace;
+  font-weight: 600;
 }
 
-main {
+footer {
   display: flex;
   align-items: center;
   justify-content: center;
-  align-self: stretch;
-  background-color: rgb(246, 240, 248);
-  border: 1px none;
-  height: 500px;
+  align-self: center;
+  height: 340px;
 }
-.main-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 20px;
-}
+
 .project-name {
   font-weight: 600;
   font-size: 80px;
@@ -116,13 +97,21 @@ main {
   font-family: Arial, Helvetica, sans-serif;
 }
 .project-description {
-  font-weight: 400;
-  font-size: 18px;
-  line-height: 32px;
-  color: rgb(179, 179, 179);
-  font-family: Arial, Helvetica, sans-serif;
   width: 600px;
   text-align: center;
+
+  line-height: 1.4;
+  font-size: 20px;
+  color: rgb(83, 81, 81);
+  font-family: "Courier New", Courier, monospace;
+  font-weight: 600;
+}
+
+.main-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
 }
 
 .btn-go-to-project {
@@ -137,21 +126,15 @@ main {
   text-decoration: none;
 }
 
-.video {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 500px;
-  background: rgba(242, 250, 248, 1);
-}
-
-footer {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 200px;
-}
-
 .end {
   height: 200px;
+}
+
+body {
+  background-image: linear-gradient(
+    -225deg,
+    #69eacb 0%,
+    #eaccf8 48%,
+    #6654f1 100%
+  );
 }
