@@ -159,7 +159,7 @@ void createsnapShotLisInHTML()
 				fputs(process_id, out);
 				sprintf(pagefaultcount, "<td class=\"data\">%ld</td>", SampleProcess->ProcessData.PageFaultCount);
 				fputs(pagefaultcount, out);
-				sprintf(workingsetsize, "<td class=\"data\">%lld<img src=\"css/Images/warning-icon.png\"class=\"warning-icon\" /> </td>", SampleProcess->ProcessData.WorkingSetSize);
+				sprintf(workingsetsize, "<td class=\"data\">%lld<img src=\"../css/Images/warning-icon.png\"class=\"warning-icon\" /> </td>", SampleProcess->ProcessData.WorkingSetSize);
 				fputs(workingsetsize, out);
 				sprintf(pagefileusage, "<td class=\"data\">%lld</tld>", SampleProcess->ProcessData.PagefileUsage);
 				fputs(pagefileusage, out);

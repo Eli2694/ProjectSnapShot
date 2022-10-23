@@ -59,21 +59,10 @@ void WriteToBinaryFile(t_SnapShot* Tail)
 	while (SnapShotHead)
 	{
 		fwrite(SnapShotHead, sizeof(t_SnapShot), 1, out2);
-
-		/*fwrite(&SnapShotHead->CountNumberOfSnapShot, sizeof(unsigned int), 1, out2);
-		fwrite(&SnapShotHead->CountNumberOfProcessesInEachSnapShot, sizeof(unsigned int), 1, out2);
-		fwrite(&SnapShotHead->TimeOfSnapShot, sizeof(100), 1, out2);*/
-		
 		Process = SnapShotHead->ListOfProcesses;
 		while (Process)
 		{
 			fwrite(Process, sizeof(t_Process), 1, out2);
-
-			/*fwrite(&Process->ProcessId, sizeof(unsigned int), 1, out2);
-			fwrite(&Process->ProcessName, sizeof(char[MAX_PATH]), 1, out2);
-			fwrite(&Process->ProcessData, sizeof(PROCESS_MEMORY_COUNTERS), 1, out2);
-			fwrite(&Process->NumberOfDLLsInEachProcess, sizeof(unsigned int), 1, out2);*/
-			
 			DLL = Process->ListOfDlls;
 			while (DLL)
 			{

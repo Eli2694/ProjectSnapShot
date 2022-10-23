@@ -41,17 +41,14 @@ int main()
 			smaple = GetProcessesInfo(); // Creating a sample
 			LogEvent("Creating list of snapshots");
 			tailSnapShot = ListOfSnapShots(smaple); // Inserting into a list of samples
-			cleaningDistruptingProcess(SnapShot_Head);
 			break;
 		case 2:
 			smaple = GetProcessesInfo();
 			tailSnapShot = ListOfSnapShots(smaple);
-			cleaningDistruptingProcess(SnapShot_Head);
 			LogEvent("Create one sample with data accumulation for at least 20 seconds");
 			for (int i = 0; i < 19; i++)
 			{
 				smaple = GetProcessesInfo();
-				cleaningDistruptingProcess(smaple);
 				tailSnapShot = AggregationOfData(tailSnapShot, smaple);
 				freeSample(smaple);
 				Sleep(1000);
@@ -61,11 +58,9 @@ int main()
 			LogEvent("Creating a single sample with data accumulation until the user decides to stop");
 			smaple = GetProcessesInfo();
 			tailSnapShot = ListOfSnapShots(smaple);
-			cleaningDistruptingProcess(SnapShot_Head);
 			while (stop != 1)
 			{
 				smaple = GetProcessesInfo();
-				cleaningDistruptingProcess(smaple);
 				tailSnapShot = AggregationOfData(tailSnapShot, smaple);
 				freeSample(smaple);
 				Sleep(1000);

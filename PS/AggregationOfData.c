@@ -157,29 +157,3 @@ void addDLL(t_DLL* curr, t_DLL*temp)
 	newCurrDLL->next = NULL;
 }
 
-//Preventing non-routine processes from harming the program
-void cleaningDistruptingProcess(t_SnapShot*HeadOfSnapShot)
-{
-	t_SnapShot* curr = HeadOfSnapShot;
-	t_Process* currProcess = curr->ListOfProcesses;
-
-	while (curr)
-	{
-		while (currProcess)
-		{
-			if (currProcess->ProcessId > 100000)
-			{
-				currProcess->next = NULL;
-				currProcess->ListOfDlls = NULL;
-				currProcess->prev->next = NULL;
-				free(currProcess);
-
-			}
-
-			currProcess = currProcess->next;
-		}
-
-		curr = curr->next;
-	}
-
-}

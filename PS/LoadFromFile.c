@@ -46,30 +46,11 @@ t_SnapShot* LoadFromFile()
 
 		SnapShot_Information = (t_SnapShot*)malloc(sizeof(t_SnapShot));
 		fread(SnapShot_Information, sizeof(t_SnapShot), 1, in);
-
-
-		/*fread(&SnapShot_Information->CountNumberOfSnapShot, sizeof(unsigned int), 1, in);
-		fread(&SnapShot_Information->CountNumberOfProcessesInEachSnapShot, sizeof(unsigned int), 1, in);
-		fread(&SnapShot_Information->TimeOfSnapShot, sizeof(100), 1, in);*/
-
-		
-
 		// Number of processes in each SnapShot
 		for ( int i = 0; i < SnapShot_Information->CountNumberOfProcessesInEachSnapShot; i++)
 		{
 			Process_Information = (t_Process*)malloc(sizeof(t_Process));
-
 			fread(Process_Information, sizeof(t_Process), 1, in);
-
-			//fread(&Process_Information->ProcessId, sizeof(unsigned int), 1, in);
-			//fread(&Process_Information->ProcessName, sizeof(char[MAX_PATH]), 1, in);
-			//fread(&Process_Information->ProcessData, sizeof(PROCESS_MEMORY_COUNTERS), 1, in);
-			//fread(&Process_Information->NumberOfDLLsInEachProcess, sizeof(unsigned int), 1, in); // problam with NumberOfDLLsInEachProcess
-			//fread(&Process_Information->ListOfDlls, sizeof(t_DLL), 1, in);
-			//fread(&Process_Information->next, sizeof(struct s_Process), 1, in);
-			//fread(&Process_Information->prev, sizeof(struct s_Process), 1, in);
-			
-
 			for ( int j = 0; j < Process_Information->NumberOfDLLsInEachProcess; j++)
 			{
 				DLL_Information = (t_DLL*)malloc(sizeof(t_DLL));
@@ -91,27 +72,6 @@ t_SnapShot* LoadFromFile()
 
 }
 
-//t_DLL* DLLInfoFromFile(t_DLL* oldDLL)
-//{
-//	t_DLL* newDLL = (t_DLL*)malloc(sizeof(t_DLL));
-//	strcpy(newDLL->NameOfDLL, oldDLL->NameOfDLL);
-//	free(oldDLL);
-//	return newDLL;
-//}
-
-//t_Process* ProcessInfoFromFile(t_Process* oldProcess)
-//{
-//
-//
-//	t_Process* newProcess = (t_Process*)malloc(sizeof(t_Process));
-//	newProcess->NumberOfDLLsInEachProcess = oldProcess->NumberOfDLLsInEachProcess;
-//	newProcess->ProcessData = oldProcess->ProcessData;
-//	newProcess->ProcessId = oldProcess->ProcessId;
-//	strcpy(newProcess->ProcessName, oldProcess->ProcessName);
-//	newProcess->ListOfDlls = DLL_Head;
-//	free(oldProcess);
-//	return newProcess;
-//}
 
 void CreateListOfProcessesFile(t_Process* Process_node)
 {
@@ -135,18 +95,6 @@ void CreateListOfProcessesFile(t_Process* Process_node)
 	DLL_Head = NULL;
 	DLL_Tail = NULL;
 }
-
-
-//t_SnapShot* SnapShotInfoFromFile(t_SnapShot* oldSample)
-//{
-//	t_SnapShot* newSample = (t_SnapShot*)malloc(sizeof(t_SnapShot));
-//	newSample->CountNumberOfProcessesInEachSnapShot = oldSample->CountNumberOfProcessesInEachSnapShot;
-//	newSample->CountNumberOfSnapShot = oldSample->CountNumberOfSnapShot;
-//	strcpy(newSample->TimeOfSnapShot, oldSample->TimeOfSnapShot);
-//	newSample->ListOfProcesses = Process_Head;
-//	free(oldSample);
-//	return newSample;
-//}
 
 void CreateListOfSnapshots(t_SnapShot* newSample)
 {

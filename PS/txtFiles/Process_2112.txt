@@ -1,1 +1,0 @@
-<tr><td class="Process-Name">C:\Windows\System32\notepad.exe</td><td class="data">34048</td><td class="data">5260</td><td class="data">19955712</td><td class="data">3899392</tld><td class="data">249320</td><td class="data">250904</td></tr>

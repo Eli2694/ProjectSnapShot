@@ -112,21 +112,7 @@ t_Process* PrintMemoryInfo(DWORD processID)
 				{
 					free(Dll_node);
 
-				}
-
-				
-
-				//if (numConverted == 0) // If The DLL Without Name
-				//{
-				//	free(Dll_node);
-				//}
-				//else
-				//{
-				//	process_node->NumberOfDLLsInEachProcess = i + 1;
-				//	CreateListOfDlls(Dll_node);
-				//	
-				//}
-				
+				}	
 			}
 
 		}
