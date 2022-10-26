@@ -1,1 +1,0 @@
-<tr><td class="Process-Name">C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\ServiceHub\Hosts\ServiceHub.Host.CLR.AnyCPU\ServiceHub.TestWindowStoreHost.exe</td><td class="data">13912</td><td class="data">67552</td><td class="data">73760768</td><td class="data">72339456</tld><td class="data">669344</td><td class="data">669632</td></tr>

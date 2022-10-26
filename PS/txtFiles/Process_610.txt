@@ -1,1 +1,0 @@
-<tr><td class="Process-Name">C:\Windows\System32\ctfmon.exe</td><td class="data">4240</td><td class="data">6849</td><td class="data">20131840</td><td class="data">4583424</tld><td class="data">196752</td><td class="data">198680</td></tr>

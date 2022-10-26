@@ -1,1 +1,0 @@
-<tr><td class="Process-Name">C:\Users\User\AppData\Local\Microsoft\Teams\current\Teams.exe</td><td class="data">6396</td><td class="data">369412</td><td class="data">120102912</td><td class="data">108527616</tld><td class="data">878120</td><td class="data">980432</td></tr>
