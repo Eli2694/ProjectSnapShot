@@ -88,13 +88,13 @@ void freeSample(t_SnapShot* sample)
 int CountNumberOfProcess(t_Process*ListOfProcesses)
 {
 	t_Process* curr = ListOfProcesses;
-	int countProcesse = 0;
+	int countProcesses = 0;
 	while (curr)
 	{
-		countProcesse++;
+		countProcesses++;
 		curr = curr->next;
 	}
-	return countProcesse;
+	return countProcesses;
 }
 
 int CountNumberOfSnapShots(t_SnapShot* ListOfSnapShots)

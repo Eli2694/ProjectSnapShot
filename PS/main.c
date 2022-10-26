@@ -30,6 +30,8 @@ int main()
 	int user_response = -1;
 	char str[10];
 
+	
+
 	do {
 		printf("<--User-Response-->\n1.Take One SnapShot\n2.Take 20 SnapShots\n3.Start Long SnapShot\n4.Generate HTML Report\n5.Reset Collections\n6.Save In File\n7.Load From File\n8.Quit\n");
 		scanf("%d", &user_response);
@@ -103,7 +105,7 @@ int main()
 			break;
 		case 8:
 			LogEvent("Exit Program");
-			exit(1);
+			user_response = 8;
 			break;
 		}
 	} while (user_response != 8);

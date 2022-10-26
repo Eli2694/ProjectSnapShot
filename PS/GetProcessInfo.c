@@ -20,6 +20,7 @@ t_Process* Process_Tail = NULL;
 t_Process* PrintMemoryInfo(DWORD processID)
 {
 	HANDLE hProcess;
+	//struct  that contain memory data of the process
 	PROCESS_MEMORY_COUNTERS pmc;
 
 	// Open process in order to receive information
@@ -43,8 +44,8 @@ t_Process* PrintMemoryInfo(DWORD processID)
 	DLL_Head = NULL;
 	DLL_Tail = NULL;
 
-	int i = 0; // Count Name Of DLLs
-	int counterOfDlls = 0;
+	int i = 0; // Count Dlls - if they exist in process?
+	int counterOfTotalDllsInProcess = 0;
 
 	process_node = (t_Process*)malloc(sizeof(t_Process));
 	if (process_node == NULL)
@@ -100,12 +101,11 @@ t_Process* PrintMemoryInfo(DWORD processID)
 					LogError("Problam of memory allocation (Dll_node)",strerror(GetLastError()));
 					return NULL;
 				}
-				char* ret; // to use strstr and check if the DLL is standard
 				// Convert wChar to regular char array (string)
 				wcstombs_s(&numConverted, Dll_node->NameOfDLL, MAX_PATH, FoundDllName, MAX_PATH);
 				if (strstr(Dll_node->NameOfDLL, ".dll") || strstr(Dll_node->NameOfDLL, ".DLL"))
 				{
-					counterOfDlls++;
+					counterOfTotalDllsInProcess++;
 					CreateListOfDlls(Dll_node);
 				}
 				else
@@ -118,7 +118,7 @@ t_Process* PrintMemoryInfo(DWORD processID)
 		}
 	}
 
-	process_node->NumberOfDLLsInEachProcess = counterOfDlls;
+	process_node->NumberOfDLLsInEachProcess = counterOfTotalDllsInProcess;
 
 	//Process Without DLLs
 	if (i == 0)

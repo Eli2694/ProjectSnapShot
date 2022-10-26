@@ -1,0 +1,1 @@
+<tr><td class="Process-Name">C:\Windows\SystemApps\MicrosoftWindows.Client.CBS_cw5n1h2txyewy\InputApp\TextInputHost.exe</td><td class="data">4616</td><td class="data">14725</td><td class="data">41136128</td><td class="data">17117184</tld><td class="data">535336</td><td class="data">545544</td></tr>
