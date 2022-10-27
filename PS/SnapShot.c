@@ -26,6 +26,11 @@ t_SnapShot* OneSnapShot(t_Process* HeadOfProcessList)
 
 	t_SnapShot* sample;
 	sample = (t_SnapShot*)malloc(sizeof(t_SnapShot));
+	if (sample == NULL)
+	{
+		LogError("Problam of memory allocation (sample)", strerror(GetLastError()));
+		return NULL;
+	}
 	sample->ListOfProcesses = HeadOfProcessList;
 	strcpy(sample->TimeOfSnapShot, CurrentTimeOfSnapShot);
 	sample->next = sample->prev = NULL;

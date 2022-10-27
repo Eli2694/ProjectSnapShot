@@ -124,11 +124,11 @@ th {
 }
 
 .Process-Name {
-  overflow-x: scroll;
+  /* overflow-x: scroll; */
 }
 
 @-moz-document url-prefix() {
-  .select-list {
-    direction: ltr;
+  select {
+    direction: rtl;
   }
 }

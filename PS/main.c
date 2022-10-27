@@ -26,12 +26,8 @@ t_Processes_Dictionary* Process_Dictionary_List;
 
 int main()
 {
-	int stop = 0;
-	int user_response = -1;
-	char str[10];
-
 	
-
+	int user_response = -1;
 	do {
 		printf("<--User-Response-->\n1.Take One SnapShot\n2.Take 20 SnapShots\n3.Start Long SnapShot\n4.Generate HTML Report\n5.Reset Collections\n6.Save In File\n7.Load From File\n8.Quit\n");
 		scanf("%d", &user_response);
@@ -50,6 +46,7 @@ int main()
 			LogEvent("Create one sample with data accumulation for at least 20 seconds");
 			for (int i = 0; i < 19; i++)
 			{
+				printf("%d iteration\n", i+1);
 				smaple = GetProcessesInfo();
 				tailSnapShot = AggregationOfData(tailSnapShot, smaple);
 				freeSample(smaple);
@@ -60,8 +57,14 @@ int main()
 			LogEvent("Creating a single sample with data accumulation until the user decides to stop");
 			smaple = GetProcessesInfo();
 			tailSnapShot = ListOfSnapShots(smaple);
+			printf("To stop the aggregation of data you need to press the keyboard and write 'END'\n");
+			int numOfIterations = 0;
+			int stop = 0;
+			char str[10];
 			while (stop != 1)
 			{
+				numOfIterations++;
+				printf("%d iteration\n", numOfIterations);
 				smaple = GetProcessesInfo();
 				tailSnapShot = AggregationOfData(tailSnapShot, smaple);
 				freeSample(smaple);
@@ -75,6 +78,7 @@ int main()
 					{
 						stop = 1;
 					}
+					
 				}
 			}
 			break;

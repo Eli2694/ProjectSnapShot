@@ -11,7 +11,6 @@
 void addProcess(t_Process* fixed, t_Process* temp);
 void addDLL(t_DLL* fixed, t_DLL* temp);
 t_SnapShot* AggregationOfData(t_SnapShot* SnapShot_Tail, t_SnapShot* Sample);
-void cleaningDistruptingProcess(t_SnapShot* HeadOfSnapShot);
 
 
 
@@ -107,13 +106,14 @@ void addProcess(t_Process* curr, t_Process* temp)
 	t_Process* newCurrProcess = (t_Process*)malloc(sizeof(t_Process));
 	if (newCurrProcess == NULL)
 	{
-		LogError("Allocation memory Program (addProcess)");
+		LogError("Allocation memory Program (newCurrProcess)");
 		exit(1);
 	}
+
 	newCurrProcess->ListOfDlls = (t_DLL*)malloc(sizeof(t_DLL));
 	if (newCurrProcess->ListOfDlls == NULL)
 	{
-		LogError("Allocation memory Program (addProcess)");
+		LogError("Allocation memory Program (newCurrProcess->ListOfDlls)");
 		exit(1);
 	}
 
@@ -144,7 +144,7 @@ void addDLL(t_DLL* curr, t_DLL*temp)
 	t_DLL* newCurrDLL = (t_DLL*)malloc(sizeof(t_DLL));
 	if (newCurrDLL == NULL)
 	{
-		LogError("Allocation memory Program (addDLL)");
+		LogError("Allocation memory Program (newCurrDLL)");
 		exit(1);
 	}
 

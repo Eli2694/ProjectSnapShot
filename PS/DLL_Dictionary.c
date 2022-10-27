@@ -56,7 +56,7 @@ void Dictionary(t_DLL* currD, t_Process* Process)
 	if (!d_DLL)
 	{
 		LogError("Allocation Memory Of t_DLL_Dictionary");
-		return;
+		exit(1);
 	}
 	//DLL info
 	strcpy(d_DLL->Key_Dll_Name, currD->NameOfDLL);
@@ -66,7 +66,7 @@ void Dictionary(t_DLL* currD, t_Process* Process)
 	if (!d_DLL->Process_List)
 	{
 		LogError("Allocation Memory Of t_DLL_Dictionary -> Process_List");
-		return;
+		exit(1);
 	}
 	//Process info inside DLL_Dictionary Structure
 	strcpy(d_DLL->Process_List->ProcessName, Process->ProcessName);
@@ -84,7 +84,18 @@ void Dictionary(t_DLL* currD, t_Process* Process)
 		// I create a new variable to store the data of d_dll because i free d_dll in the end.
 
 		t_DLL_Dictionary* h_DLL = (t_DLL_Dictionary*)malloc(sizeof(t_DLL_Dictionary));
+		if (!h_DLL)
+		{
+			LogError("Allocation Memory Of h_DLL");
+			exit(1);
+		}
+
 		h_DLL->Process_List = (t_Process*)malloc(sizeof(t_Process));
+		if (!h_DLL->Process_List)
+		{
+			LogError("Allocation Memory Of h_DLL->Process_List");
+			exit(1);
+		}
 
 		strcpy(h_DLL->Key_Dll_Name, d_DLL->Key_Dll_Name);
 		strcpy(h_DLL->Process_List->ProcessName, d_DLL->Process_List->ProcessName);
@@ -118,7 +129,18 @@ void Dictionary(t_DLL* currD, t_Process* Process)
 				// I create a new variable to store the data of d_dll because i free d_dll in the end.
 
 				t_DLL_Dictionary* n_DLL = (t_DLL_Dictionary*)malloc(sizeof(t_DLL_Dictionary));
+				if (!n_DLL)
+				{
+					LogError("Allocation Memory Of n_DLL");
+					exit(1);
+				}
+
 				n_DLL->Process_List = (t_Process*)malloc(sizeof(t_Process));
+				if (!n_DLL->Process_List)
+				{
+					LogError("Allocation Memory Of n_DLL->Process_List");
+					exit(1);
+				}
 
 				strcpy(n_DLL->Key_Dll_Name, d_DLL->Key_Dll_Name);
 				strcpy(n_DLL->Process_List->ProcessName, d_DLL->Process_List->ProcessName);
@@ -174,6 +196,12 @@ int addProcessToDLL(t_Process* currDLLProcess, t_Process* newProcess)
 		if (currDictionaryDLL->next == NULL)
 		{
 			t_Process* new_process = (t_Process*)malloc(sizeof(t_Process));
+			if (!new_process)
+			{
+				LogError("Allocation Memory Of new_process");
+				exit(1);
+			}
+
 			strcpy(new_process->ProcessName, nProcess->ProcessName);
 			new_process->ProcessData = nProcess->ProcessData;
 			new_process->ProcessId = nProcess->ProcessId;
