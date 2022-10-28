@@ -11,7 +11,7 @@
 #define SEPERATOR "[seperator]"
 
 //function specification
-void createsnapShotLisInHTML();
+void createSnapShotLisInHTML();
 int FoundBiggestWorkingSetSize(t_Process* head);
 
 
@@ -73,26 +73,26 @@ char* readAllFile(char* fileName)
 
 
 
-void createsnapShotLisInHTML()
+void createSnapShotLisInHTML()
 {
 	
 	t_SnapShot* currSample = SnapShot_Head;
 	t_Process* SampleProcess;
 	t_DLL* DllSample;
-	char process_name[500];
-	char process_id[200];
-	char pagefaultcount[200];
-	char workingsetsize[200];
-	char pagefileusage[200];
-	char quotapagedpoolusage[200];
-	char quotaPeakpagepoolusage[200];
-	char dllcount[50];
-	char td_dll[50] = "<td class=\"dll-list\">";
-	char tdEnd[10] = "</td>";
-	char select[50] = "<select class=\"select-list\">";
+	char process_name[300];
+	char process_id[50];
+	char pageFaultCount[50];
+	char workingSetSize[150];
+	char pageFileUsage[50];
+	char quotaPagedPoolUsage[50];
+	char quotaPeakPagePoolUsage[50];
+	char dllCount[50];
+	char td_dll[22] = "<td class=\"dll-list\">";
+	char tdEnd[6] = "</td>";
+	char select[30] = "<select class=\"select-list\">";
 	char selectEnd[10] = "</select>";
 	char option[300];
-	char SampleListNumber[200];
+	char SampleListNumber[60];
 	char* dataFromSmapleFile;
 	char writeTxtFile[100];
 	char readTxtFile[100];
@@ -123,16 +123,23 @@ void createsnapShotLisInHTML()
 		// after subtraction of addresses , i will get number of characters from the beginning of the file to the separator
 		int len = found - htmlTemplate;
 		//allocation of memory for variable that will contain new template
-		char* newFileSpace = (char*)malloc(strlen(htmlTemplate) + strlen(SampleListNumber) +1 );
+		char* newFileSpace = (char*)malloc(strlen(htmlTemplate) + strlen(SampleListNumber));
+		if (newFileSpace == NULL)
+		{
+			LogError("Problam of memory allocation - newFileSpace (createSnapShotLisInHTML)");
+			exit(1);
+
+		}
 		//input number of characters from the beginning of the file to the separator
 		strncpy(newFileSpace, htmlTemplate, len);
 		//strncpy does not input NULL at the end of string
 		newFileSpace[len] = NULL;
-		//adding string of dynamic 
+		//adding string of dynamic SampleListNumber
 		strcat(newFileSpace, SampleListNumber);
 		//adding the second part of the template - after the seperator
 		strcat(newFileSpace, found + strlen(SEPERATOR)); 
 		//newFileSpace contain the template + SampleListNumber;
+		//+ strlen(SEPERATOR) erase the SEPERATOR from html template 
 
 		int icon = 0;
 
@@ -142,11 +149,6 @@ void createsnapShotLisInHTML()
 		while (SampleProcess)
 		{
 
-			//condition to eliminate a problem when Number Of DLLs In Process is more then 10000
-			if (SampleProcess->NumberOfDLLsInEachProcess > 10000)
-			{
-				break;
-			}
 			icon++;
 			
 			if (BiggestWorkingSetSizeLocation == icon)
@@ -157,18 +159,18 @@ void createsnapShotLisInHTML()
 				fputs(process_name, out);
 				sprintf(process_id, "<td class=\"data\">%ld</td>", SampleProcess->ProcessId);
 				fputs(process_id, out);
-				sprintf(pagefaultcount, "<td class=\"data\">%ld</td>", SampleProcess->ProcessData.PageFaultCount);
-				fputs(pagefaultcount, out);
-				sprintf(workingsetsize, "<td class=\"data\">%lld<img src=\"../css/Images/warning-icon.png\"class=\"warning-icon\" /> </td>", SampleProcess->ProcessData.WorkingSetSize);
-				fputs(workingsetsize, out);
-				sprintf(pagefileusage, "<td class=\"data\">%lld</tld>", SampleProcess->ProcessData.PagefileUsage);
-				fputs(pagefileusage, out);
-				sprintf(quotapagedpoolusage, "<td class=\"data\">%lld</td>", SampleProcess->ProcessData.QuotaPagedPoolUsage);
-				fputs(quotapagedpoolusage, out);
-				sprintf(quotaPeakpagepoolusage, "<td class=\"data\">%lld</td>", SampleProcess->ProcessData.QuotaPeakPagedPoolUsage);
-				fputs(quotaPeakpagepoolusage, out);
-				sprintf(dllcount, "<td class=\"data\">%d</td>", SampleProcess->NumberOfDLLsInEachProcess);
-				fputs(dllcount, out);
+				sprintf(pageFaultCount, "<td class=\"data\">%ld</td>", SampleProcess->ProcessData.PageFaultCount);
+				fputs(pageFaultCount, out);
+				sprintf(workingSetSize, "<td class=\"data\">%lld<img src=\"../css/Images/warning-icon.png\"class=\"warning-icon\" /> </td>", SampleProcess->ProcessData.WorkingSetSize);
+				fputs(workingSetSize, out);
+				sprintf(pageFileUsage, "<td class=\"data\">%lld</tld>", SampleProcess->ProcessData.PagefileUsage);
+				fputs(pageFileUsage, out);
+				sprintf(quotaPagedPoolUsage, "<td class=\"data\">%lld</td>", SampleProcess->ProcessData.QuotaPagedPoolUsage);
+				fputs(quotaPagedPoolUsage, out);
+				sprintf(quotaPeakPagePoolUsage, "<td class=\"data\">%lld</td>", SampleProcess->ProcessData.QuotaPeakPagedPoolUsage);
+				fputs(quotaPeakPagePoolUsage, out);
+				sprintf(dllCount, "<td class=\"data\">%d</td>", SampleProcess->NumberOfDLLsInEachProcess);
+				fputs(dllCount, out);
 
 				// for list of dlls
 				fputs(td_dll, out);
@@ -183,18 +185,18 @@ void createsnapShotLisInHTML()
 				fputs(process_name, out);
 				sprintf(process_id, "<td class=\"data\">%ld</td>", SampleProcess->ProcessId);
 				fputs(process_id, out);
-				sprintf(pagefaultcount, "<td class=\"data\">%ld</td>", SampleProcess->ProcessData.PageFaultCount);
-				fputs(pagefaultcount, out);
-				sprintf(workingsetsize, "<td class=\"data\">%lld</td>", SampleProcess->ProcessData.WorkingSetSize);
-				fputs(workingsetsize, out);
-				sprintf(pagefileusage, "<td class=\"data\">%lld</tld>", SampleProcess->ProcessData.PagefileUsage);
-				fputs(pagefileusage, out);
-				sprintf(quotapagedpoolusage, "<td class=\"data\">%lld</td>", SampleProcess->ProcessData.QuotaPagedPoolUsage);
-				fputs(quotapagedpoolusage, out);
-				sprintf(quotaPeakpagepoolusage, "<td class=\"data\">%lld</td>", SampleProcess->ProcessData.QuotaPeakPagedPoolUsage);
-				fputs(quotaPeakpagepoolusage, out);
-				sprintf(dllcount, "<td class=\"data\">%d</td>", SampleProcess->NumberOfDLLsInEachProcess);
-				fputs(dllcount, out);
+				sprintf(pageFaultCount, "<td class=\"data\">%ld</td>", SampleProcess->ProcessData.PageFaultCount);
+				fputs(pageFaultCount, out);
+				sprintf(workingSetSize, "<td class=\"data\">%lld</td>", SampleProcess->ProcessData.WorkingSetSize);
+				fputs(workingSetSize, out);
+				sprintf(pageFileUsage, "<td class=\"data\">%lld</tld>", SampleProcess->ProcessData.PagefileUsage);
+				fputs(pageFileUsage, out);
+				sprintf(quotaPagedPoolUsage, "<td class=\"data\">%lld</td>", SampleProcess->ProcessData.QuotaPagedPoolUsage);
+				fputs(quotaPagedPoolUsage, out);
+				sprintf(quotaPeakPagePoolUsage, "<td class=\"data\">%lld</td>", SampleProcess->ProcessData.QuotaPeakPagedPoolUsage);
+				fputs(quotaPeakPagePoolUsage, out);
+				sprintf(dllCount, "<td class=\"data\">%d</td>", SampleProcess->NumberOfDLLsInEachProcess);
+				fputs(dllCount, out);
 
 				// for list of dlls
 				fputs(td_dll, out);
@@ -203,7 +205,7 @@ void createsnapShotLisInHTML()
 			}
 
 			
-
+			
 			DllSample = SampleProcess->ListOfDlls;
 			while (DllSample)
 			{
@@ -222,8 +224,10 @@ void createsnapShotLisInHTML()
 			
 			
 		}
+
 		//Closing file for writing
 		fclose(out);
+
 		//reading from file that contain list of processes and it's DLLs
 		sprintf(readTxtFile, writeTxtFile);
 		// dataFromSmapleFile contains list of process and its content - need to free
@@ -232,6 +236,12 @@ void createsnapShotLisInHTML()
 		int len2 = found2 - newFileSpace;
 		//newFileSpace2 - memory allocation - need to free 
 		char* newFileSpace2 = (char*)malloc(strlen(newFileSpace) + strlen(dataFromSmapleFile) + 1);
+		if (newFileSpace2 == NULL)
+		{
+			LogError("Problam of memory allocation - newFileSpace2 (createSnapShotLisInHTML)");
+			exit(1);
+
+		}
 		//newFileSpace2 contain the details before the seperator
 		strncpy(newFileSpace2, newFileSpace, len2);
 		newFileSpace2[len2] = NULL;
@@ -257,15 +267,15 @@ int FoundBiggestWorkingSetSize(t_Process*head)
 {
 	int ret;
 	int placementCount = 0;
-	unsigned long long WSS = 0;
+	unsigned long long WorkingSetSize = 0;
 	t_Process* curr = head;
 	while (curr)
 	{
 		placementCount++;
-		if (WSS < curr->ProcessData.WorkingSetSize)
+		if (WorkingSetSize < curr->ProcessData.WorkingSetSize)
 		{
-			WSS = curr->ProcessData.WorkingSetSize;
-			ret = placementCount;
+			WorkingSetSize = curr->ProcessData.WorkingSetSize;
+			ret = placementCount; // The purpose is to find where the process with the biggest WorkingSetSize
 		}
 		
 		curr = curr->next;

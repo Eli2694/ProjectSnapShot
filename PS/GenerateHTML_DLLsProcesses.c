@@ -21,13 +21,13 @@ void createDLLsProcessListInHTML()
 	
 
 	char DllTitleInfo[300];
-	char process_name[500];
-	char process_id[200];
-	char pagefaultcount[200];
-	char workingsetsize[200];
-	char pagefileusage[200];
-	char quotapagedpoolusage[200];
-	char quotaPeakpagepoolusage[200];
+	char process_name[300];
+	char process_id[40];
+	char pageFaultCount[50];
+	char workingSetSize[50];
+	char pageFileUsage[50];
+	char quotaPagedPoolUsage[50];
+	char quotaPeakPagePoolUsage[50];
 	
 	int numOfFile = 0;
 	int numProcesses;
@@ -57,6 +57,12 @@ void createDLLsProcessListInHTML()
 		int len = found - htmlTemplate;
 		//allocation of memory for variable that will contain new template
 		char* newFileSpace = (char*)malloc(strlen(htmlTemplate) + strlen(DllTitleInfo) + 1);
+		if (newFileSpace == NULL)
+		{
+			LogError("Problam of memory allocation - newFileSpace (countNumOfProcessesInDLL)");
+			exit(1);
+
+		}
 		//input number of characters from the beginning of the file to the separator
 		strncpy(newFileSpace, htmlTemplate, len);
 		//strncpy does not input NULL at the end of string
@@ -77,22 +83,22 @@ void createDLLsProcessListInHTML()
 		currProcess = currDLL->Process_List;
 		while (currProcess)
 		{
-			//Write to file to use the content for an HTML file
+			//Write to txt file to use the content for an HTML file
 			fputs("<tr>", out);
 			sprintf(process_name, "<td class=\"Process-Name\">%s</td>", currProcess->ProcessName);
 			fputs(process_name, out);
 			sprintf(process_id, "<td class=\"data\">%ld</td>", currProcess->ProcessId);
 			fputs(process_id, out);
-			sprintf(pagefaultcount, "<td class=\"data\">%ld</td>", currProcess->ProcessData.PageFaultCount);
-			fputs(pagefaultcount, out);
-			sprintf(workingsetsize, "<td class=\"data\">%lld</td>", currProcess->ProcessData.WorkingSetSize);
-			fputs(workingsetsize, out);
-			sprintf(pagefileusage, "<td class=\"data\">%lld</tld>", currProcess->ProcessData.PagefileUsage);
-			fputs(pagefileusage, out);
-			sprintf(quotapagedpoolusage, "<td class=\"data\">%lld</td>", currProcess->ProcessData.QuotaPagedPoolUsage);
-			fputs(quotapagedpoolusage, out);
-			sprintf(quotaPeakpagepoolusage, "<td class=\"data\">%lld</td>", currProcess->ProcessData.QuotaPeakPagedPoolUsage);
-			fputs(quotaPeakpagepoolusage, out);
+			sprintf(pageFaultCount, "<td class=\"data\">%ld</td>", currProcess->ProcessData.PageFaultCount);
+			fputs(pageFaultCount, out);
+			sprintf(workingSetSize, "<td class=\"data\">%lld</td>", currProcess->ProcessData.WorkingSetSize);
+			fputs(workingSetSize, out);
+			sprintf(pageFileUsage, "<td class=\"data\">%lld</tld>", currProcess->ProcessData.PagefileUsage);
+			fputs(pageFileUsage, out);
+			sprintf(quotaPagedPoolUsage, "<td class=\"data\">%lld</td>", currProcess->ProcessData.QuotaPagedPoolUsage);
+			fputs(quotaPagedPoolUsage, out);
+			sprintf(quotaPeakPagePoolUsage, "<td class=\"data\">%lld</td>", currProcess->ProcessData.QuotaPeakPagedPoolUsage);
+			fputs(quotaPeakPagePoolUsage, out);
 			fputs("</tr>", out);
 
 			currProcess = currProcess->next;
@@ -108,13 +114,20 @@ void createDLLsProcessListInHTML()
 		char* found2 = strstr(newFileSpace, SEPERATOR);
 		int len2 = found2 - newFileSpace;
 		//newFileSpace2 - memory allocation - need to free 
-		char* newFileSpace2 = (char*)malloc(strlen(newFileSpace) + strlen(infoFromTxtFile) + 1);
+		char* newFileSpace2 = (char*)malloc(strlen(newFileSpace) + strlen(infoFromTxtFile));
+		if (newFileSpace2 == NULL)
+		{
+			LogError("Problam of memory allocation - newFileSpace2 (countNumOfProcessesInDLL)");
+			exit(1);
+
+		}
 		//newFileSpace2 contain the details before the seperator
 		strncpy(newFileSpace2, newFileSpace, len2);
 		newFileSpace2[len2] = NULL;
 		// input of data instead of the seperator
 		strcat(newFileSpace2, infoFromTxtFile);
-		strcat(newFileSpace2, found2 + strlen(SEPERATOR)); // newFileSpace2 - current Template
+		// newFileSpace2 - current Template
+		strcat(newFileSpace2, found2 + strlen(SEPERATOR)); // strlen(SEPERATOR) SKIP OVER [seperator]: Does not record in the string inside newFileSpace2
 
 		//Saving into HTML file
 		sprintf(createHTMLFile, "C:\\Users\\User\\source\\repos\\PS\\PS\\HTML\\Process%d.html", numOfFile);

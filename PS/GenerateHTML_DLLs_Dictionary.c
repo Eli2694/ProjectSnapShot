@@ -20,7 +20,7 @@ unsigned long long AvgMemoryOfSnapShot(t_SnapShot* curr);
 #define SEPERATOR "[seperator]"
 
 
-int SaveIntoFile(char* fileName, char* buff)
+int SaveIntoFile(char* fileName, char* htmlNewTemplate)
 {
 	FILE* fi = fopen(fileName, "w");
 	if (!fi)
@@ -28,7 +28,7 @@ int SaveIntoFile(char* fileName, char* buff)
 		return 0;
 	}
 
-	fputs(buff, fi);
+	fputs(htmlNewTemplate, fi);
 
 
 	fclose(fi);

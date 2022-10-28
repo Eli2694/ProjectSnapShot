@@ -92,12 +92,15 @@ int main()
 			LogEvent("Generating HTML Files");
 			CreateProjectPage();
 			createDLLsProcessListInHTML(); // including list of processe using the Dlls
-			createsnapShotLisInHTML();
+			createSnapShotLisInHTML();
 			break;
 		case 5:
 			LogEvent("Release linked lists and freeing memory");
+			LogEvent("Free SnapShots");
 			FreeSnapShotList(tailSnapShot);
+			LogEvent("Free Dictionary List Of DLLs");
 			FreeDictionaryListOfDLLs(DLL_Dictionary_List);
+			LogEvent("Free Dictionary List Of Processes");
 			FreeDictionaryListOfProcesses(Process_Dictionary_List);
 			break;
 		case 6:

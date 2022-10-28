@@ -31,7 +31,6 @@ void FreeSnapShotList(t_SnapShot*EndOfSnapShots)
 		while (currSample->ListOfProcesses)
 		{
 			
-
 			releaseProcess = currSample->ListOfProcesses;
 			// free Processes
 			while (currSample->ListOfProcesses->ListOfDlls)
@@ -43,12 +42,11 @@ void FreeSnapShotList(t_SnapShot*EndOfSnapShots)
 				free(releaseDLL);
 			}
 
-			
 			currSample->ListOfProcesses = currSample->ListOfProcesses->next;
 			free(releaseProcess);
 		}
 
-		currSample = currSample->prev;
+		currSample = currSample->prev; // EndOfSnapShots (Tail)
 		free(releaseSample);
 	}
 	SnapShot_Head = NULL;
@@ -84,7 +82,7 @@ void FreeDictionaryListOfDLLs(t_DLL_Dictionary* HeadOfDictionaryList)
 		currDLL = currDLL->next;
 		free(releaseCurrDLL);
 	}
-
+	
 	DLL_DictionaryHead = NULL;
 	DLL_DictionaryTail = NULL;
 }
