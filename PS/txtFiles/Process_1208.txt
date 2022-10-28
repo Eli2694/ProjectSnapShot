@@ -1,1 +1,0 @@
-<tr><td class="Process-Name">C:\Windows\SystemApps\Microsoft.Windows.Search_cw5n1h2txyewy\SearchApp.exe</td><td class="data">7612</td><td class="data">19973</td><td class="data">56176640</td><td class="data">25096192</tld><td class="data">745080</td><td class="data">770960</td></tr>

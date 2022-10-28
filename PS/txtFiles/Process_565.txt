@@ -1,1 +1,0 @@
-<tr><td class="Process-Name">C:\Program Files (x86)\ASUS\ArmouryDevice\dll\ArmourySocketServer\ArmourySocketServer.exe</td><td class="data">3968</td><td class="data">4730</td><td class="data">2215936</td><td class="data">3960832</tld><td class="data">174672</td><td class="data">194248</td></tr>

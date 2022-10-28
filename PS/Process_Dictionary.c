@@ -14,18 +14,14 @@ unsigned long long calculateAvgOfAvgWorkingSetSize(unsigned int sumOfProcesses);
 t_Processes_Dictionary* Process_DictionaryHead = NULL;
 t_Processes_Dictionary* Process_DictionaryTail = NULL;
 
-unsigned long long AvgWorkingSetSize = 0;
-unsigned int sumOfProcesses = 0;
-
-
-t_Processes_Dictionary* ProcessTraversing(t_SnapShot* SnapShotP)
+t_Processes_Dictionary* ProcessTraversing(t_SnapShot* SnapShotHead)
 {
-	if (SnapShotP == NULL)
+	if (SnapShotHead == NULL)
 	{
 		return;
 	}
 
-	t_SnapShot* currentSnapShot = SnapShotP;
+	t_SnapShot* currentSnapShot = SnapShotHead;
 	t_Process* currentProcess;
 
 	while (currentSnapShot)
@@ -51,12 +47,14 @@ void CreateListOfMonovalentProcessess(t_Process* SampleProcess)
 		LogError("Allocation Memory Of d_Process");
 		return;
 	}
+
 	strcpy(d_Process->Key_Process_Name, SampleProcess->ProcessName);
 	d_Process->WorkingSetSize = SampleProcess->ProcessData.WorkingSetSize;
 	d_Process->next = d_Process->prev = NULL;
 
 	t_Processes_Dictionary* curr = Process_DictionaryHead;
-	t_Processes_Dictionary* temp = Process_DictionaryHead;
+	t_Processes_Dictionary* tempProcessHead = Process_DictionaryHead;
+
 	if (curr == NULL)
 	{
 		Process_DictionaryHead = Process_DictionaryTail = d_Process;
@@ -74,6 +72,12 @@ void CreateListOfMonovalentProcessess(t_Process* SampleProcess)
 			if (curr->next == NULL)
 			{
 				t_Processes_Dictionary* newProcess = (t_Processes_Dictionary*)malloc(sizeof(t_Processes_Dictionary));
+				if (newProcess == NULL)
+				{
+					LogError("Allocation Memory Of newProcess (Process_Dictionary)");
+					return;
+				}
+
 				*newProcess = *d_Process;
 
 				curr->next = newProcess;
@@ -86,12 +90,12 @@ void CreateListOfMonovalentProcessess(t_Process* SampleProcess)
 			curr = curr->next;
 		}
 	}
-	curr = temp; // i need to always check all the dictionary list for similar processes
+	curr = tempProcessHead; // i need to always check all the dictionary list for similar processes
 }
 
 int calculateNumOfMonovalentProcess()
 {
-	
+	unsigned int sumOfProcesses = 0;
 	t_Processes_Dictionary* curr = Process_DictionaryHead;
 	while (curr)
 	{
@@ -104,7 +108,7 @@ int calculateNumOfMonovalentProcess()
 unsigned long long calculateAvgOfAvgWorkingSetSize(unsigned int sumOfProcesses)
 {
 	unsigned long long SumWorkingSetSize = 0;
-	unsigned long long AvgWorkingSetSize;
+	unsigned long long AvgWorkingSetSize = 0;
 	t_Processes_Dictionary* curr = Process_DictionaryHead;
 	while (curr)
 	{

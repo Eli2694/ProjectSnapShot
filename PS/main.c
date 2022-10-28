@@ -87,6 +87,7 @@ int main()
 			DLL_Dictionary_List = SnapshotTraversing(SnapShot_Head); // monovalent list 
 			LogEvent("Creating Dictionary List Of Processes");
 			Process_Dictionary_List = ProcessTraversing(SnapShot_Head); // monovalent list 
+			LogEvent("Bubble Sort To SnapShot List");
 			sort(tailSnapShot); // Bubble sort
 			LogEvent("Generating HTML Files");
 			CreateProjectPage();
@@ -108,7 +109,7 @@ int main()
 			LoadFromFile();
 			break;
 		case 8:
-			LogEvent("Exit Program");
+			LogEvent("User Exit The Program");
 			user_response = 8;
 			break;
 		}

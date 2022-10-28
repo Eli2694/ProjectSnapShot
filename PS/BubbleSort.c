@@ -22,12 +22,12 @@ void sort(t_SnapShot* TailOfSnapShot)
 	t_SnapShot* HSnapShot = runToHeadOfSanpShot(TailOfSnapShot);
 	currS = HSnapShot;
 	t_Process* currP;
-	t_DLL* currD;
+	
 	int CountNumOfReplacement = 1;
 
 	while (currS)
 	{
-		CountNumOfReplacement = 1;
+		CountNumOfReplacement = 1; // CountNumOfReplacement = 1 so that i could enter the next while loop
 
 		while (CountNumOfReplacement != 0)
 		{
@@ -43,20 +43,20 @@ void sort(t_SnapShot* TailOfSnapShot)
 					CountNumOfReplacement++;
 					currP = currP->prev;
 				}
-
-				if (currP->next->next == NULL)
+				//I don't want to get to a situation where I won't have an item to compare with and as a result a problem of memory leaks will appear
+				if (currP->next->next == NULL) 
 				{
 					break;
 				}
 				currP = currP->next;
 			}
 		}
-
 		
 		if (currS->next == NULL)
 		{
 			break;
 		}
+
 		currS = currS->next;
 	}	
 

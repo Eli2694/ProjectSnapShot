@@ -1,1 +1,0 @@
-<tr><td class="Process-Name">C:\Program Files\Logitech\SetPointP\SetPoint.exe</td><td class="data">9200</td><td class="data">328214</td><td class="data">19705856</td><td class="data">7536640</tld><td class="data">254312</td><td class="data">293352</td></tr>

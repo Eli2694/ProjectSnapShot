@@ -38,6 +38,7 @@ char* ReadAllFile(char* fileName)
 	FILE* f = fopen(fileName, "r");
 	if (!f)
 	{
+		LogError("Problem Of Opening A File(ReadAllFile function)");
 		return NULL;
 	}
 
@@ -61,6 +62,7 @@ char* ReadAllFile(char* fileName)
 	f = fopen(fileName, "r");
 	if (!f)
 	{
+		LogError("Problem Of Opening A File(ReadAllFile function)");
 		return NULL;
 	}
 	unsigned long readPosition = 0;
@@ -70,6 +72,7 @@ char* ReadAllFile(char* fileName)
 		buff[readPosition] = charToRead;
 		readPosition++;
 	}
+
 	buff[readPosition] = NULL;
 
 	fclose(f);
@@ -84,9 +87,9 @@ void CreateProjectPage()
 	int sumOfDLLs = calculateSumOfDLLs();
 	int sumOfProcesses = calculateNumOfMonovalentProcess();
 	unsigned long long AvgWorkingSetSize = calculateAvgOfAvgWorkingSetSize(sumOfProcesses);
-	char DLLsCount[10];
-	char ProcessCount[10];
-	char WorkingSet[30];
+	char DLLsCount[6];
+	char ProcessCount[6];
+	char WorkingSet[15];
 	sprintf(DLLsCount, "%d", sumOfDLLs);
 	sprintf(ProcessCount, "%d", sumOfProcesses);
 	sprintf(WorkingSet, "%lld", AvgWorkingSetSize);
@@ -96,22 +99,34 @@ void CreateProjectPage()
 	char* htmlTemplate = ReadAllFile("C:\\Users\\User\\source\\repos\\PS\\PS\\T_Project.html");
 	// find the token (---- [seperator] ---- )
 	char* found = strstr(htmlTemplate, SEPERATOR);
-	// found integer of charecters from the beginning og the html file until the seperator
+	// found integer of charecters from the beginning of the html file until the seperator
 	int len = found - htmlTemplate;
 	// Memory Allocation to fit the added information
 	char* newFileSpace = (char*)malloc(strlen(htmlTemplate) + strlen(DLLsCount)); // Adding DLLs count
+	if (newFileSpace == NULL) 
+	{
+		LogError("Problam of memory allocation - newFileSpace (CreateProjectPage)");
+		exit(1);
+		
+	}
 	//content of newFileSpace will be from the beginning of the page until the seperator - 1 part of the page template
 	strncpy(newFileSpace, htmlTemplate, len);
 	newFileSpace[len] = NULL;
 	//Add new Content
 	strcat(newFileSpace, DLLsCount);
 	//add the the second part of the template
-	strcat(newFileSpace, found + strlen(SEPERATOR));
+	strcat(newFileSpace, found + strlen(SEPERATOR)); // strlen(SEPERATOR) skip over [seperator] from html file
 	
 	//Adding monovalent Process count
 	char* found2 = strstr(newFileSpace, SEPERATOR);
 	int len2 = found2 - newFileSpace;
 	char* newFileSpace2 = (char*)malloc(strlen(htmlTemplate) + strlen(ProcessCount));
+	if (newFileSpace2 == NULL)
+	{
+		LogError("Problam of memory allocation - newFileSpace2 (CreateProjectPage)");
+		exit(1);
+
+	}
 	strncpy(newFileSpace2, newFileSpace, len2);
 	newFileSpace2[len2] = NULL;
 	strcat(newFileSpace2, ProcessCount);
@@ -121,6 +136,12 @@ void CreateProjectPage()
 	char* found3 = strstr(newFileSpace2, SEPERATOR);
 	int len3 = found3 - newFileSpace2;
 	char* newFileSpace3 = (char*)malloc(strlen(htmlTemplate) + strlen(WorkingSet));
+	if (newFileSpace3 == NULL)
+	{
+		LogError("Problam of memory allocation - newFileSpace3 (CreateProjectPage)");
+		exit(1);
+
+	}
 	strncpy(newFileSpace3, newFileSpace2, len3);
 	newFileSpace3[len3] = NULL;
 	strcat(newFileSpace3, WorkingSet);
@@ -132,6 +153,12 @@ void CreateProjectPage()
 	char* found4 = strstr(newFileSpace3, SEPERATOR);
 	int len4 = found4 - newFileSpace3;
 	char* newFileSpace4 = (char*)malloc(strlen(newFileSpace3) + strlen(sample_list_info));
+	if (newFileSpace4 == NULL)
+	{
+		LogError("Problam of memory allocation - newFileSpace4 (CreateProjectPage)");
+		exit(1);
+
+	}
 	strncpy(newFileSpace4, newFileSpace3, len4);
 	newFileSpace4[len4] = NULL;
 	strcat(newFileSpace4, sample_list_info);
@@ -145,6 +172,12 @@ void CreateProjectPage()
 	char* found5 = strstr(newFileSpace4, SEPERATOR);
 	int len5 = found5 - newFileSpace4;
 	char* newFileSpace5 = (char*)malloc(strlen(newFileSpace4) + strlen(dll_list_info));
+	if (newFileSpace5 == NULL)
+	{
+		LogError("Problam of memory allocation - newFileSpace5 (CreateProjectPage)");
+		exit(1);
+
+	}
 	strncpy(newFileSpace5, newFileSpace4, len5);
 	newFileSpace5[len5] = NULL;
 	strcat(newFileSpace5, dll_list_info);
@@ -174,8 +207,8 @@ void inputListOfDlls()
 	{
 		return NULL;
 	}
-	int i = 1;
-	char DLLs[500];
+	int i = 1; // Process%d.html
+	char DLLs[350];
 	t_DLL_Dictionary* curr = DLL_DictionaryHead;
 	while (curr)
 	{
@@ -196,11 +229,11 @@ void inputListOfSamples()
 		return NULL;
 	}
 
-	char numOfSamples[50];
-	char linkToSample[100];
-	char ProcessCount[50];
-	char DllsCount[50];
-	char MemoryAvgCount[300];
+	char numOfSamples[20];
+	char linkToSample[60];
+	char ProcessCount[22];
+	char DllsCount[24];
+	char MemoryAvgCount[30];
 	unsigned int TotalDllCount;
 	unsigned long long AvgMemory;
 

@@ -1,1 +1,0 @@
-<tr><td class="Process-Name">C:\Windows\System32\DriverStore\FileRepository\dal.inf_amd64_ffc75848a6342fdf\jhi_service.exe</td><td class="data">5780</td><td class="data">1787</td><td class="data">5373952</td><td class="data">1331200</tld><td class="data">85000</td><td class="data">85272</td></tr>
