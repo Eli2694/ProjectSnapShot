@@ -97,7 +97,7 @@ t_SnapShot* LoadFromFile()
 					fclose(in);
 					exit(1);
 				}
-
+				
 				CreateListOfDlls(DLL_Information);
 			}
 

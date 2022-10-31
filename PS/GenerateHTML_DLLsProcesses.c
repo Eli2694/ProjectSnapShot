@@ -12,22 +12,25 @@
 #define _NO_CRT_STDIO_INLINE
 #define SEPERATOR "[seperator]"
 
+
+
 //fucntion - specification
 int countNumOfProcessesInDLL(t_Process* currDLL);
 
 
 void createDLLsProcessListInHTML()
 {
-	
+
+	typedef char ProcessData[50];
 
 	char DllTitleInfo[300];
 	char process_name[300];
-	char process_id[40];
-	char pageFaultCount[50];
-	char workingSetSize[50];
-	char pageFileUsage[50];
-	char quotaPagedPoolUsage[50];
-	char quotaPeakPagePoolUsage[50];
+	ProcessData process_id;
+	ProcessData pageFaultCount;
+	ProcessData workingSetSize;
+	ProcessData pageFileUsage;
+	ProcessData quotaPagedPoolUsage;
+	ProcessData quotaPeakPagePoolUsage;
 	
 	int numOfFile = 0;
 	int numProcesses;

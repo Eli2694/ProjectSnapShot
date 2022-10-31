@@ -1,1 +1,0 @@
-<tr><td class="Process-Name">C:\Windows\SystemApps\Microsoft.Windows.StartMenuExperienceHost_cw5n1h2txyewy\StartMenuExperienceHost.exe</td><td class="data">5188</td><td class="data">35585</td><td class="data">20602880</td><td class="data">22376448</tld><td class="data">537984</td><td class="data">942672</td></tr>

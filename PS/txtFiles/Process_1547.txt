@@ -1,1 +1,0 @@
-<tr><td class="Process-Name">C:\Windows\System32\audiodg.exe</td><td class="data">14288</td><td class="data">12781</td><td class="data">18378752</td><td class="data">10723328</tld><td class="data">117840</td><td class="data">120408</td></tr>

@@ -158,3 +158,8 @@ footer {
 .Process-Name {
   overflow-x: scroll;
 }
+
+tr:hover {
+  background-color: darkcyan;
+  color: white;
+}

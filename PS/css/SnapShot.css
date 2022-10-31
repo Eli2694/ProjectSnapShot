@@ -123,8 +123,19 @@ th {
   width: 30px;
 }
 
-.Process-Name {
-  /* overflow-x: scroll; */
+/* .Process-Name {
+  overflow-x: scroll; 
+} */
+
+tr:hover {
+  background-color: black;
+  color: yellow;
+  transform: scale(1.1);
+  transition: 2s;
+}
+
+td:hover {
+  color: red;
 }
 
 @-moz-document url-prefix() {

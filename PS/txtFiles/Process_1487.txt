@@ -1,1 +1,0 @@
-<tr><td class="Process-Name">C:\Users\User\AppData\Local\WhatsApp\app-2.2241.7\WhatsApp.exe</td><td class="data">7300</td><td class="data">723863</td><td class="data">150974464</td><td class="data">291840000</tld><td class="data">800880</td><td class="data">913936</td></tr>

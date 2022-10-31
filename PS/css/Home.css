@@ -7,6 +7,15 @@ a:visited {
   color: none;
 }
 
+body {
+  background-image: linear-gradient(
+    -225deg,
+    #69eacb 0%,
+    #eaccf8 48%,
+    #6654f1 100%
+  );
+}
+
 .top-bar {
   display: flex;
   border: 1px none;
@@ -128,13 +137,4 @@ footer {
 
 .end {
   height: 200px;
-}
-
-body {
-  background-image: linear-gradient(
-    -225deg,
-    #69eacb 0%,
-    #eaccf8 48%,
-    #6654f1 100%
-  );
 }

@@ -1,1 +1,0 @@
-<tr><td class="Process-Name">C:\Program Files\AMD\CNext\CNext\AMDRSSrcExt.exe</td><td class="data">13980</td><td class="data">14158</td><td class="data">4059136</td><td class="data">44232704</tld><td class="data">750160</td><td class="data">768120</td></tr>
