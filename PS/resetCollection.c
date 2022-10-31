@@ -50,6 +50,7 @@ void FreeSnapShotList(t_SnapShot*EndOfSnapShots)
 		free(releaseSample);
 	}
 	SnapShot_Head = NULL;
+	SnapShot_Tail = NULL;
 	DLL_Head = NULL;
 	DLL_Tail = NULL;
 	Process_Head = NULL;

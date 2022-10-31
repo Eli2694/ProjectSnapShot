@@ -8,8 +8,6 @@
 
 //function - specification
 t_SnapShot* runToHeadOfSanpShot(t_SnapShot* Tail);
-t_Process* runToHeadOfProcess(t_Process* Process);
-t_DLL* runToHeadOfDLL(t_DLL* DLL);
 int countNumOfSnapShot(t_SnapShot* headOfSnapshot);
 
 //Variable Declaration
@@ -24,11 +22,12 @@ void WriteToBinaryFile(t_SnapShot* Tail)
 	}
 
 	int checkWriteToFile;
+
 	FILE* out = fopen("SnapShot.bin", "wb");
 	if (!out)
 	{
-		LogError(strerror(GetLastError()));
-		return;
+		LogError("SnapShot.bin",strerror(GetLastError()));
+		exit(1);
 	}
 	else
 	{
@@ -36,37 +35,63 @@ void WriteToBinaryFile(t_SnapShot* Tail)
 		WriteHeaderFile.SnapShotCount = countNumOfSnapShot(SnapShot_Head);
 		if (!WriteHeaderFile.SnapShotCount)
 		{
-			LogError("No SnapShot Found");
-			return;
+			LogError("No SnapShot Found (SaveToFile)");
+			fclose(out);
+			exit(1);
 		}
 		checkWriteToFile = fwrite(&WriteHeaderFile, sizeof(t_HeaderFile), 1, out);
 		if (!checkWriteToFile)
 		{
-			LogError("Problem writing to a binary file");
+			LogError("Problem writing a header to a binary file");
+			fclose(out);
+			exit(1);
 		}
 		fclose(out);
 	}
+
 	FILE* out2 = fopen("SnapShot.bin", "ab");
 	if (!out2)
 	{
-		LogError(strerror(GetLastError()));
-		return;
+		LogError("Problam with out2 (SaveToFile)",strerror(GetLastError()));
+		exit(1);
 	}
+
 	t_SnapShot* SnapShotHead = runToHeadOfSanpShot(Tail);
-	t_SnapShot* beginningOf;
 	t_Process* Process;
 	t_DLL* DLL;
+
 	while (SnapShotHead)
 	{
-		fwrite(SnapShotHead, sizeof(t_SnapShot), 1, out2);
+		checkWriteToFile = fwrite(SnapShotHead, sizeof(t_SnapShot), 1, out2);
+		if (!checkWriteToFile)
+		{
+			LogError("Problem writing a SnapShotHead to a binary file");
+			fclose(out2);
+			exit(1);
+		}
+
 		Process = SnapShotHead->ListOfProcesses;
 		while (Process)
 		{
-			fwrite(Process, sizeof(t_Process), 1, out2);
+			checkWriteToFile = fwrite(Process, sizeof(t_Process), 1, out2);
+			if (!checkWriteToFile)
+			{
+				LogError("Problem writing a Process to a binary file");
+				fclose(out2);
+				exit(1);
+			}
+
 			DLL = Process->ListOfDlls;
 			while (DLL)
 			{
-				fwrite(DLL, sizeof(t_DLL), 1, out2);
+				checkWriteToFile = fwrite(DLL, sizeof(t_DLL), 1, out2);
+				if (!checkWriteToFile)
+				{
+					LogError("Problem writing a DLL to a binary file");
+					fclose(out2);
+					exit(1);
+				}
+
 				DLL = DLL->next;
 			}
 
@@ -93,32 +118,7 @@ t_SnapShot* runToHeadOfSanpShot(t_SnapShot* SnapShot)
 	}
 }
 
-t_Process* runToHeadOfProcess(t_Process* Process)
-{
-	t_Process* curr = Process;
-	while (curr)
-	{
-		if (curr->prev == NULL)
-		{
-			return curr;
-		}
-		curr = curr->prev;
-	}
 
-}
-
-t_DLL* runToHeadOfDLL(t_DLL* DLL)
-{
-	t_DLL* curr = DLL;
-	while (curr)
-	{
-		if (curr->prev == NULL)
-		{
-			return curr;
-		}
-		curr = curr->prev;
-	}
-}
 
 int countNumOfSnapShot(t_SnapShot* headOfSnapshot)
 {

@@ -1,0 +1,1 @@
+<tr><td class="Process-Name">C:\Program Files\ASUS\ARMOURY CRATE Lite Service\ArmouryCrate.Service.exe</td><td class="data">6832</td><td class="data">281016</td><td class="data">7811072</td><td class="data">15368192</tld><td class="data">292064</td><td class="data">304720</td></tr>
