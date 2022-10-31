@@ -102,6 +102,9 @@ int main()
 			FreeDictionaryListOfDLLs(DLL_Dictionary_List);
 			LogEvent("Free Dictionary List Of Processes");
 			FreeDictionaryListOfProcesses(Process_Dictionary_List);
+			tailSnapShot = NULL;
+			DLL_Dictionary_List = NULL;
+			Process_Dictionary_List = NULL;
 			break;
 		case 6:
 			LogEvent("Writing linked-list to binary files");
