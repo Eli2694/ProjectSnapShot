@@ -1,1 +1,0 @@
-<tr><td class="Process-Name">C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\Remote Debugger\x64\msvsmon.exe</td><td class="data">17776</td><td class="data">4920</td><td class="data">18071552</td><td class="data">8409088</tld><td class="data">208040</td><td class="data">208424</td></tr>

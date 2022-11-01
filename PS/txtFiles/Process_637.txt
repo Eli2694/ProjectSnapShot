@@ -1,1 +1,0 @@
-<tr><td class="Process-Name">C:\Windows\System32\SECOCL64.exe</td><td class="data">16692</td><td class="data">4382</td><td class="data">5718016</td><td class="data">3035136</tld><td class="data">209536</td><td class="data">214192</td></tr>

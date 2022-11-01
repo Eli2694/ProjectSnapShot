@@ -1,1 +1,0 @@
-<tr><td class="Process-Name">C:\Windows\System32\oobe\UserOOBEBroker.exe</td><td class="data">9052</td><td class="data">4032</td><td class="data">6873088</td><td class="data">2375680</tld><td class="data">125864</td><td class="data">127224</td></tr>

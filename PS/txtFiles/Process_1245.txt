@@ -1,1 +1,0 @@
-<tr><td class="Process-Name">C:\Program Files\Google\Chrome\Application\chrome.exe</td><td class="data">3820</td><td class="data">173335</td><td class="data">167849984</td><td class="data">170967040</tld><td class="data">909896</td><td class="data">988824</td></tr>

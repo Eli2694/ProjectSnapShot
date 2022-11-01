@@ -1,1 +1,0 @@
-<tr><td class="Process-Name">C:\Windows\System32\DriverStore\FileRepository\hpcustomcapcomp.inf_amd64_708a715d015f867d\x64\BridgeCommunication.exe</td><td class="data">12888</td><td class="data">17936</td><td class="data">15454208</td><td class="data">6471680</tld><td class="data">278448</td><td class="data">290704</td></tr>

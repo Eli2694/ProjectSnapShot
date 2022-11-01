@@ -1,1 +1,0 @@
-<tr><td class="Process-Name">C:\Program Files\WindowsApps\Microsoft.Windows.Photos_2022.30070.26007.0_x64__8wekyb3d8bbwe\Microsoft.Photos.exe</td><td class="data">8964</td><td class="data">35986</td><td class="data">33099776</td><td class="data">62308352</tld><td class="data">870176</td><td class="data">876512</td></tr>
