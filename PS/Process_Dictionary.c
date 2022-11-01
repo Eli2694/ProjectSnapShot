@@ -106,16 +106,25 @@ int calculateNumOfMonovalentProcess()
 	return sumOfProcesses;
 }
 
-unsigned long long calculateAvgOfAvgWorkingSetSize(unsigned int sumOfProcesses)
+unsigned long long calculateAvgOfAvgWorkingSetSize(t_SnapShot* SnapShot_Head)
 {
-	unsigned long long SumWorkingSetSize = 0;
+	unsigned int SumOfProcesses = 0;
 	unsigned long long AvgWorkingSetSize = 0;
-	t_Processes_Dictionary* curr = Process_DictionaryHead;
-	while (curr)
+	t_SnapShot* currSnapshot = SnapShot_Head;
+	t_Process* currProcess;
+	while (currSnapshot)
 	{
-		SumWorkingSetSize = SumWorkingSetSize + curr->WorkingSetSize;
-		curr = curr->next;
+		currProcess = currSnapshot->ListOfProcesses;
+		while (currProcess)
+		{
+			SumOfProcesses++;
+			AvgWorkingSetSize = AvgWorkingSetSize + currProcess->ProcessData.WorkingSetSize;
+			currProcess = currProcess->next;
+			
+		}
+		
+		currSnapshot = currSnapshot->next;
 	}
-	AvgWorkingSetSize = SumWorkingSetSize / sumOfProcesses;
+	AvgWorkingSetSize = AvgWorkingSetSize / SumOfProcesses;
 	return AvgWorkingSetSize;
 }

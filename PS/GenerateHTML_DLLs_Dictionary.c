@@ -97,7 +97,7 @@ void CreateProjectPage()
 	//information to add - Application Statistics
 	int sumOfDLLs = calculateSumOfDLLs();
 	int sumOfProcesses = calculateNumOfMonovalentProcess();
-	unsigned long long AvgWorkingSetSize = calculateAvgOfAvgWorkingSetSize(sumOfProcesses);
+	unsigned long long AvgWorkingSetSize = calculateAvgOfAvgWorkingSetSize(SnapShot_Head);
 	char DLLsCount[6];
 	char ProcessCount[6];
 	char WorkingSet[15];
