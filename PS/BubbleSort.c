@@ -19,6 +19,7 @@ void sort(t_SnapShot* TailOfSnapShot)
 	{
 		return;
 	}
+
 	t_SnapShot* HSnapShot = runToHeadOfSanpShot(TailOfSnapShot);
 	currS = HSnapShot;
 	t_Process* currP;

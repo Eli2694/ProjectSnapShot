@@ -51,6 +51,7 @@ typedef struct s_Processes_Dictionary
 {
 	char Key_Process_Name[MAX_PATH];
 	SIZE_T WorkingSetSize;
+	unsigned long ProcessId;
 	struct s_Processes_Dictionary* next;
 	struct s_Processes_Dictionary* prev;
 }t_Processes_Dictionary;

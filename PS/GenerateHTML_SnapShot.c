@@ -39,6 +39,12 @@ char* readAllFile(char* fileName)
 
 	// Get the file size
 	char* buff = (char*)malloc(1000);
+	if (buff == NULL)
+	{
+		LogError("Memory Allocation  (GenerateHTML_SnapShot)", strerror(GetLastError()));
+		exit(1);
+	}
+
 	char* read;
 	unsigned long fileSize = 0;
 	while ((read = fgets(buff, 1000, f)))
@@ -51,6 +57,11 @@ char* readAllFile(char* fileName)
 	fileSize++;
 	// alloc space as file size
 	buff = (char*)malloc(fileSize);
+	if (buff == NULL)
+	{
+		LogError("Memory Allocation  (GenerateHTML_SnapShot)", strerror(GetLastError()));
+		exit(1);
+	}
 
 	f = fopen(fileName, "r");
 	if (!f)
@@ -265,7 +276,7 @@ void createSnapShotLisInHTML()
 
 int FoundBiggestWorkingSetSize(t_Process*head)
 {
-	int ret;
+	int ret = 0;
 	int placementCount = 0;
 	unsigned long long WorkingSetSize = 0;
 	t_Process* curr = head;

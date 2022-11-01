@@ -50,6 +50,7 @@ void CreateListOfMonovalentProcessess(t_Process* SampleProcess)
 
 	strcpy(d_Process->Key_Process_Name, SampleProcess->ProcessName);
 	d_Process->WorkingSetSize = SampleProcess->ProcessData.WorkingSetSize;
+	d_Process->ProcessId = SampleProcess->ProcessId;
 	d_Process->next = d_Process->prev = NULL;
 
 	t_Processes_Dictionary* curr = Process_DictionaryHead;
@@ -64,7 +65,7 @@ void CreateListOfMonovalentProcessess(t_Process* SampleProcess)
 		while (curr)
 		{
 			//checking if process from smaple already Exists in dictionary list of processes
-			if (strcmp(curr->Key_Process_Name, d_Process->Key_Process_Name) == 0)
+			if (curr->ProcessId == d_Process->ProcessId)
 			{
 				free(d_Process);
 				break;

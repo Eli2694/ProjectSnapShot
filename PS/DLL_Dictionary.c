@@ -25,7 +25,8 @@ t_DLL_Dictionary* SnapshotTraversing(t_SnapShot* SnapShot)
 		return;
 	}
 
-	//t_SnapShot* HeadOfSnapShot = runToHeadOfSanpShot(TailOfSnapShot);
+	
+
 	t_SnapShot* currSnapShot = SnapShot;
 	t_Process* currProcess;
 	t_DLL* currDLL;

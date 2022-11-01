@@ -46,6 +46,12 @@ char* ReadAllFile(char* fileName)
 	// Get the file size
 	//fgets read rows (lines)
 	char* buff = (char*)malloc(1000);
+	if (buff == NULL)
+	{
+		LogError("Memory Allocation (GenerateHTML_DLLs_Dictionary)", strerror(GetLastError()));
+		exit(1);
+	}
+
 	char* read;
 	unsigned long fileSize = 0;
 	while ((read = fgets(buff, 1000, f)))
@@ -58,6 +64,11 @@ char* ReadAllFile(char* fileName)
 	fileSize++;
 	// alloc space as file size
 	buff = (char*)malloc(fileSize);
+	if (buff == NULL)
+	{
+		LogError("Memory Allocation (GenerateHTML_DLLs_Dictionary)", strerror(GetLastError()));
+		exit(1);
+	}
 
 	f = fopen(fileName, "r");
 	if (!f)
