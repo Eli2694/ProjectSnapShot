@@ -26,21 +26,20 @@ t_Processes_Dictionary* Process_Dictionary_List;
 
 int main()
 {
-	
-	int user_response = -1;
+	char user_response = "W";
 	do {
-		printf("<--User-Response-->\n1.Take One SnapShot\n2.Take 20 SnapShots\n3.Start Long SnapShot\n4.Generate HTML Report\n5.Reset Collections\n6.Save In File\n7.Load From File\n8.Quit\n");
-		scanf("%d", &user_response);
+		printf("<--User-Response-->\nA.Take One SnapShot\nB.Take 20 SnapShots\nC.Start Long SnapShot\nD.Generate HTML Report\nE.Reset Collections\nF.Save In File\nG.Load From File\nH.Quit\n");
+		scanf(" %c", &user_response);
 
 		switch (user_response)
 		{
-		case 1:
+		case 'A':
 			LogEvent("Creating one sample");
 			smaple = GetProcessesInfo(); // Creating a sample
 			LogEvent("Creating list of snapshots");
 			tailSnapShot = ListOfSnapShots(smaple); // Inserting into a list of samples
 			break;
-		case 2:
+		case 'B':
 			smaple = GetProcessesInfo();
 			tailSnapShot = ListOfSnapShots(smaple);
 			LogEvent("Create one sample with data accumulation for at least 20 seconds");
@@ -53,7 +52,7 @@ int main()
 				Sleep(1000);
 			}
 			break;
-		case 3:
+		case 'C':
 			LogEvent("Creating a single sample with data accumulation until the user decides to stop");
 			smaple = GetProcessesInfo();
 			tailSnapShot = ListOfSnapShots(smaple);
@@ -82,7 +81,7 @@ int main()
 				}
 			}
 			break;
-		case 4:
+		case 'D':
 			LogEvent("Creating Dictionary List Of DLLs");
 			DLL_Dictionary_List = SnapshotTraversing(SnapShot_Head); // monovalent list 
 			LogEvent("Creating Dictionary List Of Processes");
@@ -94,7 +93,7 @@ int main()
 			createDLLsProcessListInHTML(); // including list of processe using the Dlls
 			createSnapShotLisInHTML();
 			break;
-		case 5:
+		case 'E':
 			LogEvent("Release linked lists and freeing memory");
 			LogEvent("Free SnapShots");
 			FreeSnapShotList(tailSnapShot);
@@ -106,15 +105,15 @@ int main()
 			DLL_Dictionary_List = NULL;
 			Process_Dictionary_List = NULL;
 			break;
-		case 6:
+		case 'F':
 			LogEvent("Writing linked-list to binary files");
 			WriteToBinaryFile(tailSnapShot);
 			break;
-		case 7:
+		case 'G':
 			LogEvent("Reading linked-list from binary files");
 			LoadFromFile();
 			break;
-		case 8:
+		case 'H':
 			LogEvent("Release linked lists and freeing memory");
 			LogEvent("Free SnapShots");
 			FreeSnapShotList(tailSnapShot);
@@ -127,10 +126,13 @@ int main()
 			Process_Dictionary_List = NULL;
 
 			LogEvent("User Exit The Program!!!");
-			user_response = 8;
+			user_response = 'H';
+			break;
+		default:
+			printf("Wrong Letter, Please choose again :]\n");
 			break;
 		}
-	} while (user_response != 8);
+	} while (user_response != 'H');
 
 
 	return 0;

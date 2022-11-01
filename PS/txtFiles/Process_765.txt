@@ -1,0 +1,1 @@
+<tr><td class="Process-Name">C:\Windows\SystemApps\ShellExperienceHost_cw5n1h2txyewy\ShellExperienceHost.exe</td><td class="data">11636</td><td class="data">26737</td><td class="data">6320128</td><td class="data">17784832</tld><td class="data">572440</td><td class="data">645640</td></tr>

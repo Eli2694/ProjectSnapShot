@@ -1,0 +1,1 @@
+<tr><td class="Process-Name">C:\Windows\System32\DriverStore\FileRepository\realtekservice.inf_amd64_b8f1bff0e3af96f2\RtkAudUService64.exe</td><td class="data">16660</td><td class="data">5878</td><td class="data">7737344</td><td class="data">4243456</tld><td class="data">208776</td><td class="data">230992</td></tr>

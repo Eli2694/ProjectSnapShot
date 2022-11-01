@@ -1,0 +1,1 @@
+<tr><td class="Process-Name">C:\Program Files\WindowsApps\5319275A.WhatsAppDesktop_2.2241.2.0_x64__cv1g1gvanyjgm\WhatsApp.exe</td><td class="data">13852</td><td class="data">147239</td><td class="data">35135488</td><td class="data">53202944</tld><td class="data">832072</td><td class="data">845440</td></tr>
