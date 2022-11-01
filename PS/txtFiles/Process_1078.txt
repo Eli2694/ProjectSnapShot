@@ -1,1 +1,0 @@
-<tr><td class="Process-Name">C:\Program Files\Common Files\microsoft shared\ClickToRun\OfficeClickToRun.exe</td><td class="data">5864</td><td class="data">36577</td><td class="data">36732928</td><td class="data">33959936</tld><td class="data">288472</td><td class="data">293632</td></tr>

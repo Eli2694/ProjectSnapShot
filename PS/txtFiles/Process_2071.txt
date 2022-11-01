@@ -1,1 +1,0 @@
-<tr><td class="Process-Name">C:\Users\User\source\repos\PS\x64\Debug\PS.exe</td><td class="data">11712</td><td class="data">2994</td><td class="data">11542528</td><td class="data">5152768</tld><td class="data">24280</td><td class="data">24584</td></tr>

@@ -126,7 +126,7 @@ int main()
 			DLL_Dictionary_List = NULL;
 			Process_Dictionary_List = NULL;
 
-			LogEvent("User Exit The Program");
+			LogEvent("User Exit The Program!!!");
 			user_response = 8;
 			break;
 		}

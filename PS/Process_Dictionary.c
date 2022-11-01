@@ -5,7 +5,7 @@
 #include "Log.h"
 #pragma warning(disable:4996)
 
-//function Specifications
+//function Specifications 
 void CreateListOfMonovalentProcessess(t_Process* SampleProcess);
 int calculateNumOfMonovalentProcess();
 unsigned long long calculateAvgOfAvgWorkingSetSize(unsigned int sumOfProcesses);
@@ -64,7 +64,7 @@ void CreateListOfMonovalentProcessess(t_Process* SampleProcess)
 	{
 		while (curr)
 		{
-			//checking if process from smaple already Exists in dictionary list of processes
+			//Comparing IDs between process from Sample and process from t_Processes_Dictionary linked list
 			if (curr->ProcessId == d_Process->ProcessId)
 			{
 				free(d_Process);

@@ -1,1 +1,0 @@
-<tr><td class="Process-Name">C:\Program Files (x86)\Microsoft Visual Studio\Shared\Common\DiagnosticsHub.Collection.Service\StandardCollector.Service.exe</td><td class="data">16896</td><td class="data">8156</td><td class="data">30040064</td><td class="data">21417984</tld><td class="data">124152</td><td class="data">124360</td></tr>

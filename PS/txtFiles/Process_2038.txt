@@ -1,1 +1,0 @@
-<tr><td class="Process-Name">C:\Windows\explorer.exe</td><td class="data">21552</td><td class="data">26342</td><td class="data">56799232</td><td class="data">22237184</tld><td class="data">481912</td><td class="data">611192</td></tr>

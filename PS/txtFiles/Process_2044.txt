@@ -1,1 +1,0 @@
-<tr><td class="Process-Name">C:\Windows\System32\ApplicationFrameHost.exe</td><td class="data">21880</td><td class="data">14252</td><td class="data">27209728</td><td class="data">6496256</tld><td class="data">293576</td><td class="data">393760</td></tr>

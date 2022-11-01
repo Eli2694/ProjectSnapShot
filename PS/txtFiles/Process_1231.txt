@@ -1,1 +1,0 @@
-<tr><td class="Process-Name">C:\Windows\System32\SearchIndexer.exe</td><td class="data">7984</td><td class="data">131419</td><td class="data">31944704</td><td class="data">35762176</tld><td class="data">225728</td><td class="data">234392</td></tr>

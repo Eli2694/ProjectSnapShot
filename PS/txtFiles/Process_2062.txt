@@ -1,1 +1,0 @@
-<tr><td class="Process-Name">C:\Windows\System32\RuntimeBroker.exe</td><td class="data">23248</td><td class="data">12517</td><td class="data">21200896</td><td class="data">3973120</tld><td class="data">211696</td><td class="data">246560</td></tr>
